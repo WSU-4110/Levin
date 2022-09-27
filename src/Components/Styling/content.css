@@ -1,0 +1,18 @@
+.page_hover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  /* outline: 1px solid red; */
+}
+
+.icons {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  display: flex;
+}
+
+.names {
+  margin-left: 6px;
+  display: flex;
+}
