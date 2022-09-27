@@ -10,6 +10,10 @@
 
 # Installs
 
+#### React
+
+    npm install react-scripts --save
+
 #### Icons
 
     npm install react-icons --save
