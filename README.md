@@ -10,6 +10,14 @@
 
 # Installs
 
+#### React
+
+    npm install react-scripts --save
+
+#### Libraries
+
+    npm install framer-motion --save
+
 #### Icons
 
     npm install react-icons --save
