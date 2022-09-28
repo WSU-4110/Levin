@@ -99,7 +99,7 @@ function Sidebar() {
               <Link className="pages" to="/PrivacyPolicy">
                 <Content icon={<PrivacyTipIcon />} name="Privacy Policy" />
               </Link>
-              <Link className="pages" to="/TermsOfService">
+              <Link className="pages" to="/TermsAndConditions">
                 <Content
                   icon={<HomeRepairServiceIcon />}
                   name="Terms of Service"
