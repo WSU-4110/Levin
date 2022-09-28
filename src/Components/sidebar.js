@@ -20,17 +20,13 @@ function Sidebar() {
   };
 
   const containerVariants = {
-    true: {
-      width: "15rem",
-    },
-    false: {},
+    true: {},
+    false: { width: "15rem" },
   };
 
   const sidebarVariants = {
-    true: {},
-    false: {
-      width: "3rem",
-    },
+    true: { width: "5rem" },
+    false: {},
   };
 
   const Line = ({ color }) => (
@@ -45,7 +41,7 @@ function Sidebar() {
     <div className="sidebarContainer">
       <motion.div
         data-Open={open}
-        variants={containerVariants}
+        variants={sidebarVariants}
         initial={`${open}`}
         animate={`${open}`}
       >
@@ -54,7 +50,7 @@ function Sidebar() {
           className="sidebar"
           initial={`${open}`}
           animate={`${open}`}
-          variants={sidebarVariants}
+          variants={containerVariants}
         >
           {/* Hamburger Menu */}
           <motion.div
@@ -62,8 +58,7 @@ function Sidebar() {
               rotate: 180,
               cursor: "pointer",
               transition: {
-                delay: 0.1,
-                duration: 0.3,
+                duration: 0.5,
               },
             }}
             onClick={menuToggle}
@@ -78,8 +73,8 @@ function Sidebar() {
               <motion.p
                 icon={<TableChartIcon />}
                 animate={{
-                  opacity: open ? 1 : 0,
-                  display: open ? "flex" : "none",
+                  opacity: open ? 0 : 1,
+                  display: open ? "none" : "flex",
                 }}
               >
                 <div className="name">Levin</div>
@@ -115,8 +110,8 @@ function Sidebar() {
               <motion.p
                 icon={<TableChartIcon />}
                 animate={{
-                  opacity: open ? 1 : 0,
-                  display: open ? "flex" : "none",
+                  opacity: open ? 0 : 1,
+                  display: open ? "none" : "flex",
                 }}
               >
                 <div className="copyright">© Levin Ltd. 2022</div>

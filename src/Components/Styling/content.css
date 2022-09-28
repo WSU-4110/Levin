@@ -3,7 +3,11 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+  transition: all 0.3s ease-in-out;
   /* outline: 1px solid red; */
+}
+.page_hover:hover {
+  transform: scale(115%);
 }
 
 .icons {

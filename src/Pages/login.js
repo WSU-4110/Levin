@@ -21,15 +21,15 @@ function Login() {
               <span>Password</span>
               <i></i>
             </div>
+            <input type="submit" value="Log In"></input>
             <div>
-              <Link className="forgotPassword" to="/ForgotPassword">
-                Forget Password
-              </Link>
               <Link className="signup" to="/Signup">
                 Sign up
               </Link>
+              <Link className="forgotPassword" to="/ForgotPassword">
+                Forget Password
+              </Link>
             </div>
-            <input type="submit" value="Log In"></input>
           </div>
         </div>
       </div>
