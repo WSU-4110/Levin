@@ -4,8 +4,8 @@ import "./Styling/login.css";
 import Sidebar from "../Components/sidebar.js";
 
 //backend imports
-import AuthContext from "../Components/backendConnection/AuthProvider";
-import axios from "../Components/backendConnection/axios";
+import AuthContext from "../Backend/AuthProvider";
+import axios from "../Backend/axios";
 import { set } from "rsuite/esm/utils/dateUtils";
 
 function Login() {
