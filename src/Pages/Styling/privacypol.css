@@ -1,0 +1,11 @@
+.privacypolContainer {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  /* border: 1px solid red; */
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+}
