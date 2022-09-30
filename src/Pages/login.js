@@ -5,6 +5,7 @@ import Sidebar from "../Components/sidebar.js";
 
 //backend imports
 import AuthContext from "../Components/backendConnection/AuthProvider";
+
 import axios from "../Components/backendConnection/axios";
 import { set } from "rsuite/esm/utils/dateUtils";
 
@@ -42,40 +43,33 @@ function Login() {
         "/login",
         JSON.stringify({ email: user, password: pass }),
         {
-          headers: { 
-                    "Content-Type": "application/json",
-                    // ,
-                    // "Access-Control-Allow-Origin": "localhost",
-                    "Access-Control-Allow-Credentials": 'true'
-                  }
+          headers: {
+            "Content-Type": "application/json",
+            // ,
+            // "Access-Control-Allow-Origin": "localhost",
+            "Access-Control-Allow-Credentials": "true",
+          },
         }
       );
 
       console.log(JSON.stringify(response?.data));
       // console.log(JSON.stringify(response));
 
-      setAuth({user,pass});
+      setAuth({ user, pass });
       setUser("");
       setPass("");
       setSuccessState(true);
     } catch (err) {
-      if(!err?.response)
-      {
-        setErrorMsg('No Response from server');
-      }
-      else if(err.response?.status === 400)
-      {
-          setErrorMsg('Invalid Email/Pass input');
-      }
-      else if(err.response?.status === 401)
-      {
-          setErrorMsg('Unauthorized acccess request');
-      }
-      else{
-        setErrorMsg('Failed to Login');
+      if (!err?.response) {
+        setErrorMsg("No Response from server");
+      } else if (err.response?.status === 400) {
+        setErrorMsg("Invalid Email/Pass input");
+      } else if (err.response?.status === 401) {
+        setErrorMsg("Unauthorized acccess request");
+      } else {
+        setErrorMsg("Failed to Login");
       }
       errorRef.current.focus();
-      
     }
   };
 
