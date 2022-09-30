@@ -122,33 +122,32 @@
   height: 50px;
 }
 
-.forgotPassword,
-.signup {
+.signup,
+.forgotPassword {
   color: Black;
   font-size: 16px;
   font-weight: normal;
   font-family: "Helvetica";
   text-decoration: none;
+  width: 200px;
+  justify-content: center;
   display: flex;
-  justify-content: flex-end;
-  position: absolute;
-  right: 65px;
-  transition: all 0.1s ease-in-out;
+  margin: 0 auto;
+  transition: all 0.3s ease-in-out;
   /* outline: 1px solid red; */
 }
-.forgotPassword:hover,
-.signup:hover {
-  font-size: 17px;
-}
-
-.forgotPassword {
-  margin-top: 75px;
+.signup:hover,
+.forgotPassword:hover {
+  transform: scale(105%);
 }
 
 .signup {
-  margin-top: 105px;
+  margin-top: 20px;
 }
 
+.forgotPassword {
+  margin-top: 10px;
+}
 button[type="submit"] {
   color: black;
   font-size: 16px;
@@ -159,8 +158,8 @@ button[type="submit"] {
   background: transparent;
   width: 110px;
   height: 50px;
-  margin-top: 74px;
-  margin-left: 65px;
+  margin: 0 auto;
+  margin-top: 40px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   /* outline: 1px solid red; */
