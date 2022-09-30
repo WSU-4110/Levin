@@ -1,5 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./App.css";
+
+// Pages
 import Canvas from "./Pages/canvas.js";
 import Tutorial from "./Pages/tutorial.js";
 import Settings from "./Pages/settings.js";

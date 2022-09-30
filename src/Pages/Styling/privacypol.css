@@ -1,8 +1,3 @@
-.privacypolContainer {
-  background: rgb(47, 79, 79);
-  /* outline: 1px solid red; */
-}
-
 .privacypol1 {
   width: 100%;
   display: flex;
@@ -10,6 +5,19 @@
 }
 
 .privacypol2 {
-  padding: 100px 300px 100px 300px;
-  outline: 1px solid red;
+  padding: 100px 0px 100px 0px;
+  margin-left: 100px;
+  margin-right: 50px;
+}
+
+.privacypol2 h1 {
+  color: var(--army);
+}
+
+.privacypol2 p {
+  color: var(--black);
+}
+
+.privacypol2 a {
+  color: var(--gray);
 }

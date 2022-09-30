@@ -60,3 +60,61 @@
   position: relative;
   /* outline: 1px solid red; */
 }
+
+.tab {
+  display: none;
+  justify-content: flex-end;
+  position: absolute;
+  z-index: -1;
+  padding: 10px;
+  top: 3px;
+  left: 2rem;
+  background: rgb(47, 79, 79);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 1);
+  /* outline: 1px solid red; */
+}
+
+.zero {
+  width: 45px;
+}
+
+.one {
+  width: 60px;
+}
+
+.two {
+  width: 60px;
+}
+
+.three {
+  width: 65px;
+}
+
+.four {
+  width: 50px;
+}
+
+.five {
+  width: 105px;
+}
+
+.six {
+  width: 125px;
+}
+
+.seven {
+  width: 135px;
+}
+
+.Levin:hover > .tab,
+.Canvas:hover > .tab,
+.Tutorial:hover > .tab,
+.Settings:hover > .tab,
+.Login:hover > .tab,
+.PrivacyPolicy:hover > .tab,
+.TermsAndConditions:hover > .tab,
+.Copyright:hover > .tab {
+  display: flex;
+}
