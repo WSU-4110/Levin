@@ -6,7 +6,9 @@ function Tutorial() {
   return (
     <div className="tutorialContainer">
       <Sidebar />
-      <p className="title">Tutorial</p>
+      <div className="titleContainer">
+        <p className="title">Tutorial</p>
+      </div>
     </div>
   );
 }

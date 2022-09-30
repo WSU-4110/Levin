@@ -5,7 +5,6 @@ import Sidebar from "../Components/sidebar.js";
 
 //backend imports
 import AuthContext from "../Components/backendConnection/AuthProvider";
-
 import axios from "../Components/backendConnection/axios";
 import { set } from "rsuite/esm/utils/dateUtils";
 
@@ -117,17 +116,17 @@ function Login() {
                     <span>Password</span>
                     <i></i>
                   </div>
-                  <div>
-                    <Link className="forgotPassword" to="/ForgotPassword">
-                      Forget Password
-                    </Link>
-                    <Link className="signup" to="/Signup">
-                      Sign up
-                    </Link>
-                  </div>
                   <button type="submit" value="Log In">
                     Log In
                   </button>
+                  <div>
+                    <Link className="signup" to="/Signup">
+                      Sign up
+                    </Link>
+                    <Link className="forgotPassword" to="/ForgotPassword">
+                      Forget Password
+                    </Link>
+                  </div>
                 </form>
               </div>
             </div>

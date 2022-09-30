@@ -1,19 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import "./Styling/content.css";
+import "./Styling/icons.css";
 
-function Content({ icon, name }) {
-  const pages = {
-    true: {
-      opacity: 0,
-      display: "none",
-    },
-    false: {
-      opacity: 1,
-      display: "flex",
-    },
-  };
-
+function Icons({ icon }) {
   return (
     <motion.div className="page_hover">
       <motion.div
@@ -28,11 +17,8 @@ function Content({ icon, name }) {
       >
         {icon}
       </motion.div>
-      <motion.span className="names" variants={pages}>
-        {name}
-      </motion.span>
     </motion.div>
   );
 }
 
-export default Content;
+export default Icons;
