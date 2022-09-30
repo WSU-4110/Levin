@@ -1,0 +1,35 @@
+body {
+  background: var(--beige);
+  margin: 0;
+  font-family: "Helvetica";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  /* Page Colors */
+  --beige: rgb(200, 193, 176);
+  --army: rgb(47, 79, 79);
+
+  /* Container Colors */
+  --army: rgb(47, 79, 79);
+
+  /* Container Colors */
+  --lavender: rgb(171, 115, 231);
+  --mint: rgb(173, 208, 179);
+  --copper: rgb(221, 140, 88);
+  --fuchsia: rgb(255, 145, 217);
+  --saffron: rgb(249, 186, 76);
+  --strawberry: rgb(228, 79, 92);
+  --ocean: rgb(155, 190, 237);
+  --ultramarine: rgb(128, 125, 219);
+  --lemon: rgb(246, 243, 169);
+  --chocolate: rgb(167, 121, 109);
+
+  /* monochrome colors */
+  --white: rgb(255, 255, 255);
+  --lightgray: rgb(191, 191, 191);
+  --gray: rgb(127, 127, 127);
+  --darkergray: rgb(63, 63, 63);
+  --black: rgb(0, 0, 0);
+}
