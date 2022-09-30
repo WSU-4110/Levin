@@ -1,5 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./App.css";
+
+// Pages
 import Canvas from "./Pages/canvas.js";
 import Tutorial from "./Pages/tutorial.js";
 import Settings from "./Pages/settings.js";
@@ -7,7 +10,7 @@ import Login from "./Pages/login.js";
 import Signup from "./Pages/signup.js";
 import ForgotPassword from "./Pages/forgotpass.js";
 import PrivacyPolicy from "./Pages/privacypol.js";
-import TermsOfService from "./Pages/termsofServ.js";
+import TermsAndConditions from "./Pages/terms&con.js";
 
 function App() {
   return (
@@ -34,8 +37,8 @@ function App() {
         <Route exact path="/PrivacyPolicy">
           <PrivacyPolicy />
         </Route>
-        <Route exact path="/TermsOfService">
-          <TermsOfService />
+        <Route exact path="/TermsAndConditions">
+          <TermsAndConditions />
         </Route>
       </Switch>
     </Router>

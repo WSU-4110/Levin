@@ -1,23 +1,23 @@
-.privacypol1 {
+.termsAndCon1 {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.privacypol2 {
+.termsAndCon2 {
   padding: 100px 0px 100px 0px;
   margin-left: 100px;
   margin-right: 50px;
 }
 
-.privacypol2 h1 {
+.termsAndCon2 h1 {
   color: var(--army);
 }
 
-.privacypol2 p {
+.termsAndCon2 p {
   color: var(--black);
 }
 
-.privacypol2 a {
+.termsAndCon2 a {
   color: var(--gray);
 }

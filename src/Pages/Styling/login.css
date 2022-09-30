@@ -2,14 +2,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   z-index: -1;
-  background: rgba(0, 0, 0, 0.75);
   /* outline: 1px solid red; */
 }
 
 .loginBox1 {
-  width: 600px;
+  width: 50%;
   height: 600px;
   background: rgb(47, 79, 79);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
@@ -22,10 +21,10 @@
 .loginBox1::after {
   content: "";
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 600px;
-  height: 600px;
+  top: -150%;
+  left: -150%;
+  width: 200%;
+  height: 200%;
   background: linear-gradient(0deg, transparent, rgb(0, 0, 0), rgb(0, 0, 0));
   transform-origin: bottom right;
   animation: animate 18s linear infinite;
@@ -49,7 +48,7 @@
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   z-index: 10;
-  inset: 3px;
+  inset: 5px;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -68,9 +67,9 @@
 
 .loginInput {
   position: relative;
-  width: 450px;
-  margin-top: 50px;
-  margin-left: 65px;
+  width: 70%;
+  margin-top: 40px;
+  margin-left: 15%;
   /* outline: 1px solid red; */
 }
 
@@ -98,7 +97,6 @@
   transition: 0.5s;
   /* outline: 1px solid red; */
 }
-
 .loginInput input:valid ~ span,
 .loginInput input:focus ~ span {
   color: Black;
@@ -118,40 +116,38 @@
   pointer-events: none;
   /* outline: 1px solid red; */
 }
-
 .loginInput input:valid ~ i,
 .loginInput input:focus ~ i {
   background: rgb(255, 255, 255);
   height: 50px;
 }
 
-.forgotPassword,
-.signup {
+.signup,
+.forgotPassword {
   color: Black;
   font-size: 16px;
   font-weight: normal;
   font-family: "Helvetica";
   text-decoration: none;
+  width: 200px;
+  justify-content: center;
   display: flex;
-  justify-content: flex-end;
-  position: absolute;
-  right: 65px;
-  transition: all 0.1s ease-in-out;
+  margin: 0 auto;
+  transition: all 0.3s ease-in-out;
   /* outline: 1px solid red; */
 }
-.forgotPassword:hover,
-.signup:hover {
-  font-size: 17px;
-}
-
-.forgotPassword {
-  margin-top: 75px;
+.signup:hover,
+.forgotPassword:hover {
+  transform: scale(105%);
 }
 
 .signup {
-  margin-top: 105px;
+  margin-top: 20px;
 }
 
+.forgotPassword {
+  margin-top: 10px;
+}
 button[type="submit"] {
   color: black;
   font-size: 16px;
@@ -162,8 +158,8 @@ button[type="submit"] {
   background: transparent;
   width: 110px;
   height: 50px;
-  margin-top: 74px;
-  margin-left: 65px;
+  margin: 0 auto;
+  margin-top: 40px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   /* outline: 1px solid red; */

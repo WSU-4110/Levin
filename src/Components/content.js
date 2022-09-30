@@ -5,36 +5,26 @@ import "./Styling/content.css";
 function Content({ icon, name }) {
   const pages = {
     true: {
-      opacity: 1,
-    },
-    false: {
       opacity: 0,
       display: "none",
+    },
+    false: {
+      opacity: 1,
+      display: "flex",
     },
   };
 
   return (
-    <motion.div
-      className="page_hover"
-      whileHover={{
-        backgroundColor: "rgba(0, 0, 0, 0.15)",
-        cursor: "pointer",
-        width: 500,
-      }}
-      transition={{
-        type: "none",
-        duration: 0.1,
-      }}
-    >
+    <motion.div className="page_hover">
       <motion.div
+        className="icons"
         whileHover={{
           rotate: 360,
           cursor: "pointer",
           transition: {
-            duration: 0.75,
+            duration: 1,
           },
         }}
-        className="icons"
       >
         {icon}
       </motion.div>
