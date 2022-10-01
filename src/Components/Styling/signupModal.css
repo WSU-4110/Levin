@@ -1,15 +1,9 @@
-.signupContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  z-index: -1;
-  /* outline: 1px solid red; */
-}
-
 .signupBox1 {
-  width: 50%;
-  height: 600px;
+  width: clamp(10%, 400px, 70%);
+  height: 550px;
+  margin-top: 10px;
+  margin-left: 20px;
+  left: 3.5rem;
   background: rgb(47, 79, 79);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -57,18 +51,23 @@
 
 .signupBox2 h1 {
   color: Black;
-  font-size: 40px;
-  font-weight: normal;
+  font-size: 30px;
+  font-weight: bold;
   font-family: "Helvetica";
-  margin-top: 80px;
+  margin-top: 0px;
   text-align: center;
+  /* outline: 1px solid red; */
+}
+
+.inputContainer {
+  margin-top: -45px;
   /* outline: 1px solid red; */
 }
 
 .signupInput {
   position: relative;
   width: 70%;
-  margin-top: 40px;
+  margin-top: 35px;
   margin-bottom: 0px;
   margin-left: 15%;
   /* outline: 1px solid red; */
@@ -79,7 +78,7 @@
   color: Black;
   font-size: 20px;
   width: 100%;
-  padding: 20px 10px 10px;
+  padding: 25px 10px 10px;
   background: transparent;
   border: none;
   outline: none;
@@ -134,13 +133,27 @@ input[type="submit"] {
   width: 110px;
   height: 50px;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 70px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   /* outline: 1px solid red; */
 }
 input[type="submit"]:hover {
   transform: scale(105%);
+}
+
+.signupBox1 button {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.close {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .login {
