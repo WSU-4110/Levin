@@ -5,7 +5,6 @@ import "./App.css";
 // Pages
 import Canvas from "./Pages/canvas.js";
 import Settings from "./Pages/settings.js";
-import ForgotPassword from "./Pages/forgotpass.js";
 import PrivacyPolicy from "./Pages/privacypol.js";
 import TermsAndConditions from "./Pages/terms&con.js";
 
@@ -18,9 +17,6 @@ function App() {
         </Route>
         <Route exact path="/Settings">
           <Settings />
-        </Route>
-        <Route exact path="/ForgotPassword">
-          <ForgotPassword />
         </Route>
         <Route exact path="/PrivacyPolicy">
           <PrivacyPolicy />

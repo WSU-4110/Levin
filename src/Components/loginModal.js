@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { React, useRef, useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import SignupModal from "./signupModal.js";
+import ForgotModal from "./forgotModal.js";
 import "./Styling/loginModal.css";
 
 //backend imports
@@ -42,6 +45,14 @@ const LoginModal = ({ handleClose }) => {
   const [pass, setPass] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [successState, setSuccessState] = useState(false);
+
+  const [signupModalOpen, setsignupModalOpen] = useState(false);
+  const signupClose = () => setsignupModalOpen(false);
+  const signupOpen = () => setsignupModalOpen(true);
+
+  const [forgotModalOpen, setforgotpModalOpen] = useState(false);
+  const forgotClose = () => setforgotpModalOpen(false);
+  const forgotOpen = () => setforgotpModalOpen(true);
 
   //set focus on page load only(no dependencies)
   useEffect(() => {
@@ -142,13 +153,41 @@ const LoginModal = ({ handleClose }) => {
                 <div className="loginButton">Log In</div>
               </button>
             </div>
-            <div>
-              <Link className="signup" to="/Signup">
-                Sign up
-              </Link>
-              <Link className="forgotPassword" to="/ForgotPassword">
-                Forget Password
-              </Link>
+            <div className="otherModals">
+              <motion.button
+                onClick={() => (signupModalOpen ? signupClose() : signupOpen())}
+              >
+                <p className="signup">Sign up</p>
+              </motion.button>
+              <AnimatePresence
+                initial={false}
+                exitBeforeEnter={true}
+                onExitComplete={() => null}
+              >
+                {signupModalOpen && (
+                  <SignupModal
+                    signupModalOpen={signupModalOpen}
+                    handleClose={signupClose}
+                  />
+                )}
+              </AnimatePresence>
+              <motion.button
+                onClick={() => (forgotModalOpen ? forgotClose() : forgotOpen())}
+              >
+                <p className="forgotPassword">Forgot Password</p>
+              </motion.button>
+              <AnimatePresence
+                initial={false}
+                exitBeforeEnter={true}
+                onExitComplete={() => null}
+              >
+                {forgotModalOpen && (
+                  <ForgotModal
+                    forgotModalOpen={forgotModalOpen}
+                    handleClose={forgotClose}
+                  />
+                )}
+              </AnimatePresence>
             </div>
           </form>
         </div>

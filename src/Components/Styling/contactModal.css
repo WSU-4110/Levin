@@ -124,25 +124,29 @@
   height: 50px;
 }
 
-.sendEmailContainer {
-  margin-top: 30px;
+.contactButtonContainer {
+  display: flex;
+  justify-content: center;
 }
 
-input[type="submit"] {
+.contactButton {
   color: black;
   font-size: 16px;
   font-weight: normal;
-  font-family: "Helvetica";
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.5);
   background: transparent;
   width: 110px;
   height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   /* outline: 1px solid red; */
 }
-input[type="submit"]:hover {
+.contactButton:hover {
   transform: scale(105%);
 }
 

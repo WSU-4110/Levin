@@ -54,10 +54,10 @@ const ContactModal = ({ handleClose }) => {
               <i></i>
             </div>
           </div>
-          <div className="sendEmailContainer">
-            <div className="close">
-              <input type="submit" value="Send Email"></input>
-            </div>
+          <div className="contactButtonContainer">
+            <button type="submit" value="Log In">
+              <div className="contactButton">Send</div>
+            </button>
           </div>
         </div>
       </div>

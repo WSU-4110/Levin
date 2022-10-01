@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import "./Styling/signupModal.css";
+import "./Styling/forgotModal.css";
 
 const fadeIn = {
   hidden: {
@@ -22,7 +22,7 @@ const fadeIn = {
   },
 };
 
-const SignupModal = ({ handleClose }) => {
+const ForgotModal = ({ handleClose }) => {
   return (
     <motion.div
       onClick={(e) => e.stopPropagation()}
@@ -31,32 +31,22 @@ const SignupModal = ({ handleClose }) => {
       animate="visible"
       exit="exit"
     >
-      <div className="signupBox1">
-        <div className="signupBox2">
+      <div className="forgotpassBox1">
+        <div className="forgotpassBox2">
           <div className="close">
             <button onClick={handleClose}>X</button>
           </div>
-          <h1>Sign Up</h1>
+          <h1>Forgot Password</h1>
           <div className="inputContainer">
-            <div className="signupInput">
+            <div className="forgotpassInput">
               <input type="text" required="required"></input>
               <span>Email</span>
               <i></i>
             </div>
-            <div className="signupInput">
-              <input type="password" required="required"></input>
-              <span>Password</span>
-              <i></i>
-            </div>
-            <div className="signupInput">
-              <input type="password" required="required"></input>
-              <span>Confirm Password</span>
-              <i></i>
-            </div>
           </div>
-          <div className="signupButtonContainer">
+          <div className="forgotpassButtonContainer">
             <button type="submit" value="Log In">
-              <div className="signupButton">Sign Up</div>
+              <div className="forgotpassButton">Send</div>
             </button>
           </div>
         </div>
@@ -65,4 +55,4 @@ const SignupModal = ({ handleClose }) => {
   );
 };
 
-export default SignupModal;
+export default ForgotModal;

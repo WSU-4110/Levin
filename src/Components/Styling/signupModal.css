@@ -1,44 +1,18 @@
 .signupBox1 {
-  width: clamp(10%, 400px, 70%);
-  height: 550px;
-  margin-top: 10px;
-  margin-left: 20px;
-  left: 3.5rem;
-  background: rgb(47, 79, 79);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  position: relative;
+  width: 400px;
+  height: 500px;
+  left: -6px;
+  display: flex;
+  position: absolute;
+  top: -6px;
+  z-index: 100;
   overflow: hidden;
   /* outline: 1px solid red; */
-}
-.signupBox1::before,
-.signupBox1::after {
-  content: "";
-  position: absolute;
-  top: -150%;
-  left: -150%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(0deg, transparent, rgb(0, 0, 0), rgb(0, 0, 0));
-  transform-origin: bottom right;
-  animation: animate 18s linear infinite;
-}
-.signupBox1::after {
-  animation-delay: -9s;
-}
-@keyframes animate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 .signupBox2 {
   border-radius: 8px;
   background: rgb(47, 79, 79);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   z-index: 10;
@@ -77,7 +51,7 @@
   position: relative;
   color: Black;
   font-size: 20px;
-  width: 100%;
+  width: 95%;
   padding: 25px 10px 10px;
   background: transparent;
   border: none;
@@ -122,23 +96,29 @@
   height: 50px;
 }
 
-input[type="submit"] {
+.signupButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.signupButton {
   color: black;
   font-size: 16px;
   font-weight: normal;
-  font-family: "Helvetica";
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.5);
   background: transparent;
   width: 110px;
   height: 50px;
-  margin: 0 auto;
-  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   /* outline: 1px solid red; */
 }
-input[type="submit"]:hover {
+.signupButton:hover {
   transform: scale(105%);
 }
 
@@ -154,22 +134,4 @@ input[type="submit"]:hover {
 .close {
   display: flex;
   justify-content: flex-end;
-}
-
-.login {
-  color: Black;
-  font-size: 16px;
-  font-weight: normal;
-  font-family: "Helvetica";
-  text-decoration: none;
-  width: 200px;
-  justify-content: center;
-  display: flex;
-  margin: 0 auto;
-  margin-top: 20px;
-  transition: all 0.3s ease-in-out;
-  /* outline: 1px solid red; */
-}
-.login:hover {
-  transform: scale(105%);
 }
