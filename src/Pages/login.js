@@ -1,7 +1,10 @@
 import { React, useRef, useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+
+//styling imports
 import "./Styling/login.css";
 import Sidebar from "../Components/sidebar.js";
+import { Alert } from "@mui/material";
 
 //backend imports
 import AuthContext from "../Components/backendConnection/AuthProvider";
@@ -39,43 +42,39 @@ function Login() {
 
     try {
       const response = await axios.post(
-        "/login",
+        "login",
         JSON.stringify({ email: user, password: pass }),
         {
-          headers: { 
-                    "Content-Type": "application/json",
-                    // ,
-                    // "Access-Control-Allow-Origin": "localhost",
-                    "Access-Control-Allow-Credentials": 'true'
-                  }
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": "true"
+          },
         }
       );
 
       console.log(JSON.stringify(response?.data));
       // console.log(JSON.stringify(response));
 
-      setAuth({user,pass});
+      setAuth({ user, pass });
       setUser("");
       setPass("");
       setSuccessState(true);
     } catch (err) {
-      if(!err?.response)
-      {
-        setErrorMsg('No Response from server');
-      }
-      else if(err.response?.status === 400)
-      {
-          setErrorMsg('Invalid Email/Pass input');
-      }
-      else if(err.response?.status === 401)
-      {
-          setErrorMsg('Unauthorized acccess request');
-      }
-      else{
-        setErrorMsg('Failed to Login');
+      console.dir(err);
+      if (!err.response) {
+        setErrorMsg("No Response from server");
+        console.log("invalid login credentials");
+      } else if(err.code == "ERR_NETWORK"){
+          setErrorMsg("Network Connection Refused!")
+      } else if (err.response?.status === 500) {
+        setErrorMsg("Invalid Email/Pass input");
+      } else if (err.response?.status === 401) {
+        setErrorMsg("Unauthorized acccess request");
+      } else {
+        setErrorMsg("Failed to Login");
       }
       errorRef.current.focus();
-      
     }
   };
 
@@ -86,6 +85,7 @@ function Login() {
         <div>
           <h1>Logged In</h1>
           <p>Return to Home: </p>
+
           {/* //insert Link to home here */}
         </div>
       ) : (
@@ -97,9 +97,16 @@ function Login() {
               <div className="loginBox2">
                 <h1>Log In</h1>
                 <form onSubmit={handleSubmit}>
-                  {/* <p ref={errorRef} className={errorMsg ? "errormsg" : "offscreen"} aria-live="assertive">
-              {errorMsg}
-            </p> */}
+                  <div className="errorSpace">
+                    <Alert
+                      ref={errorRef}
+                      className="errorMessage"
+                      severity="error"
+                    >
+                      {errorMsg}
+                    </Alert>
+                  </div>
+
                   <div className="loginInput">
                     <input
                       type="text"
@@ -123,6 +130,9 @@ function Login() {
                     <span>Password</span>
                     <i></i>
                   </div>
+                  <button type="submit" value="Log In">
+                    Log In
+                  </button>
                   <div>
                     <Link className="forgotPassword" to="/ForgotPassword">
                       Forget Password
@@ -131,9 +141,6 @@ function Login() {
                       Sign up
                     </Link>
                   </div>
-                  <button type="submit" value="Log In">
-                    Log In
-                  </button>
                 </form>
               </div>
             </div>
