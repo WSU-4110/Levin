@@ -9,7 +9,7 @@ import { Alert } from "@mui/material";
 //backend imports
 import AuthContext from "../Backend/AuthProvider";
 import axios from "../Backend/axios";
-import { set } from "rsuite/esm/utils/dateUtils";
+// import { set } from "rsuite/esm/utils/dateUtils";
 
 const fadeIn = {
   hidden: {
@@ -117,48 +117,49 @@ const SignupModal = ({ handleClose }) => {
                 {errorMsg}
               </Alert>
             </div>
-            <div className="signupInput">
-              <input
-                type="email"
-                id="username"
-                required
-                ref={userRef}
-                onChange={(e) => setUser(e.target.value)}
-                value={user}
-              />
-              <span>Email</span>
-              <i></i>
-            </div>
-            <div className="signupInput">
-              <input
-                type="password"
-                id="password"
-                required
-                onChange={(e) => setPass(e.target.value)}
-                value={pass}
-              />
-              <span>Password</span>
-              <i></i>
-            </div>
-            <div className="signupInput">
-              <input
-                type="password"
-                id="password"
-                required
-                ref={passConfirmRef}
-                onChange={(e) => {
-                  if (e.target.value !== pass) {
-                    passConfirmRef.current.style.background = "red";
-                  } else {
-                    passConfirmRef.current.style.background = "white";
-                  }
-                }}
-              />
-              <span id="confirmPass">Confirm Password</span>
-              <i></i>
-            </div>
-            <button type="submit"> Sign Up</button>
           </form>
+          <div className="signupInput">
+            <input
+              type="email"
+              id="username"
+              required
+              ref={userRef}
+              onChange={(e) => setUser(e.target.value)}
+              value={user}
+            />
+            <span>Email</span>
+            <i></i>
+          </div>
+          <div className="signupInput">
+            <input
+              type="password"
+              id="password"
+              required
+              onChange={(e) => setPass(e.target.value)}
+              value={pass}
+            />
+            <span>Password</span>
+            <i></i>
+          </div>
+          <div className="signupInput">
+            <input
+              type="password"
+              id="password"
+              required
+              ref={passConfirmRef}
+              onChange={(e) => {
+                if (e.target.value !== pass) {
+                  passConfirmRef.current.style.background = "red";
+                } else {
+                  passConfirmRef.current.style.background = "white";
+                }
+              }}
+            />
+            <span id="confirmPass">Confirm Password</span>
+            <i></i>
+          </div>
+          <button type="submit"> Sign Up</button>
+
           <div>
             <Link className="login" to="/Login">
               Log In
