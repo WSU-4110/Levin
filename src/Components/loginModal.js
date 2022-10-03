@@ -136,9 +136,16 @@ const LoginModal = ({ handleClose }) => {
               </div>
               <h1>Log In</h1>
               <form onSubmit={handleSubmit}>
-                {/* <p ref={errorRef} className={errorMsg ? "errormsg" : "offscreen"} aria-live="assertive">
-              {errorMsg}
-            </p> */}
+                <div className="errorSpace">
+                  {/* //logged out state */}
+                  <Alert
+                    ref={errorRef}
+                    className="errorMessage"
+                    severity="error"
+                  >
+                    {errorMsg}
+                  </Alert>
+                </div>
                 <div className="inputContainer">
                   <div className="loginInput">
                     <input
@@ -149,7 +156,7 @@ const LoginModal = ({ handleClose }) => {
                       onChange={(e) => setUser(e.target.value)}
                       value={user}
                     />
-                    <span>Username</span>
+                    <span>Email</span>
                     <i></i>
                   </div>
                   <div className="loginInput">
