@@ -6,7 +6,9 @@ function Canvas() {
   return (
     <div className="canvasContainer">
       <Sidebar />
-      <p className="title">Canvas</p>
+      <div className="titleContainer">
+        <p className="title">Canvas</p>
+      </div>
     </div>
   );
 }
