@@ -1,10 +1,12 @@
-import { motion } from "framer-motion";
 import { React, useRef, useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+
+//styling imports
+import "./Styling/loginModal.css";
+import { Alert } from "@mui/material";
+import { motion, AnimatePresence } from "framer-motion";
 import SignupModal from "./signupModal.js";
 import ForgotModal from "./forgotModal.js";
-import "./Styling/loginModal.css";
 
 //backend imports
 import AuthContext from "../Backend/AuthProvider";
@@ -71,13 +73,12 @@ const LoginModal = ({ handleClose }) => {
 
     try {
       const response = await axios.post(
-        "/login",
+        "login",
         JSON.stringify({ email: user, password: pass }),
         {
           headers: {
             "Content-Type": "application/json",
-            // ,
-            // "Access-Control-Allow-Origin": "localhost",
+            "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Credentials": "true",
           },
         }
@@ -91,9 +92,13 @@ const LoginModal = ({ handleClose }) => {
       setPass("");
       setSuccessState(true);
     } catch (err) {
-      if (!err?.response) {
+      console.dir(err);
+      if (!err.response) {
         setErrorMsg("No Response from server");
-      } else if (err.response?.status === 400) {
+        console.log("invalid login credentials");
+      } else if (err.code == "ERR_NETWORK") {
+        setErrorMsg("Network Connection Refused!");
+      } else if (err.response?.status === 500) {
         setErrorMsg("Invalid Email/Pass input");
       } else if (err.response?.status === 401) {
         setErrorMsg("Unauthorized acccess request");
@@ -105,94 +110,112 @@ const LoginModal = ({ handleClose }) => {
   };
 
   return (
-    <motion.div
-      onClick={(e) => e.stopPropagation()}
-      className="modal"
-      variants={dropIn}
-      initial="hidden"
-      animate="visible"
-      exit="exit"
-    >
-      <div className="loginBox1">
-        <div className="loginBox2">
-          <div className="close">
-            <button onClick={handleClose}>X</button>
-          </div>
-          <h1>Log In</h1>
-          <form onSubmit={handleSubmit}>
-            {/* <p ref={errorRef} className={errorMsg ? "errormsg" : "offscreen"} aria-live="assertive">
+    //Fragment where view is based on successState of form(logged in/logged out)
+    <>
+      {successState ? ( //logged in state
+        <div>
+          <h1>Logged In</h1>
+          <p>Return to Home: </p>
+
+          {/* //insert Link to home here */}
+        </div>
+      ) : (
+        //logged out state
+        <motion.div
+          onClick={(e) => e.stopPropagation()}
+          className="modal"
+          variants={dropIn}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+        >
+          <div className="loginBox1">
+            <div className="loginBox2">
+              <div className="close">
+                <button onClick={handleClose}>X</button>
+              </div>
+              <h1>Log In</h1>
+              <form onSubmit={handleSubmit}>
+                {/* <p ref={errorRef} className={errorMsg ? "errormsg" : "offscreen"} aria-live="assertive">
               {errorMsg}
             </p> */}
-            <div className="inputContainer">
-              <div className="loginInput">
-                <input
-                  type="text"
-                  id="username"
-                  required
-                  ref={userRef}
-                  onChange={(e) => setUser(e.target.value)}
-                  value={user}
-                />
-                <span>Username</span>
-                <i></i>
-              </div>
-              <div className="loginInput">
-                <input
-                  type="password"
-                  id="password"
-                  required
-                  onChange={(e) => setPass(e.target.value)}
-                  value={pass}
-                />
-                <span>Password</span>
-                <i></i>
-              </div>
+                <div className="inputContainer">
+                  <div className="loginInput">
+                    <input
+                      type="text"
+                      id="username"
+                      required
+                      ref={userRef}
+                      onChange={(e) => setUser(e.target.value)}
+                      value={user}
+                    />
+                    <span>Username</span>
+                    <i></i>
+                  </div>
+                  <div className="loginInput">
+                    <input
+                      type="password"
+                      id="password"
+                      required
+                      onChange={(e) => setPass(e.target.value)}
+                      value={pass}
+                    />
+                    <span>Password</span>
+                    <i></i>
+                  </div>
+                </div>
+                <div className="loginButtonContainer">
+                  <button type="submit" value="Log In">
+                    <div className="loginButton">Log In</div>
+                  </button>
+                </div>
+                <div className="otherModals">
+                  <motion.button
+                    onClick={() =>
+                      signupModalOpen ? signupClose() : signupOpen()
+                    }
+                  >
+                    <p className="signup">Sign up</p>
+                  </motion.button>
+                  <AnimatePresence
+                    initial={false}
+                    exitBeforeEnter={true}
+                    onExitComplete={() => null}
+                  >
+                    {signupModalOpen && (
+                      <SignupModal
+                        signupModalOpen={signupModalOpen}
+                        handleClose={signupClose}
+                      />
+                    )}
+                  </AnimatePresence>
+                  <motion.button
+                    onClick={() =>
+                      forgotModalOpen ? forgotClose() : forgotOpen()
+                    }
+                  >
+                    <p className="forgotPassword">Forgot Password</p>
+                  </motion.button>
+                  <AnimatePresence
+                    initial={false}
+                    exitBeforeEnter={true}
+                    onExitComplete={() => null}
+                  >
+                    {forgotModalOpen && (
+                      <ForgotModal
+                        forgotModalOpen={forgotModalOpen}
+                        handleClose={forgotClose}
+                      />
+                    )}
+                  </AnimatePresence>
+                </div>
+              </form>
             </div>
-            <div className="loginButtonContainer">
-              <button type="submit" value="Log In">
-                <div className="loginButton">Log In</div>
-              </button>
-            </div>
-            <div className="otherModals">
-              <motion.button
-                onClick={() => (signupModalOpen ? signupClose() : signupOpen())}
-              >
-                <p className="signup">Sign up</p>
-              </motion.button>
-              <AnimatePresence
-                initial={false}
-                exitBeforeEnter={true}
-                onExitComplete={() => null}
-              >
-                {signupModalOpen && (
-                  <SignupModal
-                    signupModalOpen={signupModalOpen}
-                    handleClose={signupClose}
-                  />
-                )}
-              </AnimatePresence>
-              <motion.button
-                onClick={() => (forgotModalOpen ? forgotClose() : forgotOpen())}
-              >
-                <p className="forgotPassword">Forgot Password</p>
-              </motion.button>
-              <AnimatePresence
-                initial={false}
-                exitBeforeEnter={true}
-                onExitComplete={() => null}
-              >
-                {forgotModalOpen && (
-                  <ForgotModal
-                    forgotModalOpen={forgotModalOpen}
-                    handleClose={forgotClose}
-                  />
-                )}
-              </AnimatePresence>
-            </div>
-          </form>
-        </div>
-      </div>
-    </motion.div>
+          </div>
+        </motion.div>
+      )}
+    </>
   );
 };
+
 export default LoginModal;
