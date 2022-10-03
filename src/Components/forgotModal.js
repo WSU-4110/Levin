@@ -34,7 +34,7 @@ const ForgotModal = ({ handleClose }) => {
       <div className="forgotpassBox1">
         <div className="forgotpassBox2">
           <div className="close">
-            <button onClick={handleClose}>X</button>
+            <button onClick={handleClose}>➜</button>
           </div>
           <h1>Forgot Password</h1>
           <div className="inputContainer">

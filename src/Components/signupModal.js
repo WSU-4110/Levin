@@ -34,7 +34,7 @@ const SignupModal = ({ handleClose }) => {
       <div className="signupBox1">
         <div className="signupBox2">
           <div className="close">
-            <button onClick={handleClose}>X</button>
+            <button onClick={handleClose}>➜</button>
           </div>
           <h1>Sign Up</h1>
           <div className="inputContainer">
