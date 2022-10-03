@@ -1,5 +1,4 @@
 import { React, useRef, useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
 
 //styling imports
 import { motion } from "framer-motion";
@@ -97,6 +96,10 @@ const SignupModal = ({ handleClose }) => {
     }
   };
 
+  const handleClick = () => {
+    setIsShown(true);
+  };
+
   return (
     <motion.div
       onClick={(e) => e.stopPropagation()}
@@ -112,59 +115,57 @@ const SignupModal = ({ handleClose }) => {
           </div>
           <h1>Sign Up</h1>
           <form onSubmit={handleSubmit}>
-            <div className="errorSpace">
-              <Alert ref={errorRef} className="errorMessage" severity="error">
-                {errorMsg}
-              </Alert>
+            {isShown && (
+              <div className="errorSpace">
+                <Alert ref={errorRef} className="errorMessage" severity="error">
+                  {errorMsg}
+                </Alert>
+              </div>
+            )}
+            <div className="signupInput">
+              <input
+                type="email"
+                id="username"
+                required
+                ref={userRef}
+                onChange={(e) => setUser(e.target.value)}
+                value={user}
+              />
+              <span>Email</span>
+              <i></i>
             </div>
+            <div className="signupInput">
+              <input
+                type="password"
+                id="password"
+                required
+                onChange={(e) => setPass(e.target.value)}
+                value={pass}
+              />
+              <span>Password</span>
+              <i></i>
+            </div>
+            <div className="signupInput">
+              <input
+                type="password"
+                id="password"
+                required
+                ref={passConfirmRef}
+                onChange={(e) => {
+                  if (e.target.value !== pass) {
+                    passConfirmRef.current.style.background = "red";
+                  } else {
+                    passConfirmRef.current.style.background = "white";
+                  }
+                }}
+              />
+              <span id="confirmPass">Confirm Password</span>
+              <i></i>
+            </div>
+            <button onClick={handleClick} type="submit">
+              Sign Up
+            </button>
           </form>
-          <div className="signupInput">
-            <input
-              type="email"
-              id="username"
-              required
-              ref={userRef}
-              onChange={(e) => setUser(e.target.value)}
-              value={user}
-            />
-            <span>Email</span>
-            <i></i>
-          </div>
-          <div className="signupInput">
-            <input
-              type="password"
-              id="password"
-              required
-              onChange={(e) => setPass(e.target.value)}
-              value={pass}
-            />
-            <span>Password</span>
-            <i></i>
-          </div>
-          <div className="signupInput">
-            <input
-              type="password"
-              id="password"
-              required
-              ref={passConfirmRef}
-              onChange={(e) => {
-                if (e.target.value !== pass) {
-                  passConfirmRef.current.style.background = "red";
-                } else {
-                  passConfirmRef.current.style.background = "white";
-                }
-              }}
-            />
-            <span id="confirmPass">Confirm Password</span>
-            <i></i>
-          </div>
-          <button type="submit"> Sign Up</button>
-
-          <div>
-            <Link className="login" to="/Login">
-              Log In
-            </Link>
-          </div>
         </div>
       </div>
     </motion.div>

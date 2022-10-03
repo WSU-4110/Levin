@@ -191,3 +191,16 @@
 .forgotPassword {
   margin-top: -35px;
 }
+
+.errorSpaceContainer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  bottom: 60px;
+}
+
+.errorSpace {
+  justify-content: center;
+  width: 90%;
+}
