@@ -1,5 +1,5 @@
 import { React, useRef, useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+
 
 //styling imports
 import "./Styling/loginModal.css";
@@ -11,7 +11,7 @@ import ForgotModal from "./forgotModal.js";
 //backend imports
 import AuthContext from "../Backend/AuthProvider";
 import axios from "../Backend/axios";
-import { set } from "rsuite/esm/utils/dateUtils";
+// import { set } from "rsuite/esm/utils/dateUtils";
 
 const dropIn = {
   hidden: {
@@ -176,6 +176,7 @@ const LoginModal = ({ handleClose }) => {
                     <div className="loginButton">Log In</div>
                   </button>
                 </div>
+                </form>
                 <div className="otherModals">
                   <motion.button
                     onClick={() =>
@@ -216,7 +217,7 @@ const LoginModal = ({ handleClose }) => {
                     )}
                   </AnimatePresence>
                 </div>
-              </form>
+              
             </div>
           </div>
         </motion.div>

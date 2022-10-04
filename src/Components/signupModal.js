@@ -1,5 +1,5 @@
 import { React, useRef, useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+
 
 //styling imports
 import { motion } from "framer-motion";
@@ -9,7 +9,7 @@ import { Alert } from "@mui/material";
 //backend imports
 import AuthContext from "../Backend/AuthProvider";
 import axios from "../Backend/axios";
-import { set } from "rsuite/esm/utils/dateUtils";
+// import { set } from "rsuite/esm/utils/dateUtils";
 
 const fadeIn = {
   hidden: {
@@ -143,7 +143,6 @@ const SignupModal = ({ handleClose }) => {
             <div className="signupInput">
               <input
                 type="password"
-                id="password"
                 required
                 ref={passConfirmRef}
                 onChange={(e) => {
@@ -159,11 +158,6 @@ const SignupModal = ({ handleClose }) => {
             </div>
             <button type="submit"> Sign Up</button>
           </form>
-          <div>
-            <Link className="login" to="/Login">
-              Log In
-            </Link>
-          </div>
         </div>
       </div>
     </motion.div>
