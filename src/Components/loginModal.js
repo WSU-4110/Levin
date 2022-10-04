@@ -62,7 +62,7 @@ const LoginModal = ({ handleClose }) => {
 
   //reset error message if username/pass is changed(signifying that they read the error message)
   useEffect(() => {
-    setErrorMsg("Please fill out the required fields.");
+    setErrorMsg("Failed to Login");
   }, [user, pass]);
 
   //form submission handler.
@@ -109,9 +109,13 @@ const LoginModal = ({ handleClose }) => {
   };
 
   const [isShown, setIsShown] = useState(false);
-
   const handleClick = () => {
-    setIsShown(true);
+    setTimeout(() => {
+      setIsShown(true);
+    }, 0);
+    setTimeout(() => {
+      setIsShown(false);
+    }, 5000);
   };
 
   return (
@@ -198,7 +202,6 @@ const LoginModal = ({ handleClose }) => {
                   </button>
                 </div>
               </form>
-
               <div className="otherModals">
                 <motion.button
                   onClick={() =>

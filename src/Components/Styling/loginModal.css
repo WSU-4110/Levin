@@ -2,7 +2,6 @@
   width: 400px;
   height: 500px;
   left: 3.5rem;
-
   display: flex;
   position: absolute;
   top: -208px;
@@ -55,7 +54,6 @@
   color: Black;
   font-size: 30px;
   font-weight: bold;
-  font-family: "Helvetica";
   margin-top: 0px;
   text-align: center;
   /* outline: 1px solid red; */
@@ -120,7 +118,7 @@
 .loginInput input:valid ~ i,
 .loginInput input:focus ~ i {
   background: rgb(255, 255, 255);
-  height: 50px;
+  height: 100%;
 }
 
 .loginButtonContainer {
@@ -197,10 +195,15 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  bottom: 60px;
+  top: 40px;
 }
 
 .errorSpace {
   justify-content: center;
   width: 90%;
+}
+
+input:-webkit-autofill {
+  border-radius: 4px;
+  width: 92%;
 }

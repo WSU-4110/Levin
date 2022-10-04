@@ -93,7 +93,7 @@
 .forgotpassInput input:valid ~ i,
 .forgotpassInput input:focus ~ i {
   background: rgb(255, 255, 255);
-  height: 50px;
+  height: 100%;
 }
 
 .forgotpassButtonContainer {
@@ -134,4 +134,9 @@
 .close {
   display: flex;
   justify-content: flex-end;
+}
+
+input:-webkit-autofill {
+  border-radius: 4px;
+  width: 92%;
 }

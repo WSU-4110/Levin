@@ -51,7 +51,7 @@ const SignupModal = ({ handleClose }) => {
 
   //reset error message if username/pass is changed(signifying that they read the error message)
   useEffect(() => {
-    setErrorMsg("");
+    setErrorMsg("Failed to Register");
   }, [user, pass]);
 
   //form submission handler.
@@ -96,8 +96,14 @@ const SignupModal = ({ handleClose }) => {
     }
   };
 
+  const [isShown, setIsShown] = useState(false);
   const handleClick = () => {
-    setIsShown(true);
+    setTimeout(() => {
+      setIsShown(true);
+    }, 0);
+    setTimeout(() => {
+      setIsShown(false);
+    }, 5000);
   };
 
   return (
@@ -116,55 +122,67 @@ const SignupModal = ({ handleClose }) => {
           <h1>Sign Up</h1>
           <form onSubmit={handleSubmit}>
             {isShown && (
-              <div className="errorSpace">
-                <Alert ref={errorRef} className="errorMessage" severity="error">
-                  {errorMsg}
-                </Alert>
+              <div className="errorSpaceContainer">
+                <div className="errorSpace">
+                  <Alert
+                    ref={errorRef}
+                    className="errorMessage"
+                    severity="error"
+                  >
+                    {errorMsg}
+                  </Alert>
+                </div>
               </div>
             )}
-            <div className="signupInput">
-              <input
-                type="email"
-                id="username"
-                required
-                ref={userRef}
-                onChange={(e) => setUser(e.target.value)}
-                value={user}
-              />
-              <span>Email</span>
-              <i></i>
+            <div className="inputContainer">
+              <div className="signupInput">
+                <input
+                  type="email"
+                  id="username"
+                  required
+                  ref={userRef}
+                  onChange={(e) => setUser(e.target.value)}
+                  value={user}
+                />
+                <span>Email</span>
+                <i></i>
+              </div>
+              <div className="signupInput">
+                <input
+                  type="password"
+                  id="password"
+                  required
+                  onChange={(e) => setPass(e.target.value)}
+                  value={pass}
+                />
+                <span>Password</span>
+                <i></i>
+              </div>
+              <div className="signupInput">
+                <input
+                  type="password"
+                  id="password"
+                  required
+                  ref={passConfirmRef}
+                  onChange={(e) => {
+                    if (e.target.value !== pass) {
+                      passConfirmRef.current.style.background = "red";
+                    } else {
+                      passConfirmRef.current.style.background = "white";
+                    }
+                  }}
+                />
+                <span id="confirmPass">Confirm Password</span>
+                <i></i>
+              </div>
             </div>
-            <div className="signupInput">
-              <input
-                type="password"
-                id="password"
-                required
-                onChange={(e) => setPass(e.target.value)}
-                value={pass}
-              />
-              <span>Password</span>
-              <i></i>
+            <div className="signupButtonContainer">
+              <button type="submit">
+                <div onClick={handleClick} className="signupButton">
+                  Sign Up
+                </div>
+              </button>
             </div>
-            <div className="signupInput">
-              <input
-                type="password"
-                id="password"
-                required
-                ref={passConfirmRef}
-                onChange={(e) => {
-                  if (e.target.value !== pass) {
-                    passConfirmRef.current.style.background = "red";
-                  } else {
-                    passConfirmRef.current.style.background = "white";
-                  }
-                }}
-              />
-              <span id="confirmPass">Confirm Password</span>
-              <i></i>
-            </div>
-            <button onClick={handleClick} type="submit">
-              Sign Up
-            </button>
           </form>
         </div>
       </div>
