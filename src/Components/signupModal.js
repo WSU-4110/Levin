@@ -52,7 +52,7 @@ const SignupModal = ({ handleClose }) => {
 
   //reset error message if username/pass is changed(signifying that they read the error message)
   useEffect(() => {
-    setErrorMsg("");
+    setErrorMsg("Failed to Login");
   }, [user, pass]);
 
   //form submission handler.
