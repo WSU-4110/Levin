@@ -1,0 +1,165 @@
+.contactBox1 {
+  width: 400px;
+  height: 500px;
+  left: 3.5rem;
+  display: flex;
+  position: absolute;
+  top: -276px;
+  background: rgb(47, 79, 79);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  overflow: hidden;
+  /* outline: 1px solid red; */
+}
+.contactBox1::before,
+.contactBox1::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, transparent, rgb(0, 0, 0), rgb(0, 0, 0));
+  transform-origin: bottom right;
+  animation: animate 18s linear infinite;
+}
+.contactBox1::after {
+  animation-delay: -9s;
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.contactBox2 {
+  border-radius: 8px;
+  background: rgb(47, 79, 79);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  inset: 5px;
+  margin: auto 0;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  /* outline: 1px solid red; */
+}
+
+.contactBox2 h1 {
+  color: Black;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Helvetica";
+  margin-top: 0px;
+  text-align: center;
+  /* outline: 1px solid red; */
+}
+
+.inputContainer {
+  margin-top: -45px;
+  /* outline: 1px solid red; */
+}
+
+.contactInput {
+  position: relative;
+  width: 70%;
+  margin-top: 35px;
+  margin-bottom: 0px;
+  margin-left: 15%;
+  /* outline: 1px solid red; */
+}
+
+.contactInput input {
+  position: relative;
+  color: Black;
+  font-size: 20px;
+  width: 90%;
+  padding: 25px 10px 10px;
+  background: transparent;
+  border: none;
+  outline: none;
+  z-index: 10;
+  /* outline: 1px solid red; */
+}
+
+.contactInput span {
+  color: Black;
+  font-size: 16px;
+  font-weight: normal;
+  font-family: "Helvetica";
+  position: absolute;
+  padding: 15px 10px;
+  display: flex;
+  pointer-events: none;
+  transition: 0.5s;
+  /* outline: 1px solid red; */
+}
+.contactInput input:valid ~ span,
+.contactInput input:focus ~ span {
+  color: Black;
+  font-size: 0px;
+  transform: translateX(0px) translateY(-34px);
+}
+
+.contactInput i {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: rgb(0, 0, 0);
+  border-radius: 4px;
+  transition: 0.3s;
+  pointer-events: none;
+  /* outline: 1px solid red; */
+}
+.contactInput input:valid ~ i,
+.contactInput input:focus ~ i {
+  background: rgb(255, 255, 255);
+  height: 50px;
+}
+
+.contactButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.contactButton {
+  color: black;
+  font-size: 16px;
+  font-weight: normal;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background: transparent;
+  width: 110px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  /* outline: 1px solid red; */
+}
+.contactButton:hover {
+  transform: scale(105%);
+}
+
+.contactBox1 button {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.close {
+  display: flex;
+  justify-content: flex-end;
+}

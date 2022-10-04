@@ -1,7 +1,8 @@
 .sidebarContainer {
   position: fixed;
   top: 0;
-  z-index: 100000;
+  z-index: 1000;
+  width: 100%;
 }
 
 .sidebar {
@@ -10,6 +11,7 @@
   align-items: center;
   padding: 10px;
   margin: 10px;
+  width: 2rem;
   background: rgb(47, 79, 79);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -63,48 +65,38 @@
 
 .tab {
   display: none;
-  justify-content: flex-end;
+  justify-content: center;
   position: absolute;
   z-index: -1;
   padding: 10px;
   top: 3px;
-  left: 2rem;
+  left: 2.5rem;
   background: rgb(47, 79, 79);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
   border: 2px solid rgba(0, 0, 0, 1);
   /* outline: 1px solid red; */
 }
 
 .zero {
-  width: 45px;
+  width: 135px;
 }
 
-.one {
-  width: 60px;
-}
-
-.two {
-  width: 60px;
-}
-
-.three {
-  width: 65px;
-}
-
+.one,
+.two,
+.three,
 .four {
-  width: 50px;
+  width: 70px;
 }
 
-.five {
-  width: 105px;
-}
-
-.six {
-  width: 125px;
-}
-
+.five,
+.six,
 .seven {
+  width: 130px;
+}
+
+.eight {
   width: 135px;
 }
 
@@ -113,8 +105,14 @@
 .Tutorial:hover > .tab,
 .Settings:hover > .tab,
 .Login:hover > .tab,
+.Contact:hover > .tab,
 .PrivacyPolicy:hover > .tab,
 .TermsAndConditions:hover > .tab,
 .Copyright:hover > .tab {
   display: flex;
+}
+
+.button {
+  background: transparent;
+  border: none;
 }

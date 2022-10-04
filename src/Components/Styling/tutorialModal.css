@@ -1,0 +1,182 @@
+.testcontactBox1 {
+  width: 400px;
+  height: 90vh;
+  left: 3.5rem;
+  display: flex;
+  position: absolute;
+  top: -158px;
+  background: rgb(47, 79, 79);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  overflow: hidden;
+  /* outline: 1px solid red; */
+}
+.testcontactBox1::before,
+.testcontactBox1::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -150%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(0deg, transparent, rgb(0, 0, 0), rgb(0, 0, 0));
+  transform-origin: bottom right;
+  animation: animate 18s linear infinite;
+}
+.testcontactBox1::after {
+  animation-delay: -9s;
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.testcontactBox2 {
+  background: rgb(47, 79, 79);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 15;
+  inset: 5px;
+  margin: auto 0;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  /* outline: 1px solid red; */
+}
+
+.testcontactBox1 .close {
+  display: flex;
+  justify-content: flex-end;
+  position: sticky;
+  top: 0px;
+  z-index: 100;
+}
+
+.testcontactBox2 h1 {
+  color: Black;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Helvetica";
+  margin-top: 0px;
+  z-index: 100;
+  text-align: center;
+  position: sticky;
+  top: 50px;
+  /* outline: 1px solid red; */
+}
+
+.testcontactBox1 button {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.testcontactBox3 {
+  z-index: 10;
+  border-radius: 10px;
+  z-index: 10;
+  inset: 5px;
+  top: 13%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  /* outline: 1px solid red; */
+}
+
+.testcontactBox4 {
+  z-index: 10;
+  height: 2000px;
+  border-radius: 10px;
+  z-index: 10;
+  inset: 5px;
+  position: absolute;
+  display: grid-flex;
+  /* outline: 1px solid red; */
+}
+
+.template1 {
+  height: 200px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  z-index: 10;
+  /* outline: 1px solid red; */
+}
+
+.template2 {
+  height: 200px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  z-index: 10;
+  /* outline: 1px solid red; */
+}
+
+.template3 {
+  height: 200px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  z-index: 10;
+  /* outline: 1px solid red; */
+}
+
+.template4 {
+  height: 200px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  z-index: 10;
+  /* outline: 1px solid red; */
+}
+
+.template5 {
+  height: 200px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  z-index: 10;
+  outline: 1px solid red;
+}
+
+.template6 {
+  height: 200px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  z-index: 10;
+  outline: 1px solid red;
+}
+
+.template7 {
+  height: 200px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  z-index: 10;
+  outline: 1px solid red;
+}
+
+.template8 {
+  height: 200px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  z-index: 10;
+  outline: 1px solid red;
+}
+
+.template9 {
+  height: 200px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  z-index: 10;
+  outline: 1px solid red;
+}
+
+video {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}

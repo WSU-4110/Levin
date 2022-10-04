@@ -6,7 +6,9 @@ function Settings() {
   return (
     <div className="settingsContainer">
       <Sidebar />
-      <p className="title">Settings</p>
+      <div className="titleContainer">
+        <p className="title">Settings</p>
+      </div>
     </div>
   );
 }

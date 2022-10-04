@@ -2,12 +2,6 @@
 
     npm start
 
-    npm test
-
-    npm run build
-
-    npm run eject
-
 # Installs
 
 #### React
@@ -16,7 +10,13 @@
 
 #### Libraries
 
+## https://www.framer.com/motion/
+
     npm install framer-motion --save
+
+## https://codesandbox.io/s/scrollbooster-examples-forked-7c0nch?file=/index.html
+
+    npm install scrollbooster --save
 
 #### Icons
 
