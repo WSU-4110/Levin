@@ -12,7 +12,7 @@
 }
 
 .privacypol2 h1 {
-  color: var(--army);
+  color: var(--black);
 }
 
 .privacypol2 p {
@@ -20,5 +20,5 @@
 }
 
 .privacypol2 a {
-  color: var(--gray);
+  color: var(--cetacean);
 }

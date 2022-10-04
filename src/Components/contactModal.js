@@ -1,7 +1,7 @@
-import {react, useRef} from 'react';
+import { react, useRef } from "react";
 import { motion } from "framer-motion";
 import "./Styling/contactModal.css";
-import emailjs from 'emailjs-com';
+import emailjs from "emailjs-com";
 
 const dropIn = {
   hidden: {
@@ -25,20 +25,28 @@ const dropIn = {
 };
 
 const ContactModal = ({ handleClose }) => {
-
   const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_levin', 'template_levin', form.current, 'e9hRhCRnPOXM4i_6_')
-      .then((result) => {
+    emailjs
+      .sendForm(
+        "service_levin",
+        "template_levin",
+        form.current,
+        "e9hRhCRnPOXM4i_6_"
+      )
+      .then(
+        (result) => {
           console.log(result.text);
-      }, (error) => {
+        },
+        (error) => {
           console.log(error.text);
-      });
+        }
+      );
 
-      e.target.reset();
+    e.target.reset();
   };
 
   return (
@@ -55,29 +63,29 @@ const ContactModal = ({ handleClose }) => {
             <button onClick={handleClose}>X</button>
           </div>
           <form ref={form} onSubmit={sendEmail}>
-          <h1>Contact</h1>
-          <div className="inputContainer">
-            <div className="contactInput">
-              <input type="text" required="required" name="email"></input>
-              <span>Email</span>
-              <i></i>
+            <h1>Contact</h1>
+            <div className="inputContainer">
+              <div className="contactInput">
+                <input type="text" required="required" name="email"></input>
+                <span>Email</span>
+                <i></i>
+              </div>
+              <div className="contactInput">
+                <input type="text" required="required" name="Subject"></input>
+                <span>Subject</span>
+                <i></i>
+              </div>
+              <div className="contactInput">
+                <input type="text" required="required" name="message"></input>
+                <span>Description</span>
+                <i></i>
+              </div>
             </div>
-            <div className="contactInput">
-              <input type="text" required="required" name="Subject"></input>
-              <span>Subject</span>
-              <i></i>
+            <div className="contactButtonContainer">
+              <button type="submit" value="Send">
+                <div className="contactButton">Send</div>
+              </button>
             </div>
-            <div className="contactInput">
-              <input type="text" required="required" name="message"></input>
-              <span>Description</span>
-              <i></i>
-            </div>
-          </div>
-          <div className="contactButtonContainer">
-            <button type="submit" value="Send">
-              <div className="contactButton">Send</div>
-            </button>
-          </div>
           </form>
         </div>
       </div>

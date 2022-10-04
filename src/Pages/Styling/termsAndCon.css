@@ -11,7 +11,7 @@
 }
 
 .termsAndCon2 h1 {
-  color: var(--army);
+  color: var(--black);
 }
 
 .termsAndCon2 p {
@@ -19,5 +19,5 @@
 }
 
 .termsAndCon2 a {
-  color: var(--gray);
+  color: var(--cetacean);
 }

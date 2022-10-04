@@ -12,7 +12,7 @@
 
 .forgotpassBox2 {
   border-radius: 8px;
-  background: rgb(47, 79, 79);
+  background: var(--ultramarine);
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   z-index: 10;

@@ -5,7 +5,7 @@
   display: flex;
   position: absolute;
   top: -276px;
-  background: rgb(47, 79, 79);
+  background: var(--ultramarine);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   overflow: hidden;
@@ -37,8 +37,8 @@
 
 .contactBox2 {
   border-radius: 8px;
-  background: rgb(47, 79, 79);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+  background: var(--ultramarine);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   z-index: 10;
@@ -54,7 +54,6 @@
   color: Black;
   font-size: 30px;
   font-weight: bold;
-  font-family: "Helvetica";
   margin-top: 0px;
   text-align: center;
   /* outline: 1px solid red; */
@@ -68,7 +67,7 @@
 .contactInput {
   position: relative;
   width: 70%;
-  margin-top: 35px;
+  margin-top: 50px;
   margin-bottom: 0px;
   margin-left: 15%;
   /* outline: 1px solid red; */
@@ -78,7 +77,7 @@
   position: relative;
   color: Black;
   font-size: 20px;
-  width: 90%;
+  width: 95%;
   padding: 25px 10px 10px;
   background: transparent;
   border: none;
@@ -91,10 +90,8 @@
   color: Black;
   font-size: 16px;
   font-weight: normal;
-  font-family: "Helvetica";
   position: absolute;
   padding: 15px 10px;
-  display: flex;
   pointer-events: none;
   transition: 0.5s;
   /* outline: 1px solid red; */
@@ -121,7 +118,7 @@
 .contactInput input:valid ~ i,
 .contactInput input:focus ~ i {
   background: rgb(255, 255, 255);
-  height: 50px;
+  height: 100%;
 }
 
 .contactButtonContainer {
