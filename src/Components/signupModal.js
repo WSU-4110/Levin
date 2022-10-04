@@ -8,6 +8,7 @@ import { Alert } from "@mui/material";
 //backend imports
 import AuthContext from "../Backend/AuthProvider";
 import axios from "../Backend/axios";
+import { color } from "@mui/system";
 // import { set } from "rsuite/esm/utils/dateUtils";
 
 const fadeIn = {
@@ -51,7 +52,7 @@ const SignupModal = ({ handleClose }) => {
 
   //reset error message if username/pass is changed(signifying that they read the error message)
   useEffect(() => {
-    setErrorMsg("Failed to Register");
+    setErrorMsg("");
   }, [user, pass]);
 
   //form submission handler.
@@ -60,25 +61,33 @@ const SignupModal = ({ handleClose }) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "registration",
-        JSON.stringify({ username: user, email: user, password: pass }),
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Credentials": "true",
-          },
-        }
-      );
+      if (pass != passConfirmRef.current.value) {
+        setErrorMsg("Passwords do not match!");
+      } else {
+        const response = await axios.post(
+          "registration",
+          JSON.stringify({ username: user, email: user, password: pass }),
+          {
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Credentials": "true",
+            },
+          }
+        );
 
-      console.log(JSON.stringify(response?.data));
-      // console.log(JSON.stringify(response));
+        console.log(JSON.stringify(response?.data));
+        // console.log(JSON.stringify(response));
 
-      setAuth({ user, pass });
-      setUser("");
-      setPass("");
-      setSuccessState(true);
+        // errorRef.current.severity = "success";
+        // console.log( errorRef.current.severity);
+        // setErrorMsg("Registration Successfull!");
+        setAuth({ user, pass });
+        setUser("");
+        setPass("");
+        passConfirmRef.current.value = "";
+        setSuccessState(true);
+      }
     } catch (err) {
       console.dir(err);
       if (!err.response) {
@@ -161,15 +170,16 @@ const SignupModal = ({ handleClose }) => {
               <div className="signupInput">
                 <input
                   type="password"
+                  id="password"
                   required
                   ref={passConfirmRef}
-                  onChange={(e) => {
-                    if (e.target.value !== pass) {
-                      passConfirmRef.current.style.background = "red";
-                    } else {
-                      passConfirmRef.current.style.background = "white";
-                    }
-                  }}
+                  // onChange={(e) => {
+                  //   if (e.target.value !== pass) {
+                  //     passConfirmRef.current.style.border = "2px red";
+                  //   } else {
+                  //     passConfirmRef.current.style.border= "2px white";
+                  //   }
+                  // }}
                 />
                 <span id="confirmPass">Confirm Password</span>
                 <i></i>
