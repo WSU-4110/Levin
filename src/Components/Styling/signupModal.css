@@ -27,7 +27,6 @@
   color: Black;
   font-size: 30px;
   font-weight: bold;
-  font-family: "Helvetica";
   margin-top: 0px;
   text-align: center;
   /* outline: 1px solid red; */
@@ -64,7 +63,6 @@
   color: Black;
   font-size: 16px;
   font-weight: normal;
-  font-family: "Helvetica";
   position: absolute;
   padding: 15px 10px;
   pointer-events: none;
@@ -93,7 +91,7 @@
 .signupInput input:valid ~ i,
 .signupInput input:focus ~ i {
   background: rgb(255, 255, 255);
-  height: 50px;
+  height: 100%;
 }
 
 .signupButtonContainer {
@@ -134,4 +132,22 @@
 .close {
   display: flex;
   justify-content: flex-end;
+}
+
+.errorSpaceContainer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  top: 40px;
+}
+
+.errorSpace {
+  justify-content: center;
+  width: 90%;
+}
+
+input:-webkit-autofill {
+  border-radius: 4px;
+  width: 92%;
 }

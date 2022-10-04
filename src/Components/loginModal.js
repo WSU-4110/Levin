@@ -63,7 +63,7 @@ const LoginModal = ({ handleClose }) => {
 
   //reset error message if username/pass is changed(signifying that they read the error message)
   useEffect(() => {
-    setErrorMsg("");
+    setErrorMsg("Failed to Login");
   }, [user, pass]);
 
   //form submission handler.
@@ -97,11 +97,11 @@ const LoginModal = ({ handleClose }) => {
         setErrorMsg("No Response from server");
         console.log("invalid login credentials");
       } else if (err.code == "ERR_NETWORK") {
-        setErrorMsg("Network Connection Refused!");
+        setErrorMsg("Network Connection Refused");
       } else if (err.response?.status === 500) {
-        setErrorMsg("Invalid Email/Pass input");
+        setErrorMsg("Invalid Email/Password input");
       } else if (err.response?.status === 401) {
-        setErrorMsg("Unauthorized acccess request");
+        setErrorMsg("Unauthorized Acccess Request");
       } else {
         setErrorMsg("Failed to Login");
       }
@@ -109,21 +109,41 @@ const LoginModal = ({ handleClose }) => {
     }
   };
 
+  const [isShown, setIsShown] = useState(false);
+  const handleClick = () => {
+    setTimeout(() => {
+      setIsShown(true);
+    }, 0);
+    setTimeout(() => {
+      setIsShown(false);
+    }, 5000);
+  };
+
   return (
     //Fragment where view is based on successState of form(logged in/logged out)
     <>
       {successState ? ( //logged in state
-        <div>
-          <h1>Logged In</h1>
-          <p>Return to Home: </p>
-
-          {/* //insert Link to home here */}
-        </div>
+        <motion.div
+          onClick={(e) => e.stopPropagation()}
+          variants={dropIn}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+        >
+          <div className="loginBox1">
+            <div className="loginBox2">
+              <div className="close">
+                <button onClick={handleClose}>X</button>
+              </div>
+              <h1>Log In Successful</h1>
+              <h5>Please return to home page.</h5>
+            </div>
+          </div>
+        </motion.div>
       ) : (
         //logged out state
         <motion.div
           onClick={(e) => e.stopPropagation()}
-          className="modal"
           variants={dropIn}
           initial="hidden"
           animate="visible"
@@ -136,16 +156,20 @@ const LoginModal = ({ handleClose }) => {
               </div>
               <h1>Log In</h1>
               <form onSubmit={handleSubmit}>
-                <div className="errorSpace">
-                  {/* //logged out state */}
-                  <Alert
-                    ref={errorRef}
-                    className="errorMessage"
-                    severity="error"
-                  >
-                    {errorMsg}
-                  </Alert>
-                </div>
+                {isShown && (
+                  <div className="errorSpaceContainer">
+                    <div className="errorSpace">
+                      {/* //logged out state */}
+                      <Alert
+                        ref={errorRef}
+                        className="errorMessage"
+                        severity="error"
+                      >
+                        {errorMsg}
+                      </Alert>
+                    </div>
+                  </div>
+                )}
                 <div className="inputContainer">
                   <div className="loginInput">
                     <input
@@ -173,51 +197,52 @@ const LoginModal = ({ handleClose }) => {
                 </div>
                 <div className="loginButtonContainer">
                   <button type="submit" value="Log In">
-                    <div className="loginButton">Log In</div>
+                    <div onClick={handleClick} className="loginButton">
+                      Log In
+                    </div>
                   </button>
                 </div>
-                </form>
-                <div className="otherModals">
-                  <motion.button
-                    onClick={() =>
-                      signupModalOpen ? signupClose() : signupOpen()
-                    }
-                  >
-                    <p className="signup">Sign up</p>
-                  </motion.button>
-                  <AnimatePresence
-                    initial={false}
-                    exitBeforeEnter={true}
-                    onExitComplete={() => null}
-                  >
-                    {signupModalOpen && (
-                      <SignupModal
-                        signupModalOpen={signupModalOpen}
-                        handleClose={signupClose}
-                      />
-                    )}
-                  </AnimatePresence>
-                  <motion.button
-                    onClick={() =>
-                      forgotModalOpen ? forgotClose() : forgotOpen()
-                    }
-                  >
-                    <p className="forgotPassword">Forgot Password</p>
-                  </motion.button>
-                  <AnimatePresence
-                    initial={false}
-                    exitBeforeEnter={true}
-                    onExitComplete={() => null}
-                  >
-                    {forgotModalOpen && (
-                      <ForgotModal
-                        forgotModalOpen={forgotModalOpen}
-                        handleClose={forgotClose}
-                      />
-                    )}
-                  </AnimatePresence>
-                </div>
-              
+              </form>
+              <div className="otherModals">
+                <motion.button
+                  onClick={() =>
+                    signupModalOpen ? signupClose() : signupOpen()
+                  }
+                >
+                  <p className="signup">Sign up</p>
+                </motion.button>
+                <AnimatePresence
+                  initial={false}
+                  exitBeforeEnter={true}
+                  onExitComplete={() => null}
+                >
+                  {signupModalOpen && (
+                    <SignupModal
+                      signupModalOpen={signupModalOpen}
+                      handleClose={signupClose}
+                    />
+                  )}
+                </AnimatePresence>
+                <motion.button
+                  onClick={() =>
+                    forgotModalOpen ? forgotClose() : forgotOpen()
+                  }
+                >
+                  <p className="forgotPassword">Forgot Password</p>
+                </motion.button>
+                <AnimatePresence
+                  initial={false}
+                  exitBeforeEnter={true}
+                  onExitComplete={() => null}
+                >
+                  {forgotModalOpen && (
+                    <ForgotModal
+                      forgotModalOpen={forgotModalOpen}
+                      handleClose={forgotClose}
+                    />
+                  )}
+                </AnimatePresence>
+              </div>
             </div>
           </div>
         </motion.div>

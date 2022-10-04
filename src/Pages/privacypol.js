@@ -4,7 +4,7 @@ import Sidebar from "../Components/sidebar.js";
 
 function PrivacyPolicy() {
   return (
-    <div className="privacypolContainer">
+    <div>
       <Sidebar />
       <div className="privacypol1">
         <div className="privacypol2">

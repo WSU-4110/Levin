@@ -2,7 +2,6 @@
   width: 400px;
   height: 500px;
   left: 3.5rem;
-
   display: flex;
   position: absolute;
   top: -208px;
@@ -55,7 +54,6 @@
   color: Black;
   font-size: 30px;
   font-weight: bold;
-  font-family: "Helvetica";
   margin-top: 0px;
   text-align: center;
   /* outline: 1px solid red; */
@@ -121,7 +119,7 @@
 .loginInput input:valid ~ i,
 .loginInput input:focus ~ i {
   background: rgb(255, 255, 255);
-  height: 50px;
+  height: 100%;
 }
 
 .loginButtonContainer {
@@ -193,16 +191,20 @@
   margin-top: -35px;
 }
 
-.errorSpace{
+.errorSpaceContainer {
+  position: absolute;
   display: flex;
   justify-content: center;
+  width: 100%;
+  top: 40px;
 }
-.errorMessage {
-  padding: 0.75rem 1.25rem;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
-  text-align: center;
-  color: #721c24;
-  background-color: #f8d7da;
-  width: 75%;
+
+.errorSpace {
+  justify-content: center;
+  width: 90%;
+}
+
+input:-webkit-autofill {
+  border-radius: 4px;
+  width: 92%;
 }
