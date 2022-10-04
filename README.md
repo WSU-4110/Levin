@@ -18,6 +18,10 @@
 
     npm install scrollbooster --save
 
+## https://www.emailjs.com/
+
+    $ npm install @emailjs/browser --save
+
 #### Icons
 
     npm install react-icons --save
