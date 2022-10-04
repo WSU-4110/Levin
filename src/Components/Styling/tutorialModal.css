@@ -5,7 +5,7 @@
   display: flex;
   position: absolute;
   top: -158px;
-  background: rgb(47, 79, 79);
+  background: var(--ultramarine);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   overflow: hidden;
@@ -36,8 +36,8 @@
 }
 
 .testcontactBox2 {
-  background: rgb(47, 79, 79);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+  background: var(--ultramarine);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   z-index: 15;
