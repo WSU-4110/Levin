@@ -1,5 +1,6 @@
 import { React, useRef, useState, useEffect, useContext } from "react";
 
+
 //styling imports
 import "./Styling/loginModal.css";
 import { Alert } from "@mui/material";
@@ -62,7 +63,7 @@ const LoginModal = ({ handleClose }) => {
 
   //reset error message if username/pass is changed(signifying that they read the error message)
   useEffect(() => {
-    setErrorMsg("Failed to Login");
+    setErrorMsg("");
   }, [user, pass]);
 
   //form submission handler.
