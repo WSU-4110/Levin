@@ -69,7 +69,7 @@ function Sidebar() {
               >
                 <Icons icon={<SupportSharpIcon />} />
                 <div className="tab two">
-                  <div>Tutorial</div>
+                  <div>Tutorials</div>
                 </div>
               </motion.button>
               <AnimatePresence
