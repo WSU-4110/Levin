@@ -37,6 +37,8 @@ const ContactModal = ({ handleClose }) => {
       }, (error) => {
           console.log(error.text);
       });
+
+      e.target.reset();
   };
 
   return (
