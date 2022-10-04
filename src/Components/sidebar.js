@@ -16,7 +16,7 @@ import LoginModal from "./loginModal.js";
 import ContactModal from "./contactModal.js";
 import "./Styling/sidebar.css";
 
-function Sidebar() {
+function Sidebar(props) {
   const Line = ({ color }) => (
     <hr
       style={{
@@ -108,6 +108,7 @@ function Sidebar() {
                   <LoginModal
                     loginModalOpen={loginModalOpen}
                     handleClose={loginClose}
+                    
                   />
                 )}
               </AnimatePresence>
