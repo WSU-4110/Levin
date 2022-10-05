@@ -20,7 +20,7 @@
 
 ## https://www.emailjs.com/
 
-    $ npm install @emailjs/browser --save
+    npm install @emailjs/browser --save
 
 #### Icons
 
