@@ -1,0 +1,23 @@
+.termsAndCon1 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.termsAndCon2 {
+  padding: 100px 0px 100px 0px;
+  margin-left: 100px;
+  margin-right: 50px;
+}
+
+.termsAndCon2 h1 {
+  color: var(--black);
+}
+
+.termsAndCon2 p {
+  color: var(--black);
+}
+
+.termsAndCon2 a {
+  color: var(--cetacean);
+}
