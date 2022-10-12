@@ -124,6 +124,7 @@ function Canvas() {
               maxWidth: 200,
               borderRadius: 3,
               background: "none",
+              boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.25)",
             }}
           >
             {card}
