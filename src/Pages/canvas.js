@@ -1,6 +1,56 @@
 import "./Styling/canvas.css";
 import Sidebar from "../Components/sidebar.js";
 import React from "react";
+import CardContent from "@mui/material/CardContent";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import TextareaAutosize from "@mui/material/TextareaAutosize";
+
+const card = (
+  <React.Fragment sx={{ maxWidth: 200, borderRadius: 3, background: "none" }}>
+    <CardContent
+      style={{
+        background: "rgb(128, 125, 219)",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <TextareaAutosize
+        aria-label="empty textarea"
+        placeholder="Title"
+        style={{
+          fontFamily: "Helvetica",
+          fontWeight: "bold",
+          fontSize: 20,
+          borderRadius: 5,
+          background: "none",
+          resize: "none",
+          border: "none",
+        }}
+      />
+    </CardContent>
+    <CardContent
+      style={{
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <TextareaAutosize
+        aria-label="empty textarea"
+        placeholder="Content"
+        maxRows={4}
+        style={{
+          fontFamily: "Helvetica",
+          fontSize: 16,
+          borderRadius: 5,
+          background: "rgba(128, 125, 219)",
+          resize: "none",
+          border: "none",
+        }}
+      />
+    </CardContent>
+  </React.Fragment>
+);
 
 function Canvas() {
   return (
@@ -8,36 +58,18 @@ function Canvas() {
       <Sidebar />
       <div className="titleContainer">
         <p className="title">Canvas</p>
-        <div className="containerExample1">
-          <div className="container1"></div>
-          <div className="container2"></div>
-          <div className="container3"></div>
-          <div className="container4"></div>
-          <div className="container5"></div>
-        </div>
-        <div className="containerExample2">
-          <div className="container6"></div>
-          <div className="container7"></div>
-          <div className="container8"></div>
-          <div className="container9"></div>
-          <div className="container10"></div>
-        </div>
-        <div className="containerExample3">
-          <div className="container11"></div>
-          <div className="connection"></div>
-          <div className="container12"></div>
-          <div className="add1">
-            <p>+</p>
-          </div>
-          <div className="border"></div>
-          <div className="container13"></div>
-          <div className="add2">
-            <p>+</p>
-          </div>
-          <div className="add3">
-            <p>+</p>
-          </div>
-        </div>
+        <Box
+          sx={{
+            maxWidth: 200,
+            border: 2,
+            color: "rgb(128, 125, 219)",
+            borderRadius: 4,
+          }}
+        >
+          <Card sx={{ maxWidth: 200, borderRadius: 3, background: "none" }}>
+            {card}
+          </Card>
+        </Box>
       </div>
     </div>
   );
