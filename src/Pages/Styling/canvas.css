@@ -3,13 +3,6 @@
   height: 100vh;
 }
 
-.titleContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
 .canvasContainer .title {
   color: Black;
   font-size: 80px;
