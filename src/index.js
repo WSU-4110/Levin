@@ -2,10 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App.js";
 import { AuthProvider } from "./Backend/AuthProvider.js";
-import Board from "./Components/TEST_COMPONENTS/testBoard.js";
-import {observe} from "./Components/TEST_COMPONENTS/testGame.js"
+//import Board from "./Components/TEST_COMPONENTS/testBoard.js";
+//import {observe} from "./Components/TEST_COMPONENTS/testGame.js"
 
-/* ReactDOM.render(
+ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
       <App />
@@ -13,9 +13,9 @@ import {observe} from "./Components/TEST_COMPONENTS/testGame.js"
   </React.StrictMode>,
   document.getElementById("root")
 ); 
-*/
 
-const root = document.getElementById('root')
+
+ /* const root = document.getElementById('root')
 
  observe((knightPosition) =>
   ReactDOM.render(
@@ -27,4 +27,4 @@ const root = document.getElementById('root')
     </AuthProvider>
   </React.StrictMode>
   , root)
- )
+ ) */
