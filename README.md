@@ -22,6 +22,12 @@
 
     npm install @emailjs/browser --save
 
+## https://react-dnd.github.io/react-dnd/about 
+
+    npm install --save react-dnd
+
+    npm install --save react-dnd-html5-backend
+
 #### Icons
 
     npm install react-icons --save
