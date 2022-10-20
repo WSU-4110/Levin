@@ -1,0 +1,17 @@
+.canvasContainer {
+  width: 100%;
+  height: 100vh;
+}
+
+.canvasContainer .title {
+  color: Black;
+  font-size: 80px;
+  position: absolute;
+  margin: auto 0;
+  top: 0px;
+  font-weight: bold;
+}
+
+::-webkit-input-placeholder {
+  color: black;
+}

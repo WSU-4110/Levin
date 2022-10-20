@@ -1,0 +1,118 @@
+.sidebarContainer {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  /* outline: 1px solid red; */
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  width: 2rem;
+  background: var(--ultramarine);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 1);
+  /* outline: 1px solid red; */
+}
+
+.menu {
+  display: flex;
+  /* outline: 1px solid red; */
+}
+
+.content {
+  flex-direction: column;
+  /* outline: 1px solid red; */
+}
+
+.name,
+.copyright {
+  color: Black;
+  font-size: 40px;
+  font-weight: normal;
+  font-family: "Helvetica";
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  /* outline: 1px solid red; */
+}
+
+.name {
+  font-size: 40px;
+}
+
+.copyright {
+  font-size: 16px;
+}
+
+.pages {
+  color: Black;
+  font-size: 16px;
+  font-weight: normal;
+  font-family: "Helvetica";
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  /* outline: 1px solid red; */
+}
+
+.tab {
+  display: none;
+  justify-content: center;
+  position: absolute;
+  z-index: -1;
+  padding: 10px;
+  top: 3px;
+  left: 2.5rem;
+  background: var(--ultramarine);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 1);
+  /* outline: 1px solid red; */
+}
+
+.zero {
+  width: 135px;
+}
+
+.one,
+.two,
+.three,
+.four {
+  width: 70px;
+}
+
+.five,
+.six,
+.seven {
+  width: 130px;
+}
+
+.eight {
+  width: 135px;
+}
+
+.Levin:hover > .tab,
+.Canvas:hover > .tab,
+.Tutorial:hover > .tab,
+.Settings:hover > .tab,
+.Login:hover > .tab,
+.Contact:hover > .tab,
+.PrivacyPolicy:hover > .tab,
+.TermsAndConditions:hover > .tab,
+.Copyright:hover > .tab {
+  display: flex;
+}
+
+.button {
+  background: transparent;
+  border: none;
+}
