@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App.js";
-import { AuthProvider } from "./Backend/AuthProvider";
+import { AuthProvider } from "./Backend/AuthProvider.js";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -10,4 +10,4 @@ ReactDOM.render(
     </AuthProvider>
   </React.StrictMode>,
   document.getElementById("root")
-);
+); 
