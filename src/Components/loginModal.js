@@ -1,6 +1,5 @@
 import { React, useRef, useState, useEffect, useContext } from "react";
 
-
 //styling imports
 import "./Styling/loginModal.css";
 import { Alert } from "@mui/material";

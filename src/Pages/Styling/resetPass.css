@@ -1,29 +1,35 @@
-.loginBox1 {
-  width: 400px;
+.resetContainer {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* outline: 1px solid red; */
+}
+
+.resetBox1 {
+  width: 60%;
   height: 500px;
-  left: 3.5rem;
   display: flex;
   position: absolute;
-  top: -208px;
   background: var(--ultramarine);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   overflow: hidden;
   /* outline: 1px solid red; */
 }
-.loginBox1::before,
-.loginBox1::after {
+.resetBox1::before,
+.resetBox1::after {
   content: "";
   position: absolute;
-  top: -50%;
+  top: -100%;
   left: -50%;
   width: 100%;
-  height: 100%;
+  height: 150%;
   background: linear-gradient(0deg, transparent, rgb(0, 0, 0), rgb(0, 0, 0));
   transform-origin: bottom right;
   animation: animate 18s linear infinite;
 }
-.loginBox1::after {
+.resetBox1::after {
   animation-delay: -9s;
 }
 @keyframes animate {
@@ -35,7 +41,7 @@
   }
 }
 
-.loginBox2 {
+.resetBox2 {
   border-radius: 8px;
   background: var(--ultramarine);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
@@ -46,15 +52,15 @@
   margin: auto 0;
   position: absolute;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   /* outline: 1px solid red; */
 }
 
-.loginBox2 h1 {
+.resetBox2 h1 {
   color: Black;
   font-size: 30px;
   font-weight: bold;
-  margin-top: 0px;
   text-align: center;
   /* outline: 1px solid red; */
 }
@@ -64,7 +70,7 @@
   /* outline: 1px solid red; */
 }
 
-.loginInput {
+.resetInput {
   position: relative;
   display: flex;
   width: 70%;
@@ -74,7 +80,7 @@
   /* outline: 1px solid red; */
 }
 
-.loginInput input {
+.resetInput input {
   position: relative;
   color: Black;
   font-size: 20px;
@@ -87,7 +93,7 @@
   /* outline: 1px solid red; */
 }
 
-.loginInput span {
+.resetInput span {
   color: Black;
   font-size: 16px;
   font-weight: normal;
@@ -98,14 +104,14 @@
   transition: 0.5s;
   /* outline: 1px solid red; */
 }
-.loginInput input:valid ~ span,
-.loginInput input:focus ~ span {
+.resetInput input:valid ~ span,
+.resetInput input:focus ~ span {
   color: Black;
   font-size: 0px;
   transform: translateX(0px) translateY(-34px);
 }
 
-.loginInput i {
+.resetInput i {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -117,25 +123,25 @@
   pointer-events: none;
   /* outline: 1px solid red; */
 }
-.loginInput input:valid ~ i,
-.loginInput input:focus ~ i {
+.resetInput input:valid ~ i,
+.resetInput input:focus ~ i {
   background: rgb(255, 255, 255);
   height: 100%;
 }
 
-.loginButtonContainer {
+.resetButtonContainer {
   display: flex;
   justify-content: center;
 }
 
-.loginButton {
+.resetButton {
   color: black;
   font-size: 16px;
   font-weight: normal;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.5);
   background: transparent;
-  width: 110px;
+  width: 165px;
   height: 50px;
   display: flex;
   justify-content: center;
@@ -145,51 +151,17 @@
   transition: all 0.3s ease-in-out;
   /* outline: 1px solid red; */
 }
-.loginButton:hover {
+.resetButton:hover {
   transform: scale(105%);
 }
 
-.loginBox1 button {
+.resetBox1 button {
   background: transparent;
   border: none;
   font-size: 16px;
   font-weight: bold;
   padding: 15px;
   cursor: pointer;
-}
-
-.close {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.otherModals {
-  display: grid;
-  justify-content: center;
-  /* outline: 1px solid red; */
-}
-
-.signup,
-.forgotPassword {
-  color: Black;
-  font-size: 16px;
-  font-weight: normal;
-  text-decoration: none;
-  margin-top: -15px;
-  transition: all 0.3s ease-in-out;
-  /* outline: 1px solid red; */
-}
-.signup:hover,
-.forgotPassword:hover {
-  transform: scale(105%);
-}
-
-.signup {
-  margin-top: 0px;
-}
-
-.forgotPassword {
-  margin-top: -35px;
 }
 
 .errorSpaceContainer {

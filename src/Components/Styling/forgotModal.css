@@ -40,6 +40,7 @@
 
 .forgotpassInput {
   position: relative;
+  display: flex;
   width: 70%;
   margin-top: 35px;
   margin-bottom: 0px;
@@ -67,6 +68,7 @@
   font-family: "Helvetica";
   position: absolute;
   padding: 15px 10px;
+  bottom: 0px;
   pointer-events: none;
   transition: 0.5s;
   /* outline: 1px solid red; */
