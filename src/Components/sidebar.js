@@ -2,7 +2,6 @@ import { React, useState } from "react";
 import Logo from "./Styling/Images/Logo.png";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import AccountTreeIcon from "@mui/icons-material/AccountTree";
 import TableChartIcon from "@mui/icons-material/TableChart";
 import SupportSharpIcon from "@mui/icons-material/SupportSharp";
 import SettingsIcon from "@mui/icons-material/Settings";
