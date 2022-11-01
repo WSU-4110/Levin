@@ -12,7 +12,7 @@
 
 .signupBox2 {
   border-radius: 8px;
-  background: var(--ultramarine);
+  background: linear-gradient(135deg, rgb(0, 175, 110), rgb(0, 140, 180));
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   z-index: 10;

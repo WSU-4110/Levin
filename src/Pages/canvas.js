@@ -80,6 +80,7 @@ const card = (
           borderRadius: 5,
           background: "rgb(191, 191, 191)",
           border: "none",
+          zIndex: "100",
         }}
       >
         <AddIcon />
@@ -99,6 +100,7 @@ const Add = (
         border: "none",
         position: "absolute",
         top: "70vh",
+        zIndex: "100",
       }}
     >
       <AddIcon />
@@ -111,7 +113,6 @@ function Canvas() {
     <div className="canvasContainer">
       <Sidebar />
       <div className="titleContainer">
-        <p className="title">Canvas</p>
         <Box
           sx={{
             border: 2,
