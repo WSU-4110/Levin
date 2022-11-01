@@ -131,22 +131,19 @@ const Add2 = (
 
 function Test() {
   return (
-    <div className="canvasContainer1">
-      <Sidebar />
-      <div className="titleContainer">
-        <Card
-          sx={{
-            maxWidth: 200,
-            borderRadius: 3,
-            background: "rgb(128, 125, 219)",
-            boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.25)",
-          }}
-        >
-          {card}
-        </Card>
-        {Add1}
-        {Add2}
-      </div>
+    <div className="titleContainer">
+      <Card
+        sx={{
+          maxWidth: 200,
+          borderRadius: 3,
+          background: "rgb(128, 125, 219)",
+          boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.25)",
+        }}
+      >
+        {card}
+      </Card>
+      {Add1}
+      {Add2}
     </div>
   );
 }
