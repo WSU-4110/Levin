@@ -9,12 +9,14 @@ import PrivacyPolicy from "./Pages/privacypol.js";
 import TermsAndConditions from "./Pages/terms&con.js";
 import KonvaReactTest from "./Pages/konva_react_test"; /* Import for KonvaReactTest function */
 
+/* use KonvaReactTest instead of Canvas to render Konva canvas */
+
 function App() {
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          <Canvas />
+          <Canvas /> 
         </Route>
         <Route exact path="/Settings">
           <Settings />
