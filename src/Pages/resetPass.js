@@ -28,7 +28,7 @@ const ResetPassword = (props) => {
 
   //reset error message if username/pass is changed(signifying that they read the error message)
   useEffect(() => {
-    setErrorMsg("Failed to Reset Password");
+    setErrorMsg("");
   }, [pass]);
 
   //form submission handler.
@@ -76,6 +76,8 @@ const ResetPassword = (props) => {
       } else {
         setErrorMsg("Failed to Reset");
       }
+
+      handleClick();
       errorRef.current.focus();
     }
   };
@@ -87,7 +89,7 @@ const ResetPassword = (props) => {
     }, 0);
     setTimeout(() => {
       setIsShown(false);
-    }, 5000);
+    }, 10000);
   };
 
   return (
@@ -143,7 +145,7 @@ const ResetPassword = (props) => {
               </div>
               <div className="resetButtonContainer">
                 <button type="submit">
-                  <div onClick={handleClick} className="resetButton">
+                  <div className="resetButton">
                     Reset Password
                   </div>
                 </button>

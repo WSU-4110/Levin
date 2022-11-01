@@ -90,17 +90,28 @@ const SignupModal = ({ handleClose }) => {
       }
     } catch (err) {
       console.dir(err);
+      const responseObj = JSON.parse(err.response?.request.response);
       if (!err.response) {
         setErrorMsg("No Response from server");
       } else if (err.code == "ERR_NETWORK") {
         setErrorMsg("Network Connection Refused!");
       } else if (err.response?.status === 500) {
-        setErrorMsg("Email Already Taken");
+        // console.dir(JSON.parse(err.response?.request.response));
+        if(responseObj.message.startsWith("Mail server connection failed"))
+        {
+            setErrorMsg("Account Registered but Confirmation Email Sending - Failed");
+        }
+        else if(responseObj.message  == "email already taken")
+        {
+            setErrorMsg("Email already registered");
+        }
+        // setErrorMsg("Email Already Taken");setErrorMsg("Email Already Taken");
       } else if (err.response?.status === 401) {
-        setErrorMsg("Unauthorized acccess request");
+         setErrorMsg("Unauthorized acccess request");
       } else {
         setErrorMsg("Failed to Register");
       }
+      handleClick();
       errorRef.current.focus();
     }
   };
@@ -112,7 +123,7 @@ const SignupModal = ({ handleClose }) => {
     }, 0);
     setTimeout(() => {
       setIsShown(false);
-    }, 5000);
+    }, 10000);
   };
 
   return (
@@ -187,7 +198,7 @@ const SignupModal = ({ handleClose }) => {
             </div>
             <div className="signupButtonContainer">
               <button type="submit">
-                <div onClick={handleClick} className="signupButton">
+                <div className="signupButton">
                   Sign Up
                 </div>
               </button>
