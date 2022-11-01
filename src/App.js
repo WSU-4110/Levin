@@ -14,7 +14,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          <Canvas /> [/* use KonvaReactTest instead of Canvas to render Konva canvas */]
+          <Canvas />
         </Route>
         <Route exact path="/Settings">
           <Settings />

@@ -1,6 +1,5 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { Stage, Layer, Star, Text } from 'react-konva';
+import { Stage, Layer, Star, Text, Rect } from 'react-konva';
 
 function generateShapes() {
   return [...Array(10)].map((_, i) => ({
@@ -40,7 +39,7 @@ const KonvaReactTest = () => {
   };
 
   return (
-    <Stage width={window.innerWidth} height={window.innerHeight}>
+    <Stage width={window.innerWidth} height={window.innerHeight} draggable={true}>
       <Layer>
         <Text text="Try to drag a star" />
         {stars.map((star) => (
@@ -65,8 +64,17 @@ const KonvaReactTest = () => {
             scaleY={star.isDragging ? 1.2 : 1}
             onDragStart={handleDragStart}
             onDragEnd={handleDragEnd}
+            
           />
         ))}
+         <Rect
+          x={20}
+          y={50}
+          width={100}
+          height={100}
+          fill="red"
+          shadowBlur={10}
+        />
       </Layer>
     </Stage>
   );
