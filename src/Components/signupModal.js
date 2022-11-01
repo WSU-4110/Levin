@@ -66,7 +66,7 @@ const SignupModal = ({ handleClose }) => {
       } else {
         const response = await axios.post(
           "registration",
-          JSON.stringify({ username: user, email: user, password: pass }),
+          JSON.stringify({ email: user, password: pass }),
           {
             headers: {
               "Content-Type": "application/json",

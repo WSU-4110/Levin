@@ -7,6 +7,7 @@
 #### React
 
     npm install react-scripts --save
+    npm install react-router-dom --save
 
 #### Libraries
 
@@ -20,7 +21,7 @@
 
 ## https://www.emailjs.com/
 
-    $ npm install @emailjs/browser --save
+    npm install @emailjs/browser --save
 
 #### Icons
 
