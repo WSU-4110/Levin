@@ -27,6 +27,7 @@ const KonvaReactTest = () => {
       })
     );
   };
+  
   const handleDragEnd = (e) => {
     setStars(
       stars.map((star) => {
