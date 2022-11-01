@@ -1,6 +1,5 @@
 import { React, useRef, useState, useEffect, useContext } from "react";
 
-
 //styling imports
 import "./Styling/loginModal.css";
 import { Alert } from "@mui/material";
@@ -99,12 +98,14 @@ const LoginModal = ({ handleClose }) => {
       } else if (err.code == "ERR_NETWORK") {
         setErrorMsg("Network Connection Refused");
       } else if (err.response?.status === 500) {
-        setErrorMsg("Invalid Email/Password input");
+        setErrorMsg("Invalid Email/Password");
       } else if (err.response?.status === 401) {
         setErrorMsg("Unauthorized Acccess Request");
       } else {
         setErrorMsg("Failed to Login");
       }
+
+      handleClick();
       errorRef.current.focus();
     }
   };
@@ -116,7 +117,7 @@ const LoginModal = ({ handleClose }) => {
     }, 0);
     setTimeout(() => {
       setIsShown(false);
-    }, 5000);
+    }, 10000);
   };
 
   return (
@@ -197,7 +198,7 @@ const LoginModal = ({ handleClose }) => {
                 </div>
                 <div className="loginButtonContainer">
                   <button type="submit" value="Log In">
-                    <div onClick={handleClick} className="loginButton">
+                    <div className="loginButton">
                       Log In
                     </div>
                   </button>

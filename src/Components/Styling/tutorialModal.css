@@ -1,11 +1,11 @@
 .testcontactBox1 {
   width: 400px;
-  height: 90vh;
+  height: 85vh;
   left: 3.5rem;
   display: flex;
   position: absolute;
-  top: -158px;
-  background: var(--ultramarine);
+  top: -110px;
+  background: linear-gradient(135deg, rgb(0, 175, 110), rgb(0, 140, 180));
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   overflow: hidden;
@@ -36,7 +36,7 @@
 }
 
 .testcontactBox2 {
-  background: var(--ultramarine);
+  background: linear-gradient(135deg, rgb(0, 175, 110), rgb(0, 140, 180));
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
