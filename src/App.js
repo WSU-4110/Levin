@@ -17,9 +17,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Canvas />}></Route>
-        {/* <Route path="/" element={<KonvaReactTest />}></Route> */}
         <Route path="Settings" element={<Settings />}></Route>
         <Route path="PrivacyPolicy" element={<PrivacyPolicy />}></Route>
+        {/* <Route path="PrivacyPolicy" element={<KonvaReactTest />}></Route> */}
         <Route
           path="TermsAndConditions"
           element={<TermsAndConditions />}
