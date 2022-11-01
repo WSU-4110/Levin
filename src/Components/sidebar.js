@@ -49,7 +49,10 @@ function Sidebar(props) {
         <motion.div
           className="sidebar"
           drag
-          dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+          dragDirectionLock
+          dragConstraints={{ top: 0, right: 0, bottom: 400, left: 0 }}
+          dragTransition={{ bounceStiffness: 200, bounceDamping: 20 }}
+          dragElastic={0.5}
         >
           {/* Content */}
           <div className="content">
