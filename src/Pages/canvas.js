@@ -7,6 +7,9 @@ import Card from "@mui/material/Card";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import { Stage, Layer, Rect, Text } from "react-konva";
 
 const Line = ({ color }) => (
   <hr
@@ -55,9 +58,9 @@ const card = (
           fontFamily: "Helvetica",
           fontSize: 16,
           borderRadius: 5,
-          background: "rgb(128, 125, 219)",
+          background: "transparent",
           resize: "none",
-          border: "none",
+          border: "black 1px solid",
           padding: 10,
         }}
       />
@@ -78,7 +81,7 @@ const card = (
           width: "100%",
           height: 10,
           borderRadius: 5,
-          background: "rgb(191, 191, 191)",
+          background: "rgba(255, 255, 255, 0.1)",
           border: "none",
           zIndex: "100",
         }}
@@ -89,49 +92,106 @@ const card = (
   </React.Fragment>
 );
 
-const Add = (
+const Add1 = (
   <React.Fragment>
     <Fab
       size="medium"
       aria-label="add"
       style={{
         borderRadius: 10,
-        background: "rgb(191, 191, 191)",
+        background: "rgba(255, 255, 255, 0.1)",
         border: "none",
         position: "absolute",
         top: "70vh",
         zIndex: "100",
       }}
     >
-      <AddIcon />
+      <KeyboardArrowDownIcon />
+    </Fab>
+  </React.Fragment>
+);
+
+const Add2 = (
+  <React.Fragment>
+    <Fab
+      size="medium"
+      aria-label="add"
+      style={{
+        borderRadius: 10,
+        background: "rgba(255, 255, 255, 0.1)",
+        border: "none",
+        position: "absolute",
+        top: "48vh",
+        right: "79vh",
+        zIndex: "100",
+      }}
+    >
+      <KeyboardArrowRightIcon />
     </Fab>
   </React.Fragment>
 );
 
 function Canvas() {
   return (
-    <div className="canvasContainer">
+    <div className="canvasContainer1">
       <Sidebar />
       <div className="titleContainer">
-        <Box
+        <Card
           sx={{
-            border: 2,
-            color: "rgb(128, 125, 219)",
-            borderRadius: 4,
+            maxWidth: 200,
+            borderRadius: 3,
+            background: "rgb(128, 125, 219)",
+            boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.25)",
           }}
         >
-          <Card
-            sx={{
-              maxWidth: 200,
-              borderRadius: 3,
-              background: "none",
-              boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.25)",
-            }}
-          >
-            {card}
-          </Card>
-        </Box>
-        {Add}
+          {card}
+        </Card>
+        {Add1}
+        {Add2}
+      </div>
+      <div className="canvasContainer2">
+        <Stage
+          width={window.innerWidth}
+          height={window.innerHeight}
+          draggable={true}
+        >
+          <Layer>
+            <Rect
+              x={window.innerWidth / 4.5}
+              y={window.innerHeight / 3}
+              width={200}
+              height={250}
+              fill="rgb(249, 186, 76)"
+              cornerRadius={10}
+              shadowBlur={3}
+              draggable
+            />
+          </Layer>
+          <Layer>
+            <Rect
+              x={window.innerWidth / 2.25}
+              y={window.innerHeight / 3}
+              width={200}
+              height={250}
+              fill="rgb(228, 79, 92)"
+              cornerRadius={10}
+              shadowBlur={3}
+              draggable
+            />
+          </Layer>
+          <Layer>
+            <Rect
+              x={window.innerWidth / 1.5}
+              y={window.innerHeight / 3}
+              width={200}
+              height={250}
+              fill="rgb(0, 20, 64)"
+              cornerRadius={10}
+              shadowBlur={3}
+              draggable
+            />
+          </Layer>
+        </Stage>
       </div>
     </div>
   );
