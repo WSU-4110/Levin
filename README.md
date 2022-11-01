@@ -23,6 +23,10 @@
 
     npm install @emailjs/browser --save
 
+## https://konvajs.org/docs/index.html
+
+    npm install react-konva konva --save
+
 #### Icons
 
     npm install react-icons --save
