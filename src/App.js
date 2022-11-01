@@ -9,9 +9,6 @@ import PrivacyPolicy from "./Pages/privacypol.js";
 import TermsAndConditions from "./Pages/terms&con.js";
 import ResetPassword from "./Pages/resetPass";
 
-// use KonvaReactTest instead of Canvas to render Konva canvas
-// import KonvaReactTest from "./Pages/konva_react_test";
-
 function App() {
   return (
     <Router>
@@ -19,7 +16,6 @@ function App() {
         <Route path="/" element={<Canvas />}></Route>
         <Route path="Settings" element={<Settings />}></Route>
         <Route path="PrivacyPolicy" element={<PrivacyPolicy />}></Route>
-        {/* <Route path="PrivacyPolicy" element={<KonvaReactTest />}></Route> */}
         <Route
           path="TermsAndConditions"
           element={<TermsAndConditions />}
