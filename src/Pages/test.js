@@ -1,5 +1,3 @@
-import "./Styling/canvas.css";
-import Sidebar from "../Components/sidebar.js";
 import React from "react";
 import CardContent from "@mui/material/CardContent";
 import Card from "@mui/material/Card";
