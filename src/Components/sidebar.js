@@ -1,11 +1,12 @@
 import { React, useState } from "react";
+import Logo from "./Styling/Images/Logo.png";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import AccountTreeIcon from "@mui/icons-material/AccountTree";
 import TableChartIcon from "@mui/icons-material/TableChart";
 import SupportSharpIcon from "@mui/icons-material/SupportSharp";
-// import SettingsSharpIcon from "@mui/icons-material/SettingsSharp";
+import SettingsIcon from "@mui/icons-material/Settings";
 import LoginSharpIcon from "@mui/icons-material/LoginSharp";
+import LogoutIcon from "@mui/icons-material/Logout";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import PrivacyTipIcon from "@mui/icons-material/PrivacyTip";
 import HomeRepairServiceIcon from "@mui/icons-material/HomeRepairService";
@@ -39,22 +40,22 @@ function Sidebar(props) {
 
   return (
     <div>
+      <div className="levinContainer">
+        <img className="Logo" src={Logo} />
+        <div className="Levin">LΞVIИ</div>
+      </div>
       <div className="sidebarContainer">
         {/* Sidebar div */}
         <motion.div
           className="sidebar"
           drag
-          dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+          dragConstraints={{ top: 0, right: 0, bottom: 0, left: 0 }}
+          dragTransition={{ bounceStiffness: 200, bounceDamping: 20 }}
+          dragElastic={0.5}
         >
           {/* Content */}
           <div className="content">
             <div>
-              <div className="pages Levin">
-                <Icons icon={<AccountTreeIcon />} />
-                <div className="tab zero">
-                  <div>Levin</div>
-                </div>
-              </div>
               <Link className="pages Canvas" to="/">
                 <Icons icon={<TableChartIcon />} />
                 <div className="tab one">
@@ -84,18 +85,12 @@ function Sidebar(props) {
                   />
                 )}
               </AnimatePresence>
-              {/* <Link className="pages Settings" to="/Settings">
-              <Icons icon={<SettingsSharpIcon />} />
-              <div className="tab three">
-                <div>Settings</div>
-              </div>
-            </Link> */}
               <motion.button
                 className="pages Login button"
                 onClick={() => (loginModalOpen ? loginClose() : loginOpen())}
               >
                 <Icons icon={<LoginSharpIcon />} />
-                <div className="tab four">
+                <div className="tab three">
                   <div>Log In</div>
                 </div>
               </motion.button>
@@ -108,10 +103,21 @@ function Sidebar(props) {
                   <LoginModal
                     loginModalOpen={loginModalOpen}
                     handleClose={loginClose}
-                    
                   />
                 )}
               </AnimatePresence>
+              {/* <Link className="pages Settings" to="/Settings">
+                <Icons icon={<SettingsIcon />} />
+                <div className="tab four">
+                  <div>Settings</div>
+                </div>
+              </Link>
+              <Link className="pages Logout">
+                <Icons icon={<LogoutIcon />} />
+                <div className="tab five">
+                  <div>Log Out</div>
+                </div>
+              </Link> */}
               <div>
                 <Line color="Black" />
               </div>
@@ -122,7 +128,7 @@ function Sidebar(props) {
                 }
               >
                 <Icons icon={<HelpOutlineIcon />} />
-                <div className="tab five">
+                <div className="tab six">
                   <div>Contact</div>
                 </div>
               </motion.button>
@@ -140,7 +146,7 @@ function Sidebar(props) {
               </AnimatePresence>
               <Link className="pages PrivacyPolicy" to="/PrivacyPolicy">
                 <Icons icon={<PrivacyTipIcon />} />
-                <div className="tab six">
+                <div className="tab seven">
                   <div>Privacy Policy</div>
                 </div>
               </Link>
@@ -149,13 +155,13 @@ function Sidebar(props) {
                 to="/TermsAndConditions"
               >
                 <Icons icon={<HomeRepairServiceIcon />} />
-                <div className="tab seven">
+                <div className="tab eight">
                   <div>Terms of Service</div>
                 </div>
               </Link>
               <div className="pages Copyright">
                 <Icons icon={<CopyrightIcon />} />
-                <div className="tab eight">
+                <div className="tab nine">
                   <div>© Levin Ltd. 2022</div>
                 </div>
               </div>
