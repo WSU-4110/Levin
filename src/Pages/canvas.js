@@ -8,7 +8,7 @@ function Canvas() {
   return (
     <div className="canvasContainer1">
       <Sidebar />
-      <Test />;
+      <Test />
       <div className="canvasContainer2">
         <Stage
           width={window.innerWidth}
