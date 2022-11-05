@@ -1,13 +1,14 @@
-import Sidebar from "../Components/sidebar.js";
 import React from "react";
 import { Stage, Layer, Rect } from "react-konva";
+import Sidebar from "../Components/sidebar.js";
 import Test from "./test.js";
+import "./Styling/canvas.css";
 
 function Canvas() {
   return (
     <div className="canvasContainer1">
       <Sidebar />
-      <Test />
+      <Test />;
       <div className="canvasContainer2">
         <Stage
           width={window.innerWidth}
