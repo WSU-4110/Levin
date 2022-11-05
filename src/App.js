@@ -8,12 +8,13 @@ import Settings from "./Pages/settings.js";
 import PrivacyPolicy from "./Pages/privacypol.js";
 import TermsAndConditions from "./Pages/terms&con.js";
 import ResetPassword from "./Pages/resetPass";
+import KonvaReactTest from "./Pages/konva_react_test";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Canvas />}></Route>
+        <Route path="/" element={<KonvaReactTest />}></Route>
         <Route path="Settings" element={<Settings />}></Route>
         <Route path="PrivacyPolicy" element={<PrivacyPolicy />}></Route>
         <Route
