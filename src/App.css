@@ -1,0 +1,47 @@
+body {
+  background: var(--anthracite);
+  margin: 0;
+  font-family: "Helvetica";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  /* Page Colors */
+  --anthracite: rgb(57, 61, 71);
+  --cetacean: rgb(0, 20, 64);
+  --ultramarine: rgb(128, 125, 219);
+
+  /* Container Colors */
+  --ocean: rgb(155, 190, 237);
+  --ultramarine: rgb(128, 125, 219);
+  --lavender: rgb(171, 115, 231);
+  --fuchsia: rgb(255, 145, 217);
+  --strawberry: rgb(228, 79, 92);
+
+  --copper: rgb(221, 140, 88);
+  --chocolate: rgb(167, 121, 109);
+  --saffron: rgb(249, 186, 76);
+  --lemon: rgb(246, 243, 169);
+  --mint: rgb(173, 208, 179);
+
+  /* monochrome colors */
+  --white: rgb(255, 255, 255);
+  --lightgray: rgb(191, 191, 191);
+  --gray: rgb(127, 127, 127);
+  --darkergray: rgb(63, 63, 63);
+  --black: rgb(0, 0, 0);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--black);
+  border-radius: 10px;
+}
