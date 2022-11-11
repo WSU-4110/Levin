@@ -2,6 +2,26 @@ import { motion } from "framer-motion";
 import "./Styling/tutorialModal.css";
 import React from "react";
 
+var Singleton = (function () {
+  var instance;
+
+  function createInstance() {
+      var object = new Object("I am the instance");
+      return object;
+  }
+
+  return {
+      getInstance: function () {
+          if (!instance) {
+              instance = createInstance();
+          }
+          return instance;
+      }
+  };
+})();
+
+
+
 // Temp Video Example
 import Video from "./Tutorial_Video/Temp_Video.mp4";
 
