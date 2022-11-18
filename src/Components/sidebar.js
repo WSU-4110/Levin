@@ -38,6 +38,8 @@ function Sidebar(props) {
   const contactClose = () => setcontactModalOpen(false);
   const contactOpen = () => setcontactModalOpen(true);
 
+  const [successState, setSuccessState] = useState(props.sucessState);
+  
   return (
     <div>
       <div className="levinContainer">

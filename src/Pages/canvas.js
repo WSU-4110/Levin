@@ -1,6 +1,6 @@
 import "./Styling/canvas.css";
 import Sidebar from "../Components/sidebar.js";
-import React from "react";
+import React, { useState } from "react";
 import CardContent from "@mui/material/CardContent";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
@@ -108,10 +108,13 @@ const Add = (
   </React.Fragment>
 );
 
-function Canvas() {
+function Canvas(props) {
+
+  const [successState, setSuccessState] = useState(props.sucessStateProp);
+
   return (
     <div className="canvasContainer">
-      <Sidebar />
+      <Sidebar successStateProp = {successState}/>
       <div className="titleContainer">
         <Box
           sx={{
