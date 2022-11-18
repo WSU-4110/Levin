@@ -65,7 +65,7 @@ const SignupModal = ({ handleClose }) => {
         setErrorMsg("Passwords do not match!");
       } else {
         const response = await axios.post(
-          "registration",
+          "api/registration",
           JSON.stringify({ email: user, password: pass }),
           {
             headers: {

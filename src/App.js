@@ -18,8 +18,9 @@ function App() {
   const authorize = async (e) => {
 
     try {
+      
       const response = await axios.get(
-        "authorize",
+        "authenticate/authenticateAccessToken",
         JSON.stringify({ token: "", email: ""}),
         {
           headers: {

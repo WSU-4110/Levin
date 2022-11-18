@@ -72,7 +72,7 @@ const LoginModal = ({ handleClose }) => {
 
     try {
       const response = await axios.post(
-        "login",
+        "api/login",
         JSON.stringify({ email: user, password: pass }),
         {
           headers: {
@@ -83,7 +83,7 @@ const LoginModal = ({ handleClose }) => {
         }
       );
 
-      console.log(JSON.stringify(response?.data));
+      console.log(response);
       // console.log(JSON.stringify(response));
 
       setAuth({ user, pass });

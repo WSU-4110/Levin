@@ -47,7 +47,7 @@ const ForgotModal = ({ handleClose }) => {
     
     try {
       const response = await axios.post(
-        "RequestReset",
+        "api/RequestReset",
         JSON.stringify({ email: user }),
         {
           headers: {
