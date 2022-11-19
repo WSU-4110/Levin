@@ -62,7 +62,7 @@ const LoginModal = ({ handleClose }) => {
 
   //reset error message if username/pass is changed(signifying that they read the error message)
   useEffect(() => {
-    setErrorMsg("Failed to Login");
+    setErrorMsg("");
   }, [user, pass]);
 
   //form submission handler.
@@ -84,6 +84,12 @@ const LoginModal = ({ handleClose }) => {
       );
 
       console.log(JSON.stringify(response?.data));
+      const result = JSON.stringify(response?.data); 
+      const stop = result.indexOf(',');
+      // const half = result.split()
+      const access_token = result.substring(15, stop);
+      console.log(access_token);
+      localStorage.setItem('Access Token',access_token);
       // console.log(JSON.stringify(response));
 
       setAuth({ user, pass });
@@ -95,7 +101,7 @@ const LoginModal = ({ handleClose }) => {
       if (!err.response) {
         setErrorMsg("No Response from server");
         console.log("invalid login credentials");
-      } else if (err.code == "ERR_NETWORK") {
+      } else if (err.code === "ERR_NETWORK") {
         setErrorMsg("Network Connection Refused");
       } else if (err.response?.status === 500) {
         setErrorMsg("Invalid Email/Password");
@@ -137,7 +143,7 @@ const LoginModal = ({ handleClose }) => {
                 <button onClick={handleClose}>X</button>
               </div>
               <h1>Log In Successful</h1>
-              <h5>Please return to home page.</h5>
+              
             </div>
           </div>
         </motion.div>

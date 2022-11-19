@@ -52,7 +52,7 @@ const SignupModal = ({ handleClose }) => {
 
   //reset error message if username/pass is changed(signifying that they read the error message)
   useEffect(() => {
-    setErrorMsg("Failed to Login");
+    setErrorMsg("");
   }, [user, pass]);
 
   //form submission handler.
@@ -61,7 +61,7 @@ const SignupModal = ({ handleClose }) => {
     e.preventDefault();
 
     try {
-      if (pass != passConfirmRef.current.value) {
+      if (pass !== passConfirmRef.current.value) {
         setErrorMsg("Passwords do not match!");
       } else {
         const response = await axios.post(
@@ -82,6 +82,7 @@ const SignupModal = ({ handleClose }) => {
         // errorRef.current.severity = "success";
         // console.log( errorRef.current.severity);
         // setErrorMsg("Registration Successfull!");
+
         setAuth({ user, pass });
         setUser("");
         setPass("");

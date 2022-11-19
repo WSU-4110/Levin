@@ -120,7 +120,7 @@ const Add2 = (
         border: "none",
         position: "absolute",
         top: "48vh",
-        right: "79vh",
+        right: "20vh",
         zIndex: "100",
       }}
     >
@@ -138,6 +138,39 @@ function Test() {
           borderRadius: 3,
           background: "rgb(128, 125, 219)",
           boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.25)",
+        }}
+      >
+        {card}
+      </Card>
+      <Card
+        sx={{
+          maxWidth: 200,
+          borderRadius: 3,
+          background: "rgb(128, 125, 219)",
+          boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.25)",
+          marginLeft: 10,
+        }}
+      >
+        {card}
+      </Card>
+      <Card
+        sx={{
+          maxWidth: 200,
+          borderRadius: 3,
+          background: "rgb(128, 125, 219)",
+          boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.25)",
+          marginLeft: 10,
+        }}
+      >
+        {card}
+      </Card>
+      <Card
+        sx={{
+          maxWidth: 200,
+          borderRadius: 3,
+          background: "rgb(128, 125, 219)",
+          boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.25)",
+          marginLeft: 10,
         }}
       >
         {card}

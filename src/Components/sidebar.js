@@ -38,6 +38,10 @@ function Sidebar(props) {
   const contactClose = () => setcontactModalOpen(false);
   const contactOpen = () => setcontactModalOpen(true);
 
+  const logoutHandle = () =>{
+    localStorage.removeItem('Access Token');
+  };
+
   return (
     <div>
       <div className="levinContainer">
@@ -106,18 +110,18 @@ function Sidebar(props) {
                   />
                 )}
               </AnimatePresence>
-              {/* <Link className="pages Settings" to="/Settings">
+              <Link className="pages Settings" to="/Settings">
                 <Icons icon={<SettingsIcon />} />
                 <div className="tab four">
-                  <div>Settings</div>
+                  <div>Setti  ngs</div>
                 </div>
               </Link>
-              <Link className="pages Logout">
+              <Link className="pages Logout" onClick={(logoutHandle)}>
                 <Icons icon={<LogoutIcon />} />
-                <div className="tab five">
+                <div className="tab five" >
                   <div>Log Out</div>
                 </div>
-              </Link> */}
+              </Link>
               <div>
                 <Line color="Black" />
               </div>
