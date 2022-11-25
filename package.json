@@ -16,6 +16,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "boxicons": "^2.1.4",
+    "D": "^1.0.0",
     "emailjs": "^4.0.1",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^7.5.2",
@@ -55,5 +56,21 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "description": "npm start",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WSU-4110/Levin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WSU-4110/Levin/issues"
+  },
+  "homepage": "https://github.com/WSU-4110/Levin#readme",
+  "devDependencies": {
+    "jest": "^27.5.1"
   }
 }

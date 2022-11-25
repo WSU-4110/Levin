@@ -3,6 +3,10 @@ import "./Styling/termsAndCon.css";
 import Sidebar from "../Components/sidebar.js";
 
 function TermsAndConditions() {
+  const {id,title,completed}=todo;
+    const h1=<h1>{title}</h1>
+    const text = completed? <strike>{h1}</strike>:h1;
+    return <div data-testid="LevinTitle-1">LEVIN</div>
   return (
     <div className="termsAndConContainer">
       <Sidebar />
