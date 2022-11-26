@@ -52,7 +52,7 @@ const SignupModal = ({ handleClose }) => {
 
   //reset error message if username/pass is changed(signifying that they read the error message)
   useEffect(() => {
-    setErrorMsg("Failed to Login");
+    setErrorMsg("");
   }, [user, pass]);
 
   //form submission handler.
@@ -112,7 +112,7 @@ const SignupModal = ({ handleClose }) => {
         setErrorMsg("Failed to Register");
       }
       handleClick();
-      errorRef.current.focus();
+      // errorRef.current.focus();
     }
   };
 
@@ -149,16 +149,22 @@ const SignupModal = ({ handleClose }) => {
                     className="errorMessage"
                     severity="error"
                   >
-                    {errorMsg}
+                  {errorMsg}
                   </Alert>
                 </div>
               </div>
             )}
+
+           {/* testing */}
+            <span data-testid = "error">{errorMsg}</span>
+            <span data-testid = "successState">{successState.toString()}</span>
+
             <div className="inputContainer">
               <div className="signupInput">
                 <input
                   type="email"
                   id="username"
+                  data-testid="username"
                   required
                   ref={userRef}
                   onChange={(e) => setUser(e.target.value)}
@@ -171,6 +177,7 @@ const SignupModal = ({ handleClose }) => {
                 <input
                   type="password"
                   id="password"
+                  data-testid="password"
                   required
                   onChange={(e) => setPass(e.target.value)}
                   value={pass}
@@ -182,6 +189,7 @@ const SignupModal = ({ handleClose }) => {
                 <input
                   type="password"
                   id="password"
+                  data-testid ="confirmPass"
                   required
                   ref={passConfirmRef}
                   // onChange={(e) => {
@@ -197,7 +205,7 @@ const SignupModal = ({ handleClose }) => {
               </div>
             </div>
             <div className="signupButtonContainer">
-              <button type="submit">
+              <button type="submit" data-testid="submit">
                 <div className="signupButton">
                   Sign Up
                 </div>
