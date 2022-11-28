@@ -35,25 +35,45 @@ const TutorialModal = ({ handleClose }) => {
       animate="visible"
       exit="exit"
     >
-      <div className="testcontactBox1">
+      <div data-testid="TM1" className="testcontactBox1">
         <div className="testcontactBox2">
           <div className="close">
             <button onClick={handleClose}>X</button>
           </div>
-          <h1>Tutorials</h1>
+          <h1 data-testid="TM2">Tutorials</h1>
           <div className="testcontactBox3">
             <div className="testcontactBox4">
-              <div className="template1">
-                <video controls src={Video} type="Temp_Video/mp4" />
+              <div data-testid="TM3" className="template1">
+                <video
+                  data-testid="TM4"
+                  controls
+                  src={Video}
+                  type="Temp_Video/mp4"
+                />
               </div>
-              <div className="template2">
-                <video controls src={Video} type="Temp_Video/mp4" />
+              <div data-testid="TM5" className="template2">
+                <video
+                  data-testid="TM6"
+                  controls
+                  src={Video}
+                  type="Temp_Video/mp4"
+                />
               </div>
-              <div className="template3">
-                <video controls src={Video} type="Temp_Video/mp4" />
+              <div data-testid="TM7" className="template3">
+                <video
+                  data-testid="TM8"
+                  controls
+                  src={Video}
+                  type="Temp_Video/mp4"
+                />
               </div>
-              <div className="template4">
-                <video controls src={Video} type="Temp_Video/mp4" />
+              <div data-testid="TM9" className="template4">
+                <video
+                  data-testid="TM10"
+                  controls
+                  src={Video}
+                  type="Temp_Video/mp4"
+                />
               </div>
               <div className="template5"></div>
               <div className="template6"></div>
