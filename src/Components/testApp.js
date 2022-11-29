@@ -13,7 +13,7 @@ const newRectangle = () => ({
   height: random(100)
 });
 
-export default class TestApp extends Component {
+export default class TestApp1 extends Component {
   // initializing state with a canvas JSON Array with a default rectangle
   state = {
     canvas: [
@@ -58,7 +58,8 @@ export default class TestApp extends Component {
   };
 
   render = () => (
-    <Stage width={window.innerWidth} height={window.innerHeight}>
+    <div data-testid='testApp-1'>
+      <Stage width={window.innerWidth} height={window.innerHeight}>
       <Layer>
         {this.state.canvas.map(({ height, width, x, y }, key) => ( // like a "for loop", this maps over this.state.canvas objects and pulls out the height, width, x, y properties to be used below
           <Rect
@@ -87,5 +88,18 @@ export default class TestApp extends Component {
             />
       </Layer>
     </Stage>
+    </div>
   );
+}
+
+export class TestApp2 extends React.Component {
+  render() {
+    return (
+      <Stage width={300} height={300} onMouseDown={null}>
+        <Layer>
+          <Rect width={100} height={100} />
+        </Layer>
+      </Stage>
+    );
+  }
 }

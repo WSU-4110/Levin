@@ -12,14 +12,14 @@
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.8",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "boxicons": "^2.1.4",
+    "canvas": "^2.10.2",
     "emailjs": "^4.0.1",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^7.5.2",
-    "konva": "^8.3.13",
+    "konva": "^8.3.14",
     "ky": "^0.31.3",
     "mdb-ui-kit": "^5.0.0",
     "react": "^18.2.0",
@@ -55,5 +55,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.18.6",
+    "@testing-library/react": "^13.4.0",
+    "react-test-renderer": "^18.2.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+    "^konva": "konva/konva"
+    }
+  },
+  "transform": {
+    "\\.js$": "<rootDir>/node_modules/babel-jest"
   }
 }
