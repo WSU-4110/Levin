@@ -44,7 +44,6 @@ const ForgotModal = ({ handleClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    
     try {
       const response = await axios.post(
         "RequestReset",
@@ -65,9 +64,9 @@ const ForgotModal = ({ handleClose }) => {
       setUser("");
       setSuccessState(true);
     } catch (err) {
-      
       console.dir(err);
       const responseObj = JSON.parse(err.response?.request.response);
+
       if (!err.response) {
         setErrorMsg("No Response from server");
         console.log("invalid credentials");
@@ -145,9 +144,7 @@ const ForgotModal = ({ handleClose }) => {
             </div>
             <div className="forgotpassButtonContainer">
               <button type="submit" value="Log In">
-                <div className="forgotpassButton">
-                  Send
-                </div>
+                <div className="forgotpassButton">Send</div>
               </button>
             </div>
           </form>

@@ -150,7 +150,7 @@ const LoginModal = ({ handleClose }) => {
           animate="visible"
           exit="exit"
         >
-          <div className="loginBox1">
+          <div data-testid="loginModalTest" className="loginBox1">
             <div className="loginBox2">
               <div className="close">
                 <button onClick={handleClose}>X</button>
@@ -198,9 +198,7 @@ const LoginModal = ({ handleClose }) => {
                 </div>
                 <div className="loginButtonContainer">
                   <button type="submit" value="Log In">
-                    <div className="loginButton">
-                      Log In
-                    </div>
+                    <div className="loginButton">Log In</div>
                   </button>
                 </div>
               </form>

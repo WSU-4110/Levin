@@ -57,33 +57,50 @@ const ContactModal = ({ handleClose }) => {
       animate="visible"
       exit="exit"
     >
-      <div className="contactBox1">
+      <div data-testid="CM1" className="contactBox1">
         <div className="contactBox2">
           <div className="close">
             <button onClick={handleClose}>X</button>
           </div>
           <form ref={form} onSubmit={sendEmail}>
-            <h1>Contact</h1>
+            <h1 data-testid="CM2">Contact</h1>
             <div className="inputContainer">
               <div className="contactInput">
-                <input type="text" required="required" name="email"></input>
-                <span>Email</span>
+                <input
+                  data-testid="CM3"
+                  type="text"
+                  required="required"
+                  name="email"
+                ></input>
+                <span data-testid="CM4">Email</span>
                 <i></i>
               </div>
               <div className="contactInput">
-                <input type="text" required="required" name="Subject"></input>
-                <span>Subject</span>
+                <input
+                  data-testid="CM5"
+                  type="text"
+                  required="required"
+                  name="Subject"
+                ></input>
+                <span data-testid="CM6">Subject</span>
                 <i></i>
               </div>
               <div className="contactInput">
-                <input type="text" required="required" name="message"></input>
-                <span>Description</span>
+                <input
+                  data-testid="CM7"
+                  type="text"
+                  required="required"
+                  name="message"
+                ></input>
+                <span data-testid="CM8">Description</span>
                 <i></i>
               </div>
             </div>
             <div className="contactButtonContainer">
-              <button type="submit" value="Send">
-                <div className="contactButton">Send</div>
+              <button data-testid="CM9" type="submit" value="Send">
+                <div data-testid="CM10" className="contactButton">
+                  Send
+                </div>
               </button>
             </div>
           </form>

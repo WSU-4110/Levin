@@ -39,7 +39,7 @@ function Sidebar(props) {
   const contactOpen = () => setcontactModalOpen(true);
 
   return (
-    <div>
+    <div data-testid="sidebarContainerTest">
       <div className="levinContainer">
         <img className="Logo" src={Logo} />
         <div className="Levin">LΞVIИ</div>
