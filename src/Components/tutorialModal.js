@@ -1,10 +1,12 @@
+//* styling imports
 import { motion } from "framer-motion";
 import "./Styling/tutorialModal.css";
 import React from "react";
 
-// Temp Video Example
+//* Temp Video Example
 import Video from "./Tutorial_Video/Temp_Video.mp4";
 
+//* modal visible/exit animation
 const dropIn = {
   hidden: {
     y: "-100vh",
@@ -28,6 +30,7 @@ const dropIn = {
 
 const TutorialModal = ({ handleClose }) => {
   return (
+    //* element to call const dropIn
     <motion.div
       onClick={(e) => e.stopPropagation()}
       variants={dropIn}
@@ -35,51 +38,28 @@ const TutorialModal = ({ handleClose }) => {
       animate="visible"
       exit="exit"
     >
-      <div data-testid="TM1" className="testcontactBox1">
-        <div className="testcontactBox2">
+      {/* //* box outlines can be enabled through the css  */}
+      <div data-testid="TM1" className="tutorialBox1">
+        <div className="tutorialBox2">
           <div className="close">
             <button onClick={handleClose}>X</button>
           </div>
+
+          {/* //* video elements used to call tutorial imports  */}
           <h1 data-testid="TM2">Tutorials</h1>
-          <div className="testcontactBox3">
-            <div className="testcontactBox4">
-              <div data-testid="TM3" className="template1">
+          <div className="tutorialBox3">
+            <div className="tutorialBox4">
+              {/* //* Tutorial 1  */}
+              <div className="template">
                 <video
-                  data-testid="TM4"
+                  data-testid="TM3"
                   controls
                   src={Video}
+                  title="test"
                   type="Temp_Video/mp4"
                 />
+                <span data-testid="TM4">video name</span>
               </div>
-              <div data-testid="TM5" className="template2">
-                <video
-                  data-testid="TM6"
-                  controls
-                  src={Video}
-                  type="Temp_Video/mp4"
-                />
-              </div>
-              <div data-testid="TM7" className="template3">
-                <video
-                  data-testid="TM8"
-                  controls
-                  src={Video}
-                  type="Temp_Video/mp4"
-                />
-              </div>
-              <div data-testid="TM9" className="template4">
-                <video
-                  data-testid="TM10"
-                  controls
-                  src={Video}
-                  type="Temp_Video/mp4"
-                />
-              </div>
-              <div className="template5"></div>
-              <div className="template6"></div>
-              <div className="template7"></div>
-              <div className="template8"></div>
-              <div className="template9"></div>
             </div>
           </div>
         </div>

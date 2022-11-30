@@ -1,8 +1,13 @@
 import { react, useRef } from "react";
+
+//* styling imports
 import { motion } from "framer-motion";
 import "./Styling/contactModal.css";
+
+//* backend imports
 import emailjs from "emailjs-com";
 
+//* modal visible/exit animation
 const dropIn = {
   hidden: {
     y: "-100vh",
@@ -24,6 +29,7 @@ const dropIn = {
   },
 };
 
+//! add backend comment
 const ContactModal = ({ handleClose }) => {
   const form = useRef();
 
@@ -50,6 +56,7 @@ const ContactModal = ({ handleClose }) => {
   };
 
   return (
+    //* element to call const dropIn
     <motion.div
       onClick={(e) => e.stopPropagation()}
       variants={dropIn}
@@ -57,14 +64,19 @@ const ContactModal = ({ handleClose }) => {
       animate="visible"
       exit="exit"
     >
+      {/* //* box outlines can be enabled through the css  */}
       <div data-testid="CM1" className="contactBox1">
         <div className="contactBox2">
           <div className="close">
             <button onClick={handleClose}>X</button>
           </div>
+
+          {/* //* element call form & sendEmail to send email */}
+          {/* //* input elements used to enter information */}
           <form ref={form} onSubmit={sendEmail}>
             <h1 data-testid="CM2">Contact</h1>
             <div className="inputContainer">
+              {/* //* email input */}
               <div className="contactInput">
                 <input
                   data-testid="CM3"
@@ -75,6 +87,8 @@ const ContactModal = ({ handleClose }) => {
                 <span data-testid="CM4">Email</span>
                 <i></i>
               </div>
+
+              {/* //* subject input */}
               <div className="contactInput">
                 <input
                   data-testid="CM5"
@@ -85,6 +99,8 @@ const ContactModal = ({ handleClose }) => {
                 <span data-testid="CM6">Subject</span>
                 <i></i>
               </div>
+
+              {/* //* description input */}
               <div className="contactInput">
                 <input
                   data-testid="CM7"
@@ -96,6 +112,8 @@ const ContactModal = ({ handleClose }) => {
                 <i></i>
               </div>
             </div>
+
+            {/* //* send button */}
             <div className="contactButtonContainer">
               <button data-testid="CM9" type="submit" value="Send">
                 <div data-testid="CM10" className="contactButton">
