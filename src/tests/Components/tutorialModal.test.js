@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import TutorialModal from "../Components/tutorialModal.js";
+import TutorialModal from "../../Components/tutorialModal.js";
 
 test("Should render modal", () => {
   render(<TutorialModal />);

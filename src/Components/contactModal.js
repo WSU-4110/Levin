@@ -7,7 +7,7 @@ import "./Styling/contactModal.css";
 //* backend imports
 import emailjs from "emailjs-com";
 
-//* modal visible/exit animation
+//* modal visible/ exit animation
 const dropIn = {
   hidden: {
     y: "-100vh",
@@ -56,7 +56,7 @@ const ContactModal = ({ handleClose }) => {
   };
 
   return (
-    //* element to call const dropIn
+    //* element call const dropIn
     <motion.div
       onClick={(e) => e.stopPropagation()}
       variants={dropIn}
@@ -71,7 +71,7 @@ const ContactModal = ({ handleClose }) => {
             <button onClick={handleClose}>X</button>
           </div>
 
-          {/* //* element call form & sendEmail to send email */}
+          {/* //* form element calling sendEmail to send emails */}
           {/* //* input elements used to enter information */}
           <form ref={form} onSubmit={sendEmail}>
             <h1 data-testid="CM2">Contact</h1>

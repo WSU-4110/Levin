@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import ContactModal from "../Components/contactModal.js";
+import ContactModal from "../../Components/contactModal.js";
 
 //! add backend test
 

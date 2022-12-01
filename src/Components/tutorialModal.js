@@ -6,7 +6,7 @@ import React from "react";
 //* Temp Video Example
 import Video from "./Tutorial_Video/Temp_Video.mp4";
 
-//* modal visible/exit animation
+//* modal visible/ exit animation
 const dropIn = {
   hidden: {
     y: "-100vh",
@@ -30,7 +30,7 @@ const dropIn = {
 
 const TutorialModal = ({ handleClose }) => {
   return (
-    //* element to call const dropIn
+    //* element call const dropIn
     <motion.div
       onClick={(e) => e.stopPropagation()}
       variants={dropIn}
