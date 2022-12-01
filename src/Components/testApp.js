@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Konva from "konva";
-import { Stage, Layer, Rect } from "react-konva";
+import { Stage, Layer, Rect, Group } from "react-konva";
 
 // creates a random number between 1 and a number parameter passed in as "num"
 const random = num => Math.floor(Math.random() * num) + 1;
@@ -9,8 +9,8 @@ const random = num => Math.floor(Math.random() * num) + 1;
 const newRectangle = () => ({
   x: random(250),
   y: random(300),
-  width: random(100),
-  height: random(100)
+  width: 150,
+  height: 200
 });
 
 export default class TestApp extends Component {
@@ -61,19 +61,33 @@ export default class TestApp extends Component {
     <Stage width={window.innerWidth} height={window.innerHeight}>
       <Layer>
         {this.state.canvas.map(({ height, width, x, y }, key) => ( // like a "for loop", this maps over this.state.canvas objects and pulls out the height, width, x, y properties to be used below
-          <Rect
-            key={key}
-            x={x}
-            y={y}
-            width={width}
-            height={height}
-            stroke="grey"
-            draggable
-            fill="blue"
-            shadowOffset={{ x: 5, y: 5 }}
-            onDragStart={this.handleDragStart}
-            onDragEnd={this.handleDragEnd}
-          />
+          <Group onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd} draggable x={x} y={y}>
+            <Rect
+              key={key}
+              //x={x}
+              //y={y}
+              width={width}
+              height={height}
+              stroke="grey"
+              //draggable
+              fill="blue"
+              shadowOffset={{ x: 5, y: 5 }}
+              //onDragStart={this.handleDragStart}
+              //onDragEnd={this.handleDragEnd}
+            />
+            <Rect
+              key={key}
+              //x={x}
+              //y={y}
+              width={width}
+              height={height/5}
+              stroke="grey"
+              //draggable
+              fill="green"
+              //onDragStart={this.handleDragStart}
+              //onDragEnd={this.handleDragEnd}
+            />
+          </Group>
         ))}
       </Layer>
       <Layer>
