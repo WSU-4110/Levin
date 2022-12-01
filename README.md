@@ -9,10 +9,11 @@
 
     npm install react-scripts --save
     npm install react-router-dom --save
-    
+
 # Libraries
 
 ### [Framer Motion](https://www.framer.com/docs/)
+
     npm install framer-motion --save
 
 ### [EmailJS](https://www.emailjs.com/docs/)
