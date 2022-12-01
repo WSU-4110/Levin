@@ -5,38 +5,35 @@
     npm test
     npm eject
 
-# Installs
-
-#### React
+# React
 
     npm install react-scripts --save
     npm install react-router-dom --save
+    
+# Libraries
 
-#### Libraries
-
-## https://www.framer.com/motion/
-
+## [Framer Motion](https://www.framer.com/docs/)
     npm install framer-motion --save
 
-## https://codesandbox.io/s/scrollbooster-examples-forked-7c0nch?file=/index.html
-
-    npm install scrollbooster --save
-
-## https://www.emailjs.com/
+## [EmailJS](https://www.emailjs.com/docs/)
 
     npm install @emailjs/browser --save
 
-## https://konvajs.org/docs/index.html
+## [Konva](https://konvajs.org/docs/index.html)
 
     npm install react-konva konva --save
 
-## https://jestjs.io/
+## [Jest](https://jestjs.io/docs/getting-started)
 
     npm install --save-dev jest
 
-#### Icons
+# Icons
+
+## [React Icons](https://react-icons.github.io/react-icons/)
 
     npm install react-icons --save
+
+## [Font Awesome](https://fontawesome.com/docs)
 
     npm install --save @fortawesome/free-brands-svg-icons
 
@@ -44,8 +41,10 @@
 
     npm install --save @fortawesome/free-solid-svg-icons
 
+## [Box Icons](https://boxicons.com/)
+
     npm install boxicons --save
 
-    npm install framer-motion --save
+## [Material UI](https://mui.com/material-ui/material-icons/)
 
     npm install @mui/icons-material @mui/material @emotion/styled @emotion/react --save
