@@ -1,6 +1,9 @@
 # Scripts
 
     npm start
+    npm build
+    npm test
+    npm eject
 
 # Installs
 
@@ -26,6 +29,10 @@
 ## https://konvajs.org/docs/index.html
 
     npm install react-konva konva --save
+
+## https://jestjs.io/
+
+    npm install --save-dev jest
 
 #### Icons
 
