@@ -1,13 +1,14 @@
+import { rootShouldForwardProp } from "@mui/material/styles/styled.js";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App.js";
-import { AuthProvider } from "./Backend/AuthProvider.js";
+import { AuthProvider } from "./Backend/AuthProvider";
+import TestApp from "./Components/testApp.js";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <AuthProvider>
-      <App />
-    </AuthProvider>
-  </React.StrictMode>,
-  document.getElementById("root")
-); 
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+<React.StrictMode>
+  <AuthProvider>
+    <App/>
+  </AuthProvider>
+</React.StrictMode>)

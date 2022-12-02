@@ -8,7 +8,7 @@ import Settings from "./Pages/settings.js";
 import PrivacyPolicy from "./Pages/privacypol.js";
 import TermsAndConditions from "./Pages/terms&con.js";
 import ResetPassword from "./Pages/resetPass";
-import KonvaReactTest from "./Pages/konva_react_test";
+import TestApp from "./Components/testApp";
 
 function App() {
   return (
