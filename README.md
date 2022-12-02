@@ -24,6 +24,10 @@
 
     npm install react-konva konva --save
 
+### [Konva Utils](https://www.npmjs.com/package/react-konva-utils?activeTab=readme)
+
+    npm install react-konva-utils --save
+
 ### [Jest](https://jestjs.io/docs/getting-started)
 
     npm install --save-dev jest

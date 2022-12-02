@@ -127,7 +127,7 @@ const Add2 = (
   </React.Fragment>
 );
 
-function Test() {
+function MUIcont() {
   return (
     <div className="titleContainer">
       <Card
@@ -140,10 +140,10 @@ function Test() {
       >
         {card}
       </Card>
-      {Add1}
-      {Add2}
+      {/* {Add1}
+      {Add2} */}
     </div>
   );
 }
 
-export default Test;
+export default MUIcont;
