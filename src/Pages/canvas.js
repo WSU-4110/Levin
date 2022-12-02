@@ -7,9 +7,9 @@ import "./Styling/canvas.css";
 
 function Canvas() {
   return (
-    <div className="canvasContainer1">
+    <div>
       <Sidebar />
-      <div className="canvasContainer2">
+      <div className="canvasContainer">
         <Stage
           width={window.innerWidth}
           height={window.innerHeight}
