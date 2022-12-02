@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Konva from "konva";
-import { Stage, Layer, Rect, Group } from "react-konva";
+import { Stage, Layer, Rect, Group, Arrow } from "react-konva";
 
 // creates a random number between 1 and a number parameter passed in as "num"
 const random = num => Math.floor(Math.random() * num) + 1;
@@ -58,10 +58,10 @@ export default class TestApp extends Component {
   };
 
   render = () => (
-    <Stage width={window.innerWidth} height={window.innerHeight}>
+    <Stage width={window.innerWidth} height={window.innerHeight} draggable>
       <Layer>
         {this.state.canvas.map(({ height, width, x, y }, key) => ( // like a "for loop", this maps over this.state.canvas objects and pulls out the height, width, x, y properties to be used below
-          <Group onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd} draggable x={x} y={y}>
+          <Group onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd} draggable x={Math.round((x/10)*10)} y={Math.round((y/10)*10)}>
             <Rect
               key={key}
               //x={x}
@@ -91,14 +91,25 @@ export default class TestApp extends Component {
         ))}
       </Layer>
       <Layer>
-      <Rect
+        <Group onClick={this.handleClick}>
+        <Rect
             x={200}
             y={200}
             width={100}
             height={100}
             fill="red"
-            onClick={this.handleClick}
+            //onClick={this.handleClick}
             />
+        <Arrow
+            x={280}
+            y={250}
+            pointerWidth={50}
+            pointerLength={50}
+            fill="blue"
+            stroke="white"
+            strokeWidth={2}
+        />
+        </Group>
       </Layer>
     </Stage>
   );
