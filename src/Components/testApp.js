@@ -18,10 +18,7 @@ export default class TestApp extends Component {
   state = {
     canvas: [
       {
-        x: 250,
-        y: 25,
-        width: 50,
-        height: 100
+       
       }
     ]
   };
