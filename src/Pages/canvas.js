@@ -19,7 +19,7 @@ function Canvas() {
             <ContainerStyle />
           </Layer>
         </Stage>
-        <MUIcont />
+        {/* <MUIcont /> */}
       </div>
     </div>
   );

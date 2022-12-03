@@ -8,7 +8,7 @@ function InputStyle(width, height) {
     height: `${height}px`,
     left: 0,
     border: "none",
-    borderRadius: 10,
+    borderBottom: "2px solid black",
     padding: "10px",
     background: "none",
     resize: "none",

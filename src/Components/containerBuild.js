@@ -2,6 +2,7 @@ import React from "react";
 import { Group, Rect } from "react-konva";
 import { TitleBuild } from "./titleBuild";
 import { ContentBuild } from "./contentBuild";
+import { ContainerFooter } from "./containerFooter";
 
 export function ContainerBuild({ color, text, x, y, width, height, onClick }) {
   return (
@@ -23,7 +24,9 @@ export function ContainerBuild({ color, text, x, y, width, height, onClick }) {
       <TitleBuild x={10} y={10} text={text} width={160} height={25} />
 
       {/* //* content Text Area */}
-      <ContentBuild x={10} y={65} text={text} width={160} height={165} />
+      <ContentBuild x={10} y={65} text={text} width={160} height={140} />
+
+      <ContainerFooter x={10} y={220} text={text} width={160} height={10} />
     </Group>
   );
 }
