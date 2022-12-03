@@ -1,7 +1,8 @@
 import React from "react";
 import Sidebar from "../Components/sidebar.js";
 import { Stage, Layer } from "react-konva";
-import ContainerStyle from "./containerStyle";
+import MUIcont from "./MUIcont";
+import ContainerStyle from "../Components/containerStyle";
 import "./Styling/canvas.css";
 
 function Canvas() {
@@ -18,6 +19,7 @@ function Canvas() {
             <ContainerStyle />
           </Layer>
         </Stage>
+        <MUIcont />
       </div>
     </div>
   );
