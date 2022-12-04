@@ -2,7 +2,7 @@ import React from "react";
 import { Group, Rect } from "react-konva";
 import { TitleBuild } from "./titleBuild";
 import { ContentBuild } from "./contentBuild";
-import { ContainerFooter } from "./containerFooter";
+import { ContainerFooter } from "./conFooter";
 
 export function ContainerBuild({ color, text, x, y, width, height, onClick }) {
   return (
@@ -18,6 +18,7 @@ export function ContainerBuild({ color, text, x, y, width, height, onClick }) {
         shadowBlur={25}
         shadowOpacity={0.25}
         cornerRadius={10}
+        globalCompositeOperation="xor"
       />
 
       {/* //* title Text Area */}
