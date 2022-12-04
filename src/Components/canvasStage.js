@@ -3,9 +3,6 @@ import Konva from "konva";
 import { Stage, Layer, Rect, Group } from "react-konva";
 import ContainerStyle from "./conStyle";
 
-// creates a random number between 1 and a number parameter passed in as "num"
-const random = (num) => Math.floor(Math.random() * num) + 1;
-
 export default class TestApp extends Component {
   // initializing state with a canvas JSON Array with a default rectangle
   state = {
@@ -50,26 +47,27 @@ export default class TestApp extends Component {
             (
               key // like a "for loop", this maps over this.state.canvas objects and pulls out the height, width, x, y properties to be used below
             ) => (
+              //* container
               <Group
+                draggable
                 key={key}
                 onDragStart={this.handleDragStart}
                 onDragEnd={this.handleDragEnd}
-                draggable
               >
                 {/* //* container style */}
                 <ContainerStyle />
               </Group>
             )
           )}
-        </Layer>
 
-        {/* //* button */}
-        <Layer>
+          {/* //* add container button  */}
           <Group
             x={-979}
             y={375}
             draggable
+            //* calling handleClick to generate container
             onClick={this.handleClick}
+            //* cursor pointer on hover
             onMouseEnter={(e) => {
               const container = e.target.getStage().container();
               container.style.cursor = "pointer";
@@ -79,57 +77,56 @@ export default class TestApp extends Component {
               container.style.cursor = "default";
             }}
           >
-            <div className="test123">
-              {/* //* add container */}
-              <Rect x={1000} y={100} width={35} height={35} />
+            <Rect x={1000} y={100} width={35} height={35} />
 
-              <Rect
-                cornerRadius={3}
-                x={1000}
-                y={100}
-                width={15}
-                height={15}
-                fill="black"
-              />
+            {/* //* top left square */}
+            <Rect
+              cornerRadius={3}
+              x={1000}
+              y={100}
+              width={15}
+              height={15}
+              fill="black"
+            />
 
-              <Rect
-                cornerRadius={3}
-                x={1000}
-                y={120}
-                width={15}
-                height={15}
-                fill="black"
-              />
+            {/* //* bottom left square */}
+            <Rect
+              cornerRadius={3}
+              x={1000}
+              y={120}
+              width={15}
+              height={15}
+              fill="black"
+            />
 
-              <Rect
-                cornerRadius={3}
-                x={1020}
-                y={100}
-                width={15}
-                height={15}
-                fill="black"
-              />
+            {/* //* top right square */}
+            <Rect
+              cornerRadius={3}
+              x={1020}
+              y={100}
+              width={15}
+              height={15}
+              fill="black"
+            />
 
-              {/* //* vertical */}
-              <Rect
-                cornerRadius={3}
-                x={1026.5}
-                y={120}
-                width={2.5}
-                height={15}
-                fill="black"
-              />
-
-              {/* //* horizontal */}
-              <Rect
-                cornerRadius={3}
-                x={1020}
-                y={126}
-                width={15}
-                height={2.5}
-                fill="black"
-              />
-            </div>
+            {/* //* vertical line */}
+            <Rect
+              cornerRadius={3}
+              x={1026.5}
+              y={120}
+              width={2.5}
+              height={15}
+              fill="black"
+            />
+            {/* //* horizontal line*/}
+            <Rect
+              cornerRadius={3}
+              x={1020}
+              y={126}
+              width={15}
+              height={2.5}
+              fill="black"
+            />
           </Group>
         </Layer>
       </Stage>
