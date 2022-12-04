@@ -68,7 +68,7 @@ export default class TestApp extends Component {
           <Group
             x={-979}
             y={375}
-            dragmove
+            draggable
             onClick={this.handleClick}
             onMouseEnter={(e) => {
               const container = e.target.getStage().container();

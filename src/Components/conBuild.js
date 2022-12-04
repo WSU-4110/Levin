@@ -1,5 +1,4 @@
 import React from "react";
-import Konva from "konva";
 import { Group, Rect } from "react-konva";
 import { TitleBuild } from "./titleBuild";
 import { ContentBuild } from "./contentBuild";

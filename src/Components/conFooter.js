@@ -17,18 +17,16 @@ export function ContainerFooter({ x, y }) {
         }}
       >
         {/* //* drag */}
-        <div>
-          <Rect x={76} y={15} width={28} height={17} />
-          {/* //* top row */}
-          <Circle x={80} y={28} radius={2.5} fill="black" />
-          <Circle x={90} y={28} radius={2.5} fill="black" />
-          <Circle x={100} y={28} radius={2.5} fill="black" />
+        <Rect x={76} y={15} width={28} height={17} />
+        {/* //* top row */}
+        <Circle x={80} y={28} radius={2.5} fill="white" />
+        <Circle x={90} y={28} radius={2.5} fill="white" />
+        <Circle x={100} y={28} radius={2.5} fill="white" />
 
-          {/* //* bottom row */}
-          <Circle x={80} y={18} radius={2.5} fill="black" />
-          <Circle x={90} y={18} radius={2.5} fill="black" />
-          <Circle x={100} y={18} radius={2.5} fill="black" />
-        </div>
+        {/* //* bottom row */}
+        <Circle x={80} y={18} radius={2.5} fill="white" />
+        <Circle x={90} y={18} radius={2.5} fill="white" />
+        <Circle x={100} y={18} radius={2.5} fill="white" />
       </Group>
     </div>
   );
