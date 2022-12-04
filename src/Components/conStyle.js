@@ -12,8 +12,8 @@ function ContainerStyle() {
         onClick={generateColor}
         width={200}
         height={260}
-        x={window.innerWidth / 2.23}
-        y={window.innerHeight / 3.27}
+        x={window.innerWidth / 2.25}
+        y={window.innerHeight / 2.8}
         color={"#" + color}
       />
     </div>
