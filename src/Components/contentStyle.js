@@ -8,11 +8,11 @@ function InputStyle(width, height) {
     height: `${height}px`,
     left: 0,
     border: "none",
-    borderRadius: 10,
+    borderBottom: "2px solid white",
     padding: "10px",
     background: "none",
     resize: "none",
-    color: "black",
+    color: "white",
     fontSize: "16px",
     fontFamily: "Helvetica",
   };
