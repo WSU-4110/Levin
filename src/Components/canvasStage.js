@@ -66,6 +66,8 @@ export default class TestApp extends Component {
         {/* //* button */}
         <Layer>
           <Group
+            x={-979}
+            y={375}
             dragmove
             onClick={this.handleClick}
             onMouseEnter={(e) => {
@@ -79,12 +81,54 @@ export default class TestApp extends Component {
           >
             <div className="test123">
               {/* //* add container */}
-              <Rect x={1000} y={115.5} width={15} height={15} />
+              <Rect x={1000} y={100} width={35} height={35} />
+
+              <Rect
+                cornerRadius={3}
+                x={1000}
+                y={100}
+                width={15}
+                height={15}
+                fill="black"
+              />
+
+              <Rect
+                cornerRadius={3}
+                x={1000}
+                y={120}
+                width={15}
+                height={15}
+                fill="black"
+              />
+
+              <Rect
+                cornerRadius={3}
+                x={1020}
+                y={100}
+                width={15}
+                height={15}
+                fill="black"
+              />
+
               {/* //* vertical */}
-              <Rect x={1006.5} y={115.5} width={2.5} height={15} fill="black" />
+              <Rect
+                cornerRadius={3}
+                x={1026.5}
+                y={120}
+                width={2.5}
+                height={15}
+                fill="black"
+              />
 
               {/* //* horizontal */}
-              <Rect x={1000} y={121.5} width={15} height={2.5} fill="black" />
+              <Rect
+                cornerRadius={3}
+                x={1020}
+                y={126}
+                width={15}
+                height={2.5}
+                fill="black"
+              />
             </div>
           </Group>
         </Layer>
