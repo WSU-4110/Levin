@@ -1,16 +1,17 @@
 import { React, useRef, useState, useEffect, useContext } from "react";
 
-//styling imports
+//* styling imports
 import { motion } from "framer-motion";
 import "./Styling/signupModal.css";
 import { Alert } from "@mui/material";
 
-//backend imports
+//* backend imports
 import AuthContext from "../Backend/AuthProvider";
 import axios from "../Backend/axios";
 import { color } from "@mui/system";
-// import { set } from "rsuite/esm/utils/dateUtils";
+//* import { set } from "rsuite/esm/utils/dateUtils";
 
+//* modal visible/ hidden animation
 const fadeIn = {
   hidden: {
     opacity: 0,
@@ -33,30 +34,34 @@ const fadeIn = {
 };
 
 const SignupModal = ({ handleClose }) => {
+  //* authentication context handler
   const { setAuth } = useContext(AuthContext);
 
+  //* to set focus
   const userRef = useRef();
   const errorRef = useRef();
   const passConfirmRef = useRef();
 
-  //manage input and response states
+  //* manage input and response states
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [successState, setSuccessState] = useState(false);
 
-  //set focus on page load only(no dependencies)
+  //* set focus on page load only (no dependencies)
   useEffect(() => {
     userRef.current.focus();
   }, []);
 
-  //reset error message if username/pass is changed(signifying that they read the error message)
+  //* reset error message if username/ pass is changed
+  //* (signifying that they read the error message)
   useEffect(() => {
     setErrorMsg("Failed to Login");
   }, [user, pass]);
 
-  //form submission handler.
-  //event("e") is passed automotically upon submit, does not need to be specified in argument
+  //* form submission handler.
+  //* event("e") is passed automotically upon submit,
+  //* does not need to be specified in argument
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -77,11 +82,10 @@ const SignupModal = ({ handleClose }) => {
         );
 
         console.log(JSON.stringify(response?.data));
-        // console.log(JSON.stringify(response));
-
-        // errorRef.current.severity = "success";
-        // console.log( errorRef.current.severity);
-        // setErrorMsg("Registration Successfull!");
+        //* console.log(JSON.stringify(response));
+        //* errorRef.current.severity = "success";
+        //* console.log( errorRef.current.severity);
+        //* setErrorMsg("Registration Successfull!");
         setAuth({ user, pass });
         setUser("");
         setPass("");
@@ -96,18 +100,19 @@ const SignupModal = ({ handleClose }) => {
       } else if (err.code == "ERR_NETWORK") {
         setErrorMsg("Network Connection Refused!");
       } else if (err.response?.status === 500) {
-        // console.dir(JSON.parse(err.response?.request.response));
-        if(responseObj.message.startsWith("Mail server connection failed"))
-        {
-            setErrorMsg("Account Registered but Confirmation Email Sending - Failed");
+        //* console.dir(JSON.parse(err.response?.request.response));
+
+        if (responseObj.message.startsWith("Mail server connection failed")) {
+          setErrorMsg(
+            "Account Registered but Confirmation Email Sending - Failed"
+          );
+        } else if (responseObj.message == "email already taken") {
+          setErrorMsg("Email already registered");
         }
-        else if(responseObj.message  == "email already taken")
-        {
-            setErrorMsg("Email already registered");
-        }
-        // setErrorMsg("Email Already Taken");setErrorMsg("Email Already Taken");
+
+        //* setErrorMsg("Email Already Taken");
       } else if (err.response?.status === 401) {
-         setErrorMsg("Unauthorized acccess request");
+        setErrorMsg("Unauthorized acccess request");
       } else {
         setErrorMsg("Failed to Register");
       }
@@ -116,6 +121,7 @@ const SignupModal = ({ handleClose }) => {
     }
   };
 
+  //* err response visible/ hidden animation
   const [isShown, setIsShown] = useState(false);
   const handleClick = () => {
     setTimeout(() => {
@@ -127,6 +133,7 @@ const SignupModal = ({ handleClose }) => {
   };
 
   return (
+    //* element call const fadeIn
     <motion.div
       onClick={(e) => e.stopPropagation()}
       variants={fadeIn}
@@ -134,12 +141,16 @@ const SignupModal = ({ handleClose }) => {
       animate="visible"
       exit="exit"
     >
-      <div className="signupBox1">
+      {/* //* box outlines can be enabled through the css  */}
+      <div data-testid="SM1" className="signupBox1">
         <div className="signupBox2">
           <div className="close">
             <button onClick={handleClose}>➜</button>
           </div>
-          <h1>Sign Up</h1>
+          <h1 data-testid="SM2">Sign Up</h1>
+
+          {/* //* form element calling handleSubmit */}
+          {/* //* alert element calling errorRef to prompt error */}
           <form onSubmit={handleSubmit}>
             {isShown && (
               <div className="errorSpaceContainer">
@@ -154,9 +165,13 @@ const SignupModal = ({ handleClose }) => {
                 </div>
               </div>
             )}
+
+            {/* //* input element used to enter email */}
             <div className="inputContainer">
+              {/* //* email */}
               <div className="signupInput">
                 <input
+                  data-testid="SM3"
                   type="email"
                   id="username"
                   required
@@ -164,41 +179,50 @@ const SignupModal = ({ handleClose }) => {
                   onChange={(e) => setUser(e.target.value)}
                   value={user}
                 />
-                <span>Email</span>
+                <span data-testid="SM4">Email</span>
                 <i></i>
               </div>
+
+              {/* //* password */}
               <div className="signupInput">
                 <input
+                  data-testid="SM5"
                   type="password"
                   id="password"
                   required
                   onChange={(e) => setPass(e.target.value)}
                   value={pass}
                 />
-                <span>Password</span>
+                <span data-testid="SM6">Password</span>
                 <i></i>
               </div>
+
+              {/* //* confirm password */}
               <div className="signupInput">
                 <input
+                  data-testid="SM7"
                   type="password"
                   id="password"
                   required
                   ref={passConfirmRef}
-                  // onChange={(e) => {
-                  //   if (e.target.value !== pass) {
-                  //     passConfirmRef.current.style.border = "2px red";
-                  //   } else {
-                  //     passConfirmRef.current.style.border= "2px white";
-                  //   }
-                  // }}
+                  //* onChange={(e) => {
+                  //*  if (e.target.value !== pass) {
+                  //*     passConfirmRef.current.style.border = "2px red";
+                  //*   } else {
+                  //*     passConfirmRef.current.style.border= "2px white";
+                  //*   }}}
                 />
-                <span id="confirmPass">Confirm Password</span>
+                <span data-testid="SM8" id="confirmPass">
+                  Confirm Password
+                </span>
                 <i></i>
               </div>
             </div>
+
+            {/* //* sign up button */}
             <div className="signupButtonContainer">
-              <button type="submit">
-                <div className="signupButton">
+              <button data-testid="SM9" type="submit">
+                <div data-testid="SM10" className="signupButton">
                   Sign Up
                 </div>
               </button>
