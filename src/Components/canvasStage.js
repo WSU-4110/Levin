@@ -6,8 +6,10 @@ import { Html } from "react-konva-utils";
 function useGenerateRandomColor() {
   const [colorFill, pickerColor] = useState("");
 
-  const clickColor = () => {
-    pickerColor(Math.random().toString(16).substr(-6));
+  const clickColor = (e) => {
+    if (e.evt.button === 0) {
+      pickerColor(Math.random().toString(16).substr(-6));
+    }
   };
 
   return { colorFill, clickColor };
