@@ -1,11 +1,20 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Konva from "konva";
 import { Stage, Layer, Rect, Group, Circle } from "react-konva";
 import { Html } from "react-konva-utils";
-import ContainerColor from "./containerColor";
+
+function useGenerateRandomColor() {
+  const [colorFill, pickerColor] = useState("");
+
+  const clickColor = () => {
+    pickerColor(Math.random().toString(16).substr(-6));
+  };
+
+  return { colorFill, clickColor };
+}
 
 function ContainerBuild() {
-  const { colorFill, clickColor } = ContainerColor();
+  const { colorFill, clickColor } = useGenerateRandomColor();
 
   const TitleInput = {
     width: 160,
@@ -95,14 +104,18 @@ function ContainerBuild() {
 export default class canvasStage extends Component {
   // initializing state with a canvas JSON Array with a default rectangle
   state = {
-    canvas: [{}],
+    stage: [{}],
+    // canvas: JSON.parse(localStorage.getItem("canvasObject"))
   };
 
   // when clicking on a rectangle, it creates a new rectangle by spreading out previous canvas values and adding a new set of values
   handleClick = () => {
     this.setState((prevState) => ({
-      canvas: [...prevState.canvas, <ContainerBuild />],
+      stage: [...prevState.stage, <ContainerBuild />],
     }));
+
+    console.log(this.state.stage);
+    localStorage.setItem("canvasObject", JSON.stringify(this.state.stage));
   };
 
   // handles rectangle dragging
@@ -202,7 +215,7 @@ export default class canvasStage extends Component {
         </Layer>
         {/* //* container */}
         <Layer>
-          {this.state.canvas.map(
+          {this.state.stage.map(
             (
               key // like a "for loop", this maps over this.state.canvas objects and pulls out the height, width, x, y properties to be used below
             ) => (

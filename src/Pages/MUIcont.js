@@ -1,28 +1,43 @@
 import React from "react";
 import CardContent from "@mui/material/CardContent";
-import Card from "@mui/material/Card";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import Box from "@mui/material/Box";
+import Draggable from "react-draggable";
 
-const Line = ({ color }) => (
-  <hr
-    style={{
-      borderColor: color,
-      width: "85%",
-    }}
-  />
+const content = (
+  <React.Fragment>
+    <TextareaAutosize
+      aria-label="empty textarea"
+      placeholder="Content"
+      maxRows={4}
+      minRows={4}
+      style={{
+        fontFamily: "Helvetica",
+        fontSize: 16,
+        background: "transparent",
+        resize: "none",
+        border: "none",
+        padding: 10,
+        borderBottom: "1px black solid",
+      }}
+    />
+  </React.Fragment>
 );
 
 const card = (
   <React.Fragment>
     <CardContent
       style={{
+        borderRadius: 10,
         background: "rgb(128, 125, 219)",
-        display: "flex",
+        display: "grid",
         justifyContent: "center",
+        maxWidth: 180,
+        boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.25)",
       }}
     >
       <TextareaAutosize
@@ -32,44 +47,15 @@ const card = (
           fontFamily: "Helvetica",
           fontWeight: "bold",
           fontSize: 20,
-          borderRadius: 5,
           background: "none",
           resize: "none",
           border: "none",
           padding: 5,
+          borderBottom: "2px black solid",
+          marginBottom: 10,
         }}
       />
-    </CardContent>
-    <CardContent
-      style={{
-        display: "grid",
-        justifyContent: "center",
-      }}
-    >
-      <TextareaAutosize
-        aria-label="empty textarea"
-        placeholder="Content"
-        maxRows={4}
-        style={{
-          fontFamily: "Helvetica",
-          fontSize: 16,
-          borderRadius: 5,
-          background: "transparent",
-          resize: "none",
-          border: "black 1px solid",
-          padding: 10,
-        }}
-      />
-    </CardContent>
-    <div>
-      <Line color="rgb(128, 125, 219)" />
-    </div>
-    <CardContent
-      style={{
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
+      {content}
       <Fab
         size="medium"
         aria-label="add"
@@ -80,6 +66,8 @@ const card = (
           background: "rgba(255, 255, 255, 0.1)",
           border: "none",
           zIndex: "100",
+          marginTop: 20,
+          boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.1)",
         }}
       >
         <AddIcon />
@@ -98,7 +86,7 @@ const Add1 = (
         background: "rgba(255, 255, 255, 0.1)",
         border: "none",
         position: "absolute",
-        top: "170vh",
+        top: "40rem",
         zIndex: "100",
       }}
     >
@@ -117,8 +105,8 @@ const Add2 = (
         background: "rgba(255, 255, 255, 0.1)",
         border: "none",
         position: "absolute",
-        top: "148vh",
-        right: "50vh",
+        top: "48vh",
+        right: "45rem",
         zIndex: "100",
       }}
     >
@@ -129,20 +117,18 @@ const Add2 = (
 
 function MUIcont() {
   return (
-    <div className="titleContainer">
-      <Card
-        sx={{
-          maxWidth: 200,
-          borderRadius: 3,
-          background: "rgb(128, 125, 219)",
-          boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.25)",
-        }}
+    <Draggable>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        minHeight="100vh"
       >
         {card}
-      </Card>
-      {Add1}
-      {Add2}
-    </div>
+        {Add1}
+        {Add2}
+      </Box>
+    </Draggable>
   );
 }
 

@@ -3,6 +3,12 @@
   overflow: hidden;
 }
 
+.canvasContainer1 {
+  height: 100vh;
+  z-index: 10000;
+  overflow: hidden;
+}
+
 .canvastest {
   margin-top: 100px;
   display: flex;
