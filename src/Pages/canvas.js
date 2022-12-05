@@ -108,7 +108,6 @@ const Add = (
     </Fab>
   </React.Fragment>
 );
->>>>>>>>> Temporary merge branch 2
 
 function Canvas(props) {
 
