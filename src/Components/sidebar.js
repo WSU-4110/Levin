@@ -13,7 +13,7 @@ import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import PrivacyTipIcon from "@mui/icons-material/PrivacyTip";
 import HomeRepairServiceIcon from "@mui/icons-material/HomeRepairService";
 import CopyrightIcon from "@mui/icons-material/Copyright";
-import Icons from "./icons.js";
+import PageIcons from "./pageIcons.js";
 import TutorialModal from "./tutorialModal.js";
 import LoginModal from "./loginModal.js";
 import ContactModal from "./contactModal.js";
@@ -63,7 +63,7 @@ function Sidebar(props) {
           <div className="content">
             <div>
               <Link className="pages Canvas" to="/">
-                <Icons icon={<TableChartIcon />} />
+                <PageIcons icon={<TableChartIcon />} />
                 <div className="tab one">
                   <div>Canvas</div>
                 </div>
@@ -74,7 +74,7 @@ function Sidebar(props) {
                   tutorialModalOpen ? tutorialClose() : tutorialOpen()
                 }
               >
-                <Icons icon={<SupportSharpIcon />} />
+                <PageIcons icon={<SupportSharpIcon />} />
                 <div className="tab two">
                   <div>Tutorials</div>
                 </div>
@@ -92,13 +92,13 @@ function Sidebar(props) {
                 )}
               </AnimatePresence>
               <Link className="pages Settings" to="/Settings">
-                <Icons icon={<SettingsIcon />} />
+                <PageIcons icon={<SettingsIcon />} />
                 <div className="tab four">
                   <div>Settings</div>
                 </div>
               </Link>
               <Link className="pages Logout">
-                <Icons icon={<LogoutIcon />} />
+                <PageIcons icon={<LogoutIcon />} />
                 <div className="tab five">
                   <div>Log Out</div>
                 </div>
@@ -112,7 +112,7 @@ function Sidebar(props) {
                   contactModalOpen ? contactClose() : contactOpen()
                 }
               >
-                <Icons icon={<HelpOutlineIcon />} />
+                <PageIcons icon={<HelpOutlineIcon />} />
                 <div className="tab six">
                   <div>Contact</div>
                 </div>
@@ -130,7 +130,7 @@ function Sidebar(props) {
                 )}
               </AnimatePresence>
               <Link className="pages PrivacyPolicy" to="/PrivacyPolicy">
-                <Icons icon={<PrivacyTipIcon />} />
+                <PageIcons icon={<PrivacyTipIcon />} />
                 <div className="tab seven">
                   <div>Privacy Policy</div>
                 </div>
@@ -139,13 +139,13 @@ function Sidebar(props) {
                 className="pages TermsAndConditions"
                 to="/TermsAndConditions"
               >
-                <Icons icon={<HomeRepairServiceIcon />} />
+                <PageIcons icon={<HomeRepairServiceIcon />} />
                 <div className="tab eight">
                   <div>Terms of Service</div>
                 </div>
               </Link>
               <div className="pages Copyright">
-                <Icons icon={<CopyrightIcon />} />
+                <PageIcons icon={<CopyrightIcon />} />
                 <div className="tab nine">
                   <div>© Levin Ltd. 2022</div>
                 </div>
@@ -173,7 +173,7 @@ function Sidebar(props) {
             <div>
               {/* //* canvas */}
               <Link className="pages Canvas" to="/">
-                <Icons icon={<TableChartIcon />} />
+                <PageIcons icon={<TableChartIcon />} />
                 <div className="tab one">
                   <div>Canvas</div>
                 </div>
@@ -186,7 +186,7 @@ function Sidebar(props) {
                   tutorialModalOpen ? tutorialClose() : tutorialOpen()
                 }
               >
-                <Icons icon={<SupportSharpIcon />} />
+                <PageIcons icon={<SupportSharpIcon />} />
                 <div className="tab two">
                   <div>Tutorials</div>
                 </div>
@@ -211,7 +211,7 @@ function Sidebar(props) {
                 className="pages Login button"
                 onClick={() => (loginModalOpen ? loginClose() : loginOpen())}
               >
-                <Icons icon={<LoginSharpIcon />} />
+                <PageIcons icon={<LoginSharpIcon />} />
                 <div className="tab three">
                   <div>Log In</div>
                 </div>
@@ -243,7 +243,7 @@ function Sidebar(props) {
                   contactModalOpen ? contactClose() : contactOpen()
                 }
               >
-                <Icons icon={<HelpOutlineIcon />} />
+                <PageIcons icon={<HelpOutlineIcon />} />
                 <div className="tab six">
                   <div>Contact</div>
                 </div>
@@ -265,7 +265,7 @@ function Sidebar(props) {
 
               {/* //* linking privacy policy */}
               <Link className="pages PrivacyPolicy" to="/PrivacyPolicy">
-                <Icons icon={<PrivacyTipIcon />} />
+                <PageIcons icon={<PrivacyTipIcon />} />
                 <div className="tab seven">
                   <div>Privacy Policy</div>
                 </div>
@@ -276,7 +276,7 @@ function Sidebar(props) {
                 className="pages TermsAndConditions"
                 to="/TermsAndConditions"
               >
-                <Icons icon={<HomeRepairServiceIcon />} />
+                <PageIcons icon={<HomeRepairServiceIcon />} />
                 <div className="tab eight">
                   <div>Terms of Service</div>
                 </div>
@@ -284,7 +284,7 @@ function Sidebar(props) {
 
               {/* //* copyright */}
               <div className="pages Copyright">
-                <Icons icon={<CopyrightIcon />} />
+                <PageIcons icon={<CopyrightIcon />} />
                 <div className="tab nine">
                   <div>© Levin Ltd. 2022</div>
                 </div>
