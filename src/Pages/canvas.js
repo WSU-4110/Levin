@@ -1,4 +1,4 @@
-import React from "react";
+import {React , useState} from "react";
 import { Stage, Layer, Rect } from "react-konva";
 import Sidebar from "../Components/sidebar.js";
 import Container from "./container.js";
