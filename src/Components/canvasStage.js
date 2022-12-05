@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Konva from "konva";
 import { Stage, Layer, Rect, Group } from "react-konva";
-import ContainerStyle from "./conStyle";
+import ContainerBuild from "./containerBuild";
 
-export default class TestApp extends Component {
+export default class canvasStage extends Component {
   // initializing state with a canvas JSON Array with a default rectangle
   state = {
     canvas: [{}],
@@ -12,7 +12,7 @@ export default class TestApp extends Component {
   // when clicking on a rectangle, it creates a new rectangle by spreading out previous canvas values and adding a new set of values
   handleClick = () => {
     this.setState((prevState) => ({
-      canvas: [...prevState.canvas, <ContainerStyle />],
+      canvas: [...prevState.canvas, <ContainerBuild />],
     }));
   };
 
@@ -41,26 +41,8 @@ export default class TestApp extends Component {
   render = () => (
     <div>
       <Stage width={window.innerWidth} height={window.innerHeight} draggable>
-        {/* //* container */}
+        {/* //* add container button  */}
         <Layer>
-          {this.state.canvas.map(
-            (
-              key // like a "for loop", this maps over this.state.canvas objects and pulls out the height, width, x, y properties to be used below
-            ) => (
-              //* container
-              <Group
-                draggable
-                key={key}
-                onDragStart={this.handleDragStart}
-                onDragEnd={this.handleDragEnd}
-              >
-                {/* //* container style */}
-                <ContainerStyle />
-              </Group>
-            )
-          )}
-
-          {/* //* add container button  */}
           <Group
             x={-979}
             y={375}
@@ -128,6 +110,26 @@ export default class TestApp extends Component {
               fill="black"
             />
           </Group>
+        </Layer>
+        {/* //* container */}
+        <Layer>
+          {this.state.canvas.map(
+            (
+              key // like a "for loop", this maps over this.state.canvas objects and pulls out the height, width, x, y properties to be used below
+            ) => (
+              //* container
+              <Group
+                draggable
+                key={key}
+                onDragStart={this.handleDragStart}
+                onDragEnd={this.handleDragEnd}
+                x={window.innerWidth / 2.25}
+                y={window.innerHeight / 2.8}
+              >
+                <ContainerBuild />
+              </Group>
+            )
+          )}
         </Layer>
       </Stage>
     </div>
