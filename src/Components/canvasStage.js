@@ -68,7 +68,7 @@ export default class canvasStage extends Component {
               y={100}
               width={15}
               height={15}
-              fill="black"
+              fill="rgb(0,174,112)"
             />
 
             {/* //* bottom left square */}
@@ -78,7 +78,7 @@ export default class canvasStage extends Component {
               y={120}
               width={15}
               height={15}
-              fill="black"
+              fill="rgb(0,151,158)"
             />
 
             {/* //* top right square */}
@@ -88,7 +88,7 @@ export default class canvasStage extends Component {
               y={100}
               width={15}
               height={15}
-              fill="black"
+              fill="rgb(0,160,140)"
             />
 
             {/* //* vertical line */}
@@ -98,7 +98,7 @@ export default class canvasStage extends Component {
               y={120}
               width={2.5}
               height={15}
-              fill="black"
+              fill="rgb(0,141,179)"
             />
             {/* //* horizontal line*/}
             <Rect
@@ -107,7 +107,7 @@ export default class canvasStage extends Component {
               y={126}
               width={15}
               height={2.5}
-              fill="black"
+              fill="rgb(0,141,179)"
             />
           </Group>
         </Layer>
