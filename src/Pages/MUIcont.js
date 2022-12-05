@@ -98,7 +98,7 @@ const Add1 = (
         background: "rgba(255, 255, 255, 0.1)",
         border: "none",
         position: "absolute",
-        top: "70vh",
+        top: "170vh",
         zIndex: "100",
       }}
     >
@@ -117,8 +117,8 @@ const Add2 = (
         background: "rgba(255, 255, 255, 0.1)",
         border: "none",
         position: "absolute",
-        top: "48vh",
-        right: "79vh",
+        top: "148vh",
+        right: "50vh",
         zIndex: "100",
       }}
     >
@@ -127,7 +127,7 @@ const Add2 = (
   </React.Fragment>
 );
 
-function Test() {
+function MUIcont() {
   return (
     <div className="titleContainer">
       <Card
@@ -146,4 +146,4 @@ function Test() {
   );
 }
 
-export default Test;
+export default MUIcont;

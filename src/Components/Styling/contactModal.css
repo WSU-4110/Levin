@@ -47,6 +47,7 @@
   position: absolute;
   display: flex;
   flex-direction: column;
+  font-weight: bold;
   /* outline: 1px solid red; */
 }
 
