@@ -19,9 +19,12 @@ export function ContainerTitle() {
     // outline: "1px solid red",
   };
 
+  
   return (
     <Html>
-      <textarea style={TitleInput} placeholder="Enter Title" />
+      <textarea style={TitleInput} id="containerText" placeholder="Enter Title" 
+      // onChange={() => {console.log(document.getElementById("containterText"))}}
+          />
     </Html>
   );
 }
