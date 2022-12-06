@@ -1,8 +1,13 @@
 import { react, useRef } from "react";
+
+//* styling imports
 import { motion } from "framer-motion";
 import "./Styling/contactModal.css";
+
+//* backend imports
 import emailjs from "emailjs-com";
 
+//* modal visible/ exit animation
 const dropIn = {
   hidden: {
     y: "-100vh",
@@ -24,6 +29,7 @@ const dropIn = {
   },
 };
 
+//! add backend comment
 const ContactModal = ({ handleClose }) => {
   const form = useRef();
 
@@ -50,6 +56,7 @@ const ContactModal = ({ handleClose }) => {
   };
 
   return (
+    //* element call const dropIn
     <motion.div
       onClick={(e) => e.stopPropagation()}
       variants={dropIn}
@@ -57,33 +64,61 @@ const ContactModal = ({ handleClose }) => {
       animate="visible"
       exit="exit"
     >
-      <div className="contactBox1">
+      {/* //* box outlines can be enabled through the css  */}
+      <div data-testid="CM1" className="contactBox1">
         <div className="contactBox2">
           <div className="close">
             <button onClick={handleClose}>X</button>
           </div>
+
+          {/* //* form element calling sendEmail to send emails */}
+          {/* //* input elements used to enter information */}
           <form ref={form} onSubmit={sendEmail}>
-            <h1>Contact</h1>
+            <h1 data-testid="CM2">Contact</h1>
             <div className="inputContainer">
+              {/* //* email input */}
               <div className="contactInput">
-                <input type="text" required="required" name="email"></input>
-                <span>Email</span>
+                <input
+                  data-testid="CM3"
+                  type="text"
+                  required="required"
+                  name="email"
+                ></input>
+                <span data-testid="CM4">Email</span>
                 <i></i>
               </div>
+
+              {/* //* subject input */}
               <div className="contactInput">
-                <input type="text" required="required" name="Subject"></input>
-                <span>Subject</span>
+                <input
+                  data-testid="CM5"
+                  type="text"
+                  required="required"
+                  name="Subject"
+                ></input>
+                <span data-testid="CM6">Subject</span>
                 <i></i>
               </div>
+
+              {/* //* description input */}
               <div className="contactInput">
-                <input type="text" required="required" name="message"></input>
-                <span>Description</span>
+                <input
+                  data-testid="CM7"
+                  type="text"
+                  required="required"
+                  name="message"
+                ></input>
+                <span data-testid="CM8">Description</span>
                 <i></i>
               </div>
             </div>
+
+            {/* //* send button */}
             <div className="contactButtonContainer">
-              <button type="submit" value="Send">
-                <div className="contactButton">Send</div>
+              <button data-testid="CM9" type="submit" value="Send">
+                <div data-testid="CM10" className="contactButton">
+                  Send
+                </div>
               </button>
             </div>
           </form>

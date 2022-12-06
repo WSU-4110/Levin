@@ -1,10 +1,12 @@
+//* styling imports
 import React from "react";
 import "./Styling/privacypol.css";
 import Sidebar from "../Components/sidebar.js";
 
+//* content gathered from a privacy policy generator
 function PrivacyPolicy() {
   return (
-    <div>
+    <div data-testid="PP1">
       <Sidebar />
       <div className="privacypol1">
         <div className="privacypol2">
