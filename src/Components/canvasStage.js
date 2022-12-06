@@ -31,6 +31,7 @@ function ContainerBuild() {
     fontSize: "20px",
     fontFamily: "Helvetica",
     fontWeight: "bold",
+    opacity: 1
     // outline: "1px solid red",
   };
 
@@ -48,6 +49,7 @@ function ContainerBuild() {
     color: "white",
     fontSize: "16px",
     fontFamily: "Helvetica",
+    opacity: 1
     // outline: "1px solid red",
   };
 
@@ -86,6 +88,7 @@ function ContainerBuild() {
           const container = e.target.getStage().container();
           container.style.cursor = "default";
         }}
+        
       >
         {/* //* drag */}
         <Rect x={85} y={235} width={28} height={17} />
@@ -141,6 +144,19 @@ export default class canvasStage extends Component {
       zIndex: 20,
     });
   };
+
+  handleRightClick = (e) => {
+    if (e.evt.button === 2) {
+      e.target.setAttrs({
+        visible: false,
+        opacity: 0
+      })
+    }
+  }; 
+
+  generateKey = () => {
+    return Math.floor(Math.random() * 9999);
+  }
 
   render = () => (
     <div>
@@ -219,7 +235,7 @@ export default class canvasStage extends Component {
         <Layer>
           {this.state.stage.map(
             (
-              key // like a "for loop", this maps over this.state.canvas objects and pulls out the height, width, x, y properties to be used below
+              key = this.stage.length() // like a "for loop", this maps over this.state.canvas objects and pulls out the height, width, x, y properties to be used below
             ) => (
               //* container
               <Group
@@ -229,8 +245,9 @@ export default class canvasStage extends Component {
                 onDragEnd={this.handleDragEnd}
                 x={window.innerWidth / 2.25}
                 y={window.innerHeight / 2.8}
+                onClick={this.handleRightClick}
               >
-                <ContainerBuild />
+                <ContainerBuild/>
               </Group>
             )
           )}

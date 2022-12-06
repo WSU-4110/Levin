@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "../Components/sidebar.js";
 import CanvasStage from "../Components/canvasStage.js";
-import MUIcont from "./MUIcont.js";
+//import MUIcont from "./MUIcont.js";
 import "./Styling/canvas.css";
 import TestApp from "../Components/testApp.js";
 
