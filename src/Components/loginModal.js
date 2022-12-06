@@ -10,6 +10,7 @@ import ForgotModal from "./forgotModal.js";
 //* backend imports
 import AuthContext from "../Backend/AuthProvider";
 import axios from "../Backend/axios";
+import { AccessTime } from "@mui/icons-material";
 //* import { set } from "rsuite/esm/utils/dateUtils";
 
 //* modal visible/ exit animation
@@ -84,13 +85,20 @@ const LoginModal = ({ handleClose }) => {
         }
       );
 
-      console.log(response);
+      // console.log(response);
+      console.dir(response.data);
+      const loginResponse = response.data;
+      const accessToken = loginResponse.access_token;
+      // console.log(accessToken);
+      localStorage.setItem("access_token", accessToken);
       // console.log(JSON.stringify(response));
 
       setAuth({ user, pass });
       setUser("");
       setPass("");
       setSuccessState(true);
+      
+
     } catch (err) {
       console.dir(err);
       if (!err.response) {

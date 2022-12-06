@@ -56,7 +56,7 @@ const SignupModal = ({ handleClose }) => {
   //* reset error message if username/ pass is changed
   //* (signifying that they read the error message)
   useEffect(() => {
-    setErrorMsg("Failed to Login");
+    setErrorMsg("");
   }, [user, pass]);
 
   //* form submission handler.
@@ -68,6 +68,7 @@ const SignupModal = ({ handleClose }) => {
     try {
       if (pass != passConfirmRef.current.value) {
         setErrorMsg("Passwords do not match!");
+        handleClick();
       } else {
         const response = await axios.post(
           "api/registration",
@@ -94,7 +95,8 @@ const SignupModal = ({ handleClose }) => {
       }
     } catch (err) {
       console.dir(err);
-      const responseObj = JSON.parse(err.response?.request.response);
+      
+      const responseObj = JSON.parse(err.response.request?.response);
       if (!err.response) {
         setErrorMsg("No Response from server");
       } else if (err.code == "ERR_NETWORK") {
@@ -116,7 +118,10 @@ const SignupModal = ({ handleClose }) => {
       } else {
         setErrorMsg("Failed to Register");
       }
+
+      
       handleClick();
+      console.log("working");
       errorRef.current.focus();
     }
   };

@@ -1,4 +1,4 @@
-import {React, useState} from "react";
+import { React, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -12,22 +12,24 @@ import ResetPassword from "./Pages/resetPass";
 import axios from "./Backend/axios";
 
 function App() {
-
-  const [successState, setSuccessState] = useState("");
+  const [successState, setSuccessState] = useState("false");
   const [errorMessage, setErrorMsg] = useState("");
-  const authorize = async (e) => {
 
+  const authorize = async (e) => {
     try {
-      
+      const access_token = localStorage.getItem("access_token");
+      console.log("token: " + access_token);
+
       const response = await axios.get(
         "authenticate/authenticateAccessToken",
-        JSON.stringify({ token: "", email: ""}),
         {
+          params: { token: access_token },
           headers: {
-            "Content-Type": "application/json",
+            // "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Credentials": "true",
-          },
+            "Authorization": "Bearer " + access_token
+          }
         }
       );
 
@@ -39,7 +41,6 @@ function App() {
       console.dir(err);
       if (!err.response) {
         setErrorMsg("No Response from server");
-        
       } else if (err.code == "ERR_NETWORK") {
         setErrorMsg("Network Connection Refused");
       } else if (err.response?.status === 500) {
@@ -50,22 +51,25 @@ function App() {
         setErrorMsg("Failed to Authorize");
       }
 
+      console.log(errorMessage);
     }
   };
 
   return (
-    <Router onLoad = {authorize}>
-      <Routes>
-        <Route path="/" element={<Canvas sucessStateProp = {successState} />} />
-        <Route path="Settings" element={<Settings />}></Route>
-        <Route path="PrivacyPolicy" element={<PrivacyPolicy />}></Route>
-        <Route
-          path="TermsAndConditions"
-          element={<TermsAndConditions />}
-        ></Route>
-        <Route path="ResetPassword/*" element={<ResetPassword />}></Route>
-      </Routes>
-    </Router>
+    <div onLoad={authorize}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Canvas sucessStateProp={successState} />} />
+          <Route path="Settings" element={<Settings />}></Route>
+          <Route path="PrivacyPolicy" element={<PrivacyPolicy />}></Route>
+          <Route
+            path="TermsAndConditions"
+            element={<TermsAndConditions />}
+          ></Route>
+          <Route path="ResetPassword/*" element={<ResetPassword />}></Route>
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
