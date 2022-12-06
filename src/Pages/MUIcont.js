@@ -6,7 +6,7 @@ import AddIcon from "@mui/icons-material/Add";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Box from "@mui/material/Box";
-import Draggable from "react-draggable";
+//import Draggable from "react-draggable";
 
 const content = (
   <React.Fragment>
@@ -115,9 +115,9 @@ const Add2 = (
   </React.Fragment>
 );
 
-function MUIcont() {
+/*function MUIcont() {
   return (
-    <Draggable>
+  //  <Draggable>
       <Box
         display="flex"
         justifyContent="center"
@@ -128,8 +128,8 @@ function MUIcont() {
         {Add1}
         {Add2}
       </Box>
-    </Draggable>
+  //  </Draggable>
   );
-}
+} 
 
-export default MUIcont;
+export default MUIcont; */

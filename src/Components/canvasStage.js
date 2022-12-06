@@ -206,6 +206,19 @@ export default class canvasStage extends Component {
     });
   };
 
+  handleRightClick = (e) => {
+    if (e.evt.button === 2) {
+      e.target.getParent().setAttrs({
+        visible: false,
+        opacity: 0
+      })
+    }
+  }; 
+
+  generateKey = () => {
+    return Math.floor(Math.random() * 9999);
+  }
+
   render = () => (
     <div>
       <Stage
@@ -298,8 +311,10 @@ export default class canvasStage extends Component {
                 onDragEnd={this.handleDragEnd}
                 x={100}
                 y={150}
+                onClick={this.handleRightClick}
               >
-                <ContainerBuild />
+                <ContainerBuild
+                  onClick={this.handleRightClick}/>
               </Group>
             )
           )}
