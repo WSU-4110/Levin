@@ -1,18 +1,49 @@
 .sidebarContainer {
   position: fixed;
-  top: 0;
+  top: 70px;
   z-index: 1000;
   /* outline: 1px solid red; */
+}
+
+.levinContainer {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  width: 300px;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  /* outline: 1px solid red; */
+}
+
+.Logo {
+  width: 3.5rem;
+  margin-right: 10px;
+}
+
+.Levin {
+  color: Black;
+  font-size: 40px;
+  font-weight: bold;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  /* outline: 1px solid red; */
+}
+
+.Logo:hover ~ .Levin {
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: grabbing;
   padding: 10px;
   margin: 10px;
   width: 2rem;
-  background: var(--ultramarine);
+  background: linear-gradient(135deg, rgb(0, 175, 110), rgb(0, 140, 180));
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   border: 2px solid rgba(0, 0, 0, 1);
@@ -64,46 +95,74 @@
 }
 
 .tab {
+  color: Black;
+  font-size: 20px;
+  font-weight: bold;
   display: none;
   justify-content: center;
   position: absolute;
-  z-index: -1;
+  cursor: pointer;
+  z-index: 900;
   padding: 10px;
   top: 3px;
-  left: 2.5rem;
-  background: var(--ultramarine);
+  left: 3rem;
+  background: linear-gradient(135deg, rgb(0, 175, 110), rgb(0, 140, 180));
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-radius: 10px;
   border: 2px solid rgba(0, 0, 0, 1);
+  transition: all 0.3s ease-in-out;
   /* outline: 1px solid red; */
 }
 
-.zero {
-  width: 135px;
+.one {
+  width: 80px;
+  background: rgb(0, 170, 120);
 }
 
-.one,
-.two,
-.three,
+.two {
+  width: 80px;
+  background: rgb(0, 167, 126);
+}
+
+.three {
+  width: 80px;
+  background: rgb(0, 163, 133);
+}
+
 .four {
-  width: 70px;
+  width: 80px;
+  background: rgb(0, 160, 140);
 }
 
-.five,
-.six,
+.five {
+  width: 80px;
+  background: rgb(0, 157, 146);
+}
+
+.six {
+  width: 80px;
+  background: rgb(0, 153, 155);
+}
+
 .seven {
-  width: 130px;
+  width: 140px;
+  background: rgb(0, 149, 161);
 }
 
 .eight {
-  width: 135px;
+  width: 160px;
+  background: rgb(0, 145, 168);
 }
 
-.Levin:hover > .tab,
+.nine {
+  width: 170px;
+  background: rgb(0, 143, 174);
+}
+
 .Canvas:hover > .tab,
 .Tutorial:hover > .tab,
 .Settings:hover > .tab,
+.Logout:hover > .tab,
 .Login:hover > .tab,
 .Contact:hover > .tab,
 .PrivacyPolicy:hover > .tab,
