@@ -7,7 +7,7 @@ function useGenerateRandomColor() {
   const [colorFill, pickerColor] = useState("");
 
   const clickColor = (e) => {
-    if (e.evt.button === 0) {
+    if (e.evt.button !== 2) {
       pickerColor(Math.random().toString(16).substr(-6));
     }
   };
@@ -15,93 +15,67 @@ function useGenerateRandomColor() {
   return { colorFill, clickColor };
 }
 
+function deleteContainer(e) {
+  if (e.evt.button === 2) {
+    document.getElementById("title").style.opacity = 0;
+    document.getElementById("content").style.opacity = 0;
+  }
+}
+
 function ContainerBuild() {
   const { colorFill, clickColor } = useGenerateRandomColor();
 
-  const TitleInput = {
-    width: 160,
-    height: 25,
-    margin: 10,
-    border: "none",
-    borderBottom: "2px solid white",
-    padding: "10px",
-    background: "none",
-    resize: "none",
-    color: "white",
-    fontSize: "20px",
-    fontFamily: "Helvetica",
-    fontWeight: "bold",
-    // outline: "1px solid red",
-  };
-
-  const ContentInput = {
-    width: 160,
-    height: 140,
-    position: "absolute",
-    top: 55,
-    margin: 10,
-    border: "none",
-    borderBottom: "2px solid white",
-    padding: "10px",
-    background: "none",
-    resize: "none",
-    color: "white",
-    fontSize: "16px",
-    fontFamily: "Helvetica",
-    // outline: "1px solid red",
-  };
-
   return (
-    <Group>
+    <Group onClick={deleteContainer} onTap={deleteContainer}>
       {/* //* container style and build */}
       {/* //* left */}
       <Arrow
-        x={-12}
+        x={-15}
         y={132}
         pointerLength={10}
         pointerWidth={30}
-        fill={"#" + colorFill}
+        fill="black"
         points={[0, 0, 0, 0]}
         stroke={"#" + colorFill}
-        strokeWidth={4}
+        strokeWidth={1}
         rotation={180}
       />
 
       {/* //* right */}
       <Arrow
-        x={212}
+        x={215}
         y={132}
         pointerLength={10}
         pointerWidth={30}
-        fill={"#" + colorFill}
+        fill="black"
         points={[0, 0, 0, 0]}
         stroke={"#" + colorFill}
-        strokeWidth={4}
+        strokeWidth={1}
       />
 
       {/* //* top */}
       <Arrow
         x={99}
-        y={-12}
+        y={-15}
         pointerLength={10}
         pointerWidth={30}
-        fill={"#" + colorFill}
+        fill="black"
         points={[0, 0, 0, 0]}
         stroke={"#" + colorFill}
-        strokeWidth={4}
+        strokeWidth={1}
         rotation={270}
       />
 
       {/* //* bottom */}
       <Arrow
         x={99}
-        y={272}
+        y={275}
         pointerLength={10}
         pointerWidth={30}
-        fill={"#" + colorFill}
+        fill="black"
         points={[0, 0, 0, 0]}
         stroke={"#" + colorFill}
-        strokeWidth={4}
+        strokeWidth={1}
         rotation={90}
       />
 
@@ -109,6 +83,7 @@ function ContainerBuild() {
         width={200}
         height={260}
         onClick={clickColor}
+        onTap={clickColor}
         fill={"#" + colorFill}
         shadowColor="black"
         shadowBlur={25}
@@ -119,12 +94,49 @@ function ContainerBuild() {
 
       {/* //* container title text area */}
       <Html>
-        <textarea style={TitleInput} placeholder="Enter Title" />
+        <textarea
+          id="title"
+          style={{
+            width: 160,
+            height: 25,
+            margin: 10,
+            border: "none",
+            borderBottom: "2px solid white",
+            padding: "10px",
+            background: "none",
+            resize: "none",
+            color: "white",
+            fontSize: "20px",
+            fontFamily: "Helvetica",
+            fontWeight: "bold",
+            opacity: 1,
+          }}
+          placeholder="Enter Title"
+        />
       </Html>
 
       {/* //* container content text area */}
       <Html>
-        <textarea style={ContentInput} placeholder="Enter content" />
+        <textarea
+          id="content"
+          style={{
+            width: 160,
+            height: 140,
+            position: "absolute",
+            top: 55,
+            margin: 10,
+            border: "none",
+            borderBottom: "2px solid white",
+            padding: "10px",
+            background: "none",
+            resize: "none",
+            color: "white",
+            fontSize: "16px",
+            fontFamily: "Helvetica",
+            opacity: 1,
+          }}
+          placeholder="Enter content"
+        />
       </Html>
 
       {/* //* container content text area */}
@@ -209,6 +221,7 @@ export default class canvasStage extends Component {
             draggable
             //* calling handleClick to generate container
             onClick={this.containerClick}
+            onTap={this.containerClick}
             //* cursor pointer on hover
             onMouseEnter={(e) => {
               const container = e.target.getStage().container();
@@ -283,7 +296,7 @@ export default class canvasStage extends Component {
                 key={assignkey}
                 onDragStart={this.handleDragStart}
                 onDragEnd={this.handleDragEnd}
-                x={200}
+                x={100}
                 y={150}
               >
 
