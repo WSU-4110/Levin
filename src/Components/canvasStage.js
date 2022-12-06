@@ -149,7 +149,6 @@ function ContainerBuild() {
           const container = e.target.getStage().container();
           container.style.cursor = "default";
         }}
-        
       >
         {/* //* drag */}
         <Rect x={85} y={235} width={28} height={17} />
@@ -209,7 +208,7 @@ export default class canvasStage extends Component {
 
   handleRightClick = (e) => {
     if (e.evt.button === 2) {
-      e.target.setAttrs({
+      e.target.getParent().setAttrs({
         visible: false,
         opacity: 0
       })
@@ -314,7 +313,8 @@ export default class canvasStage extends Component {
                 y={150}
                 onClick={this.handleRightClick}
               >
-                <ContainerBuild/>
+                <ContainerBuild
+                  onClick={this.handleRightClick}/>
               </Group>
             )
           )}
