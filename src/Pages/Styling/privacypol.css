@@ -1,0 +1,24 @@
+.privacypol1 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  scrollbar-color: black;
+}
+
+.privacypol2 {
+  padding: 100px 0px 100px 0px;
+  margin-left: 100px;
+  margin-right: 50px;
+}
+
+.privacypol2 h1 {
+  color: var(--black);
+}
+
+.privacypol2 p {
+  color: var(--black);
+}
+
+.privacypol2 a {
+  color: var(--cetacean);
+}
