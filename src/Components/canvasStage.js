@@ -1,31 +1,22 @@
-import React, { Component } from "react";
-import useState from "react";
+import React, { Component, useState } from "react";
 import Konva from "konva";
-import { Stage, Layer, Rect, Group, Circle, Line,Text } from "react-konva";
+import { Stage, Layer, Rect, Group, Circle, Arrow } from "react-konva";
 import { Html } from "react-konva-utils";
-import ContainerColor from "./containerColor";
 
+function useGenerateRandomColor() {
+  const [colorFill, pickerColor] = useState("");
 
-const SIZE = 50;
-const points = [0, 0, SIZE, 0, SIZE, SIZE, 0, SIZE, 0, 0];
+  const clickColor = (e) => {
+    if (e.evt.button === 0) {
+      pickerColor(Math.random().toString(16).substr(-6));
+    }
+  };
 
-function Border({ step, id }) {
-  const { x, y } = step;
-  return (
-    <Line
-      x={x}
-      y={y}
-      points={points}
-      stroke="black"
-      strokeWidth={2}
-      perfectDrawEnabled={false}
-    />
-  );
+  return { colorFill, clickColor };
 }
 
-
 function ContainerBuild() {
-  const { colorFill, clickColor } = ContainerColor();
+  const { colorFill, clickColor } = useGenerateRandomColor();
 
   const TitleInput = {
     width: 160,
@@ -59,44 +50,61 @@ function ContainerBuild() {
     fontFamily: "Helvetica",
     // outline: "1px solid red",
   };
-  const [selectedStep, setSelectedStep] = useState(null);
-  const { steps } = INITIAL_STATE;
-
-  function handleSelection(id) {
-    if (selectedStep === id) {
-      setSelectedStep(null);
-    } else {
-      setSelectedStep(id);
-    }
-  }
-
-  const stepObjs = Object.keys(steps).map((key) => {
-    const { x, y, colour } = steps[key];
-    return (
-      <Rect
-        key={key}
-        x={x}
-        y={y}
-        width={SIZE}
-        height={SIZE}
-        fill={colour}
-        onClick={() => handleSelection(key)}
-        perfectDrawEnabled={false}
-      />
-    );
-  });
-
-  const borders =
-    selectedStep !== null ? (
-      <Border
-        id={selectedStep}
-        step={steps[selectedStep]}
-      />
-    ) : null;
 
   return (
     <Group>
       {/* //* container style and build */}
+      {/* //* left */}
+      <Arrow
+        x={-12}
+        y={132}
+        pointerLength={10}
+        pointerWidth={30}
+        fill={"#" + colorFill}
+        points={[0, 0, 0, 0]}
+        stroke={"#" + colorFill}
+        strokeWidth={4}
+        rotation={180}
+      />
+
+      {/* //* right */}
+      <Arrow
+        x={212}
+        y={132}
+        pointerLength={10}
+        pointerWidth={30}
+        fill={"#" + colorFill}
+        points={[0, 0, 0, 0]}
+        stroke={"#" + colorFill}
+        strokeWidth={4}
+      />
+
+      {/* //* top */}
+      <Arrow
+        x={99}
+        y={-12}
+        pointerLength={10}
+        pointerWidth={30}
+        fill={"#" + colorFill}
+        points={[0, 0, 0, 0]}
+        stroke={"#" + colorFill}
+        strokeWidth={4}
+        rotation={270}
+      />
+
+      {/* //* bottom */}
+      <Arrow
+        x={99}
+        y={272}
+        pointerLength={10}
+        pointerWidth={30}
+        fill={"#" + colorFill}
+        points={[0, 0, 0, 0]}
+        stroke={"#" + colorFill}
+        strokeWidth={4}
+        rotation={90}
+      />
+
       <Rect
         width={200}
         height={260}
@@ -110,31 +118,13 @@ function ContainerBuild() {
       />
 
       {/* //* container title text area */}
-
       <Html>
-        <textarea
-          style={TitleInput}
-          placeholder="Enter Title"
-          id="titleText"
-          onKeyPress={() => {
-            // console.log(event.key);
-            console.log(document.getElementById("titleText").value);
-          }}
-        ></textarea>
+        <textarea style={TitleInput} placeholder="Enter Title" />
       </Html>
 
       {/* //* container content text area */}
       <Html>
-        <textarea
-          style={ContentInput}
-          placeholder="Enter content"
-          id="contentText"
-          onKeyPress={() => {
-            // console.log(event.key);
-            console.log(document.getElementById("contentText").value);
-            console.log();
-          }}
-        />
+        <textarea style={ContentInput} placeholder="Enter content" />
       </Html>
 
       {/* //* container content text area */}
@@ -167,17 +157,19 @@ function ContainerBuild() {
 export default class canvasStage extends Component {
   // initializing state with a canvas JSON Array with a default rectangle
   state = {
-    canvas: [{}],
+    stage: [{}],
     // canvas: JSON.parse(localStorage.getItem("canvasObject"))
   };
 
   // when clicking on a rectangle, it creates a new rectangle by spreading out previous canvas values and adding a new set of values
-  handleClick = () => {
+  containerClick = () => {
     this.setState((prevState) => ({
-      canvas: [...prevState.canvas, <ContainerBuild />],
+      stage: [...prevState.stage, <ContainerBuild />],
     }));
-    console.log(this.state.canvas);
-    localStorage.setItem("canvasObject",JSON.stringify(this.state.canvas));
+
+     console.log(this.state.stage);
+    //  console.log(this.state.stage.length);
+    // localStorage.setItem("canvasObject", JSON.stringify(this.state.stage));
   };
 
   // handles rectangle dragging
@@ -203,8 +195,12 @@ export default class canvasStage extends Component {
   };
 
   render = () => (
-    <div onClick={() => {console.log(JSON.parse(localStorage.getItem("canvasObject")))}}>
-      <Stage width={window.innerWidth} height={window.innerHeight} draggable>
+    <div>
+      <Stage
+        width={window.innerWidth * 4}
+        height={window.innerHeight * 4}
+        draggable
+      >
         {/* //* add container button  */}
         <Layer>
           <Group
@@ -212,7 +208,7 @@ export default class canvasStage extends Component {
             y={375}
             draggable
             //* calling handleClick to generate container
-            onClick={this.handleClick}
+            onClick={this.containerClick}
             //* cursor pointer on hover
             onMouseEnter={(e) => {
               const container = e.target.getStage().container();
@@ -277,19 +273,20 @@ export default class canvasStage extends Component {
         </Layer>
         {/* //* container */}
         <Layer>
-          {this.state.canvas.map(
+          {this.state.stage.map(
             (
-              key // like a "for loop", this maps over this.state.canvas objects and pulls out the height, width, x, y properties to be used below
+              assignkey = this.state.stage.length // like a "for loop", this maps over this.state.canvas objects and pulls out the height, width, x, y properties to be used below
             ) => (
               //* container
               <Group
                 draggable
-                key={key}
+                key={assignkey}
                 onDragStart={this.handleDragStart}
                 onDragEnd={this.handleDragEnd}
-                x={window.innerWidth / 2.25}
-                y={window.innerHeight / 2.8}
+                x={200}
+                y={150}
               >
+
                 <ContainerBuild />
               </Group>
             )

@@ -1,40 +1,35 @@
 import {React, useState} from "react";
 import Sidebar from "../Components/sidebar.js";
 import CanvasStage from "../Components/canvasStage.js";
-import CanvasStageDemo from "../Components/canvasStageDEMO";
+// import CanvasStageDemo from "../Components/canvasStageDEMO";
 import MUIcont from "./MUIcont.js";
 import "./Styling/canvas.css";
 
 
 
 function Canvas() {
-  const [containerList, setContainerList] = useState([<MUIcont key= "0" />]);
+  // const [containerList, setContainerList] = useState([<MUIcont key= "0" />]);
  
-  const addContainer = () => {
-    console.log("adding");
-    setContainerList(
-      containerList.concat(<MUIcont key={containerList.length}  />)
-    );
-    console.log(containerList);
-    console.log(containerList[0]);
-  };
+  // const addContainer = () => {
+  //   console.log("adding");
+  //   setContainerList(
+  //     containerList.concat(<MUIcont key={containerList.length}  />)
+  //   );
+  //   console.log(containerList);
+  //   console.log(containerList[0]);
+  // };
 
-  const save = () => {
-    localStorage.setItem("containers", JSON.stringify(containerList))
-    JSON.parse(localStorage.getItem("containers"));
-  };
+  // const save = () => {
+  //   localStorage.setItem("containers", JSON.stringify(containerList))
+  //   JSON.parse(localStorage.getItem("containers"));
+  // };
     
 
   return (
     <div className="canvasContainer">
-      {/* <button onClick={addContainer} style={{width:'350px', margin:"10px", height:"50px"}}></button>
-      <button onClick={save} style={{width:'50px', margin:"10px", height:"50px", backgroundColor:"red"}}></button>
-      {containerList}
-      <Sidebar initialContainer/> */}
-      {/* <CanvasStage /> */}
-      
-      <CanvasStageDemo />
-
+      {/* <MUIcont /> */}
+      <Sidebar />
+      <CanvasStage />
     </div>
   );
 }
