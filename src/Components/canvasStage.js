@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 import Konva from "konva";
-import { Stage, Layer, Rect, Group, Circle } from "react-konva";
+import { Stage, Layer, Rect, Group, Circle, Arrow } from "react-konva";
 import { Html } from "react-konva-utils";
 
 function useGenerateRandomColor() {
@@ -54,6 +54,57 @@ function ContainerBuild() {
   return (
     <Group>
       {/* //* container style and build */}
+      {/* //* left */}
+      <Arrow
+        x={-12}
+        y={132}
+        pointerLength={10}
+        pointerWidth={30}
+        fill={"#" + colorFill}
+        points={[0, 0, 0, 0]}
+        stroke={"#" + colorFill}
+        strokeWidth={4}
+        rotation={180}
+      />
+
+      {/* //* right */}
+      <Arrow
+        x={212}
+        y={132}
+        pointerLength={10}
+        pointerWidth={30}
+        fill={"#" + colorFill}
+        points={[0, 0, 0, 0]}
+        stroke={"#" + colorFill}
+        strokeWidth={4}
+      />
+
+      {/* //* top */}
+      <Arrow
+        x={99}
+        y={-12}
+        pointerLength={10}
+        pointerWidth={30}
+        fill={"#" + colorFill}
+        points={[0, 0, 0, 0]}
+        stroke={"#" + colorFill}
+        strokeWidth={4}
+        rotation={270}
+      />
+
+      {/* //* bottom */}
+      <Arrow
+        x={99}
+        y={272}
+        pointerLength={10}
+        pointerWidth={30}
+        fill={"#" + colorFill}
+        points={[0, 0, 0, 0]}
+        stroke={"#" + colorFill}
+        strokeWidth={4}
+        rotation={90}
+      />
+
       <Rect
         width={200}
         height={260}
@@ -111,7 +162,7 @@ export default class canvasStage extends Component {
   };
 
   // when clicking on a rectangle, it creates a new rectangle by spreading out previous canvas values and adding a new set of values
-  handleClick = () => {
+  containerClick = () => {
     this.setState((prevState) => ({
       stage: [...prevState.stage, <ContainerBuild />],
     }));
@@ -144,7 +195,11 @@ export default class canvasStage extends Component {
 
   render = () => (
     <div>
-      <Stage width={window.innerWidth} height={window.innerHeight} draggable>
+      <Stage
+        width={window.innerWidth * 4}
+        height={window.innerHeight * 4}
+        draggable
+      >
         {/* //* add container button  */}
         <Layer>
           <Group
@@ -152,7 +207,7 @@ export default class canvasStage extends Component {
             y={375}
             draggable
             //* calling handleClick to generate container
-            onClick={this.handleClick}
+            onClick={this.containerClick}
             //* cursor pointer on hover
             onMouseEnter={(e) => {
               const container = e.target.getStage().container();
@@ -227,8 +282,8 @@ export default class canvasStage extends Component {
                 key={key}
                 onDragStart={this.handleDragStart}
                 onDragEnd={this.handleDragEnd}
-                x={window.innerWidth / 2.25}
-                y={window.innerHeight / 2.8}
+                x={200}
+                y={150}
               >
                 <ContainerBuild />
               </Group>
