@@ -4,7 +4,7 @@ import CanvasStage from "../Components/canvasStage.js";
 // import CanvasStageDemo from "../Components/canvasStageDEMO";
 import MUIcont from "./MUIcont.js";
 import "./Styling/canvas.css";
-
+import CanvasTest from "../Components/DEMO-TEST/canvasTEST";
 
 
 function Canvas() {
@@ -29,7 +29,8 @@ function Canvas() {
     <div className="canvasContainer">
       {/* <MUIcont /> */}
       <Sidebar />
-      <CanvasStage />
+      {/* <CanvasStage /> */}
+      <CanvasTest></CanvasTest>
     </div>
   );
 }
