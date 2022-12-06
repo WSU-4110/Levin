@@ -18,6 +18,7 @@ import TutorialModal from "./tutorialModal.js";
 import LoginModal from "./loginModal.js";
 import ContactModal from "./contactModal.js";
 import "./Styling/sidebar.css";
+import MUIcont from "../Pages/MUIcont";
 
 function Sidebar(props) {
   //* custom line for sidebar
@@ -46,6 +47,7 @@ function Sidebar(props) {
 
   const [successState, setSuccessState] = useState(props.sucessState);
   
+ 
   return (
     <div>
       <div text="FOR SUCCESSSTATE LOGGED IN">
@@ -293,6 +295,7 @@ function Sidebar(props) {
               </div>
             </div>
           </div>
+          {/* <button onClick={save}></button> */}
         </motion.div>
       </div>
     </div>
