@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f0f0f0;
+  }
+
+  #preview {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    border: 1px solid grey;
+    background-color: lightgrey;
+  }
