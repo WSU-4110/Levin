@@ -1,8 +1,6 @@
 import {React, useState} from "react";
 import Sidebar from "../Components/sidebar.js";
 import CanvasStage from "../Components/canvasStage.js";
-// import CanvasStageDemo from "../Components/canvasStageDEMO";
-import MUIcont from "./MUIcont.js";
 import "./Styling/canvas.css";
 import CanvasTest from "../Components/DEMO-TEST/canvasTEST";
 
@@ -26,16 +24,10 @@ function Canvas(props) {
     
   const [successState, setSuccessState] = useState("false");
   return (
-    <div className="canvasContainer"  onLoad={() => 
-      {
-      setSuccessState(props.sucessStateProp);
-      console.log(successState)
-      }}>
-
+    <div className="canvasContainer">
       {/* <MUIcont /> */}
-      <Sidebar successStateProp = {successState}/>
-      {/* <CanvasStage /> */}
-      <CanvasTest></CanvasTest>
+      <Sidebar />
+      <CanvasStage />
     </div>
   );
 }

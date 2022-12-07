@@ -1,19 +1,7 @@
 import React, { Component, useState } from "react";
 import Konva from "konva";
-import { Stage, Layer, Rect, Group, Circle, Arrow } from "react-konva";
-import { Html } from "react-konva-utils";
-
-function useGenerateRandomColor() {
-  const [colorFill, pickerColor] = useState("");
-
-  const clickColor = (e) => {
-    if (e.evt.button !== 2) {
-      pickerColor(Math.random().toString(16).substr(-6));
-    }
-  };
-
-  return { colorFill, clickColor };
-}
+import { Stage, Layer, Rect, Group } from "react-konva";
+import { Container } from "./containerGroup";
 
 function deleteContainer(e) {
   if (e.evt.button === 2) {
@@ -22,147 +10,29 @@ function deleteContainer(e) {
   }
 }
 
-function ContainerBuild() {
-  const { colorFill, clickColor } = useGenerateRandomColor();
+function ContainerRender() {
+  const [text, setText] = useState("Content");
+  const [selected, setSelected] = useState(false);
 
   return (
-    <Group onClick={deleteContainer} onTap={deleteContainer}>
-      {/* //* container style and build */}
-      {/* //* left */}
-      <Arrow
-        x={-15}
-        y={132}
-        pointerLength={10}
-        pointerWidth={30}
-        fill="black"
-        points={[0, 0, 0, 0]}
-        stroke={"#" + colorFill}
-        strokeWidth={1}
-        rotation={180}
-      />
-
-      {/* //* right */}
-      <Arrow
-        x={215}
-        y={132}
-        pointerLength={10}
-        pointerWidth={30}
-        fill="black"
-        points={[0, 0, 0, 0]}
-        stroke={"#" + colorFill}
-        strokeWidth={1}
-      />
-
-      {/* //* top */}
-      <Arrow
-        x={99}
-        y={-15}
-        pointerLength={10}
-        pointerWidth={30}
-        fill="black"
-        points={[0, 0, 0, 0]}
-        stroke={"#" + colorFill}
-        strokeWidth={1}
-        rotation={270}
-      />
-
-      {/* //* bottom */}
-      <Arrow
-        x={99}
-        y={275}
-        pointerLength={10}
-        pointerWidth={30}
-        fill="black"
-        points={[0, 0, 0, 0]}
-        stroke={"#" + colorFill}
-        strokeWidth={1}
-        rotation={90}
-      />
-
-      <Rect
-        width={200}
-        height={260}
-        onClick={clickColor}
-        onTap={clickColor}
-        fill={"#" + colorFill}
-        shadowColor="black"
-        shadowBlur={25}
-        shadowOpacity={0.25}
-        cornerRadius={10}
-        globalCompositeOperation="xor"
-      />
-
-      {/* //* container title text area */}
-      <Html>
-        <textarea
-          id="title"
-          
-          style={{
-            width: 160,
-            height: 25,
-            margin: 10,
-            border: "none",
-            borderBottom: "2px solid white",
-            padding: "10px",
-            background: "none",
-            resize: "none",
-            color: "white",
-            fontSize: "20px",
-            fontFamily: "Helvetica",
-            fontWeight: "bold",
-            opacity: 1,
-          }}
-          placeholder="Enter Title"
-        />
-      </Html>
-
-      {/* //* container content text area */}
-      <Html>
-        <textarea
-          id="content"
-          style={{
-            width: 160,
-            height: 140,
-            position: "absolute",
-            top: 55,
-            margin: 10,
-            border: "none",
-            borderBottom: "2px solid white",
-            padding: "10px",
-            background: "none",
-            resize: "none",
-            color: "white",
-            fontSize: "16px",
-            fontFamily: "Helvetica",
-            opacity: 1,
-          }}
-          placeholder="Enter content"
-        />
-      </Html>
-
-      {/* //* container content text area */}
-      <Group
-        onMouseEnter={(e) => {
-          const container = e.target.getStage().container();
-          container.style.cursor = "pointer";
+    <Group
+      onTap={deleteContainer}
+      onClick={(e) => {
+        if (e.currentTarget._id === e.target._id) {
+          setSelected(false);
+        }
+      }}
+    >
+      <Container
+        text={text}
+        onTextChange={(value) => setText(value)}
+        onClick={() => {
+          setSelected(!selected);
         }}
-        onMouseLeave={(e) => {
-          const container = e.target.getStage().container();
-          container.style.cursor = "default";
+        onTextClick={(newSelected) => {
+          setSelected(newSelected);
         }}
-      >
-        {/* //* drag */}
-        <Rect x={85} y={235} width={28} height={17} />
-        {/* //* top row */}
-        <Circle x={89} y={239} radius={2.5} fill="white" />
-        <Circle x={99} y={239} radius={2.5} fill="white" />
-        <Circle x={109} y={239} radius={2.5} fill="white" />
-
-        {/* //* bottom row */}
-        <Circle x={89} y={249} radius={2.5} fill="white" />
-        <Circle x={99} y={249} radius={2.5} fill="white" />
-        <Circle x={109} y={249} radius={2.5} fill="white" />
-      </Group>
+      />
     </Group>
   );
 }
@@ -177,7 +47,7 @@ export default class canvasStage extends Component {
   // when clicking on a rectangle, it creates a new rectangle by spreading out previous canvas values and adding a new set of values
   containerClick = () => {
     this.setState((prevState) => ({
-      stage: [...prevState.stage, <ContainerBuild />],
+      stage: [...prevState.stage, <ContainerRender />],
     }));
 
      console.log(this.state.stage);
@@ -207,11 +77,20 @@ export default class canvasStage extends Component {
     });
   };
 
+  handleRightClick = (e) => {
+    if (e.evt.button === 2) {
+      e.target.getParent().setAttrs({
+        visible: false,
+        opacity: 0,
+      });
+    }
+  };
+
   render = () => (
     <div onClick={() => {console.dir(this.stage)}}>
       <Stage
-        width={window.innerWidth * 4}
-        height={window.innerHeight * 4}
+        width={window.innerWidth * 1}
+        height={window.innerHeight * 1}
         draggable
       >
         {/* //* add container button  */}
@@ -233,13 +112,13 @@ export default class canvasStage extends Component {
               container.style.cursor = "default";
             }}
           >
-            <Rect x={1000} y={100} width={35} height={35} />
+            <Rect x={1000} y={150} width={35} height={35} />
 
             {/* //* top left square */}
             <Rect
               cornerRadius={3}
               x={1000}
-              y={100}
+              y={150}
               width={15}
               height={15}
               fill="rgb(0,174,112)"
@@ -249,7 +128,7 @@ export default class canvasStage extends Component {
             <Rect
               cornerRadius={3}
               x={1000}
-              y={120}
+              y={170}
               width={15}
               height={15}
               fill="rgb(0,151,158)"
@@ -259,7 +138,7 @@ export default class canvasStage extends Component {
             <Rect
               cornerRadius={3}
               x={1020}
-              y={100}
+              y={150}
               width={15}
               height={15}
               fill="rgb(0,160,140)"
@@ -269,7 +148,7 @@ export default class canvasStage extends Component {
             <Rect
               cornerRadius={3}
               x={1026.5}
-              y={120}
+              y={170}
               width={2.5}
               height={15}
               fill="rgb(0,141,179)"
@@ -278,7 +157,7 @@ export default class canvasStage extends Component {
             <Rect
               cornerRadius={3}
               x={1020}
-              y={126}
+              y={176}
               width={15}
               height={2.5}
               fill="rgb(0,141,179)"
@@ -297,11 +176,11 @@ export default class canvasStage extends Component {
                 key={assignkey}
                 onDragStart={this.handleDragStart}
                 onDragEnd={this.handleDragEnd}
+                onClick={this.handleRightClick}
                 x={100}
                 y={150}
               >
-
-                <ContainerBuild />
+                <ContainerRender onClick={this.handleRightClick} />
               </Group>
             )
           )}
