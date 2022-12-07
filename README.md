@@ -1,3 +1,6 @@
+<img src="https://github.com/WSU-4110/Levin/blob/6a30cf53cef6ce31c5f5b5ca3c626b1d586e42d8/public/Logo.png" width="200">
+
+
 # Scripts
 
     npm start
