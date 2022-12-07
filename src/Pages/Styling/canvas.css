@@ -28,3 +28,16 @@
 ::-webkit-input-placeholder {
   color: black;
 }
+
+.dropDownProfile{
+  position:relative;
+  top: 0rem;
+  right: -40rem;
+  width: 50px;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: teal;
+  border: 1px solid gray;
+}
+
+

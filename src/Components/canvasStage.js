@@ -1,7 +1,9 @@
 import React, { Component, useState } from "react";
 import Konva from "konva";
-import { Stage, Layer, Rect, Group, Circle, Arrow } from "react-konva";
+import { Stage, Layer, Rect, Group, Circle, Arrow, Shape } from "react-konva";
 import { Html } from "react-konva-utils";
+import { color } from "@mui/system";
+import "bootstrap/dist/css/bootstrap.css";
 
 function useGenerateRandomColor() {
   const [colorFill, pickerColor] = useState("");
@@ -192,7 +194,6 @@ export default class canvasStage extends Component {
       zIndex: 20,
     });
   };
-
   render = () => (
     <div>
       <Stage
@@ -200,6 +201,7 @@ export default class canvasStage extends Component {
         height={window.innerHeight * 4}
         draggable
       >
+        
         {/* //* add container button  */}
         <Layer>
           <Group
@@ -208,6 +210,7 @@ export default class canvasStage extends Component {
             draggable
             //* calling handleClick to generate container
             onClick={this.containerClick}
+            onClick2={this.containerClick2}
             //* cursor pointer on hover
             onMouseEnter={(e) => {
               const container = e.target.getStage().container();
@@ -294,3 +297,4 @@ export default class canvasStage extends Component {
     </div>
   );
 }
+
