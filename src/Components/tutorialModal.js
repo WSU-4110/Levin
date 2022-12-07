@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import "./Styling/tutorialModal.css";
 import React from "react";
 
-//* Temp Video Example
 import Video from "./Tutorial_Video/Temp_Video.mp4";
 
 //* modal visible/ exit animation

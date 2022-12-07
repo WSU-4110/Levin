@@ -1,11 +1,11 @@
 //* styling imports
 import React from "react";
 import { motion } from "framer-motion";
-import "./Styling/icons.css";
+import "./Styling/pageIcons.css";
 
 //* Icons function is called multiple times in sidebar.js
 //* Used to make icons animate when hovering over them
-function Icons({ icon }) {
+function PageIcons({ icon }) {
   return (
     //* framer motion element to animate content
     <motion.div className="page_hover">
@@ -26,4 +26,4 @@ function Icons({ icon }) {
   );
 }
 
-export default Icons;
+export default PageIcons;

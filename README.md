@@ -26,6 +26,10 @@
 
     npm install react-konva konva --save
 
+### [Konva Utils](https://www.npmjs.com/package/react-konva-utils?activeTab=readme)
+
+    npm install react-konva-utils --save
+
 ### [Jest](https://jestjs.io/docs/getting-started)
 
     npm install --save-dev jest
@@ -37,6 +41,8 @@
     npm install react-icons --save
 
 ### [Font Awesome](https://fontawesome.com/docs)
+
+    npm install @fortawesome/fontawesome-svg-core
 
     npm install --save @fortawesome/free-brands-svg-icons
 
