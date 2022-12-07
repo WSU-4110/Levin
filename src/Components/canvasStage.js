@@ -50,9 +50,9 @@ export default class canvasStage extends Component {
       stage: [...prevState.stage, <ContainerRender />],
     }));
 
-    console.log(this.state.stage);
-    console.log(this.state.stage.length);
-    localStorage.setItem("canvasObject", JSON.stringify(this.state.stage));
+     console.log(this.state.stage);
+    //  console.log(this.state.stage.length);
+    // localStorage.setItem("canvasObject", JSON.stringify(this.state.stage));
   };
 
   // handles rectangle dragging
@@ -87,7 +87,7 @@ export default class canvasStage extends Component {
   };
 
   render = () => (
-    <div>
+    <div onClick={() => {console.dir(this.stage)}}>
       <Stage
         width={window.innerWidth * 1}
         height={window.innerHeight * 1}
@@ -168,12 +168,12 @@ export default class canvasStage extends Component {
         <Layer>
           {this.state.stage.map(
             (
-              key = this.state.stage.length // like a "for loop", this maps over this.state.canvas objects and pulls out the height, width, x, y properties to be used below
+              assignkey = this.state.stage.length // like a "for loop", this maps over this.state.canvas objects and pulls out the height, width, x, y properties to be used below
             ) => (
               //* container
               <Group
                 draggable
-                key={key}
+                key={assignkey}
                 onDragStart={this.handleDragStart}
                 onDragEnd={this.handleDragEnd}
                 onClick={this.handleRightClick}
