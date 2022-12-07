@@ -28,14 +28,14 @@ function Canvas() {
   return (
     <div align="center" style={{backgroundColor:color,height:"1000vh"}} className="buttonclass">
       
-       <button >Black</button>
-       <button > White</button>
-       <button > Gray</button>
-       <button > Red</button>
-       <button > Orange</button>
-       <button > Yellow</button>
-       <button > Green</button>
-       <button > Blue</button>
+       <button value={"black"} onClick={(e)=>setColor(e.target.value)} className='btn btn-dark btn-sm m-1'>Black</button>
+       <button value={"white"} onClick={(e)=>setColor(e.target.value)} className='btn btn-dark btn-sm m-1'> White</button>
+       <button value={"gray"} onClick={(e)=>setColor(e.target.value)} className='btn btn-dark btn-sm m-1'> Gray</button>
+       <button value={"red"} onClick={(e)=>setColor(e.target.value)} className='btn btn-dark btn-sm m-1'> Red</button>
+       <button value={"orange"} onClick={(e)=>setColor(e.target.value)} className='btn btn-dark btn-sm m-1'> Orange</button>
+       <button value={"yellow"} onClick={(e)=>setColor(e.target.value)} className='btn btn-dark btn-sm m-1'> Yellow</button>
+       <button value={"green"} onClick={(e)=>setColor(e.target.value)} className='btn btn-dark btn-sm m-1'> Green</button>
+       <button value={"cyan"} onClick={(e)=>setColor(e.target.value)} className='btn btn-dark btn-sm m-1'> Blue</button>
      
       {/* <MUIcont /> */}
       <Sidebar />
