@@ -8,7 +8,6 @@ import Settings from "./Pages/settings.js";
 import PrivacyPolicy from "./Pages/privacypol.js";
 import TermsAndConditions from "./Pages/terms&con.js";
 import ResetPassword from "./Pages/resetPass";
-import TestApp from "./Components/testApp";
 
 function App() {
   return (
@@ -26,6 +25,5 @@ function App() {
     </Router>
   );
 }
-
 
 export default App;

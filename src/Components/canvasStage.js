@@ -118,7 +118,7 @@ export default class canvasStage extends Component {
             <Rect
               cornerRadius={3}
               x={1000}
-              y={150}
+              y={180}
               width={15}
               height={15}
               fill="rgb(0,174,112)"
@@ -128,7 +128,7 @@ export default class canvasStage extends Component {
             <Rect
               cornerRadius={3}
               x={1000}
-              y={170}
+              y={200}
               width={15}
               height={15}
               fill="rgb(0,151,158)"
@@ -138,7 +138,7 @@ export default class canvasStage extends Component {
             <Rect
               cornerRadius={3}
               x={1020}
-              y={150}
+              y={180}
               width={15}
               height={15}
               fill="rgb(0,160,140)"
@@ -148,7 +148,7 @@ export default class canvasStage extends Component {
             <Rect
               cornerRadius={3}
               x={1026.5}
-              y={170}
+              y={200}
               width={2.5}
               height={15}
               fill="rgb(0,141,179)"
@@ -157,7 +157,7 @@ export default class canvasStage extends Component {
             <Rect
               cornerRadius={3}
               x={1020}
-              y={176}
+              y={206}
               width={15}
               height={2.5}
               fill="rgb(0,141,179)"
