@@ -208,7 +208,7 @@ export default class canvasStage extends Component {
   };
 
   render = () => (
-    <div>
+    <div onClick={() => {console.dir(this.stage)}}>
       <Stage
         width={window.innerWidth * 4}
         height={window.innerHeight * 4}

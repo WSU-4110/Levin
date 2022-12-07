@@ -47,7 +47,7 @@ const LoginModal = ({ handleClose }) => {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-  const [successState, setSuccessState] = useState(false);
+  const [successState, setSuccessState] = useState("");
   const [signupModalOpen, setsignupModalOpen] = useState(false);
   const signupClose = () => setsignupModalOpen(false);
   const signupOpen = () => setsignupModalOpen(true);

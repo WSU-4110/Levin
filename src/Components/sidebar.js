@@ -45,13 +45,17 @@ function Sidebar(props) {
   const contactClose = () => setcontactModalOpen(false);
   const contactOpen = () => setcontactModalOpen(true);
 
-  const [successState, setSuccessState] = useState(props.sucessState);
+  const [successState, setSuccessState] = useState("false");
+  
+
   
  
   return (
-    <div>
-      <div text="FOR SUCCESSSTATE LOGGED IN">
-        {/* //! successState logged in
+    <div onLoad={() => {
+      setSuccessState(props.sucessStateProp);
+      console.log(successState)}}>
+        
+      {successState ? (<>
       <div className="levinContainer">
         <img className="Logo" src={Logo} />
         <div className="Levin">LΞVIИ</div>
@@ -157,7 +161,10 @@ function Sidebar(props) {
             </div>
           </div>
         </motion.div>
-      </div> */}
+      </div>
+      </>): (<>
+      <div text="FOR SUCCESSSTATE LOGGED IN">
+       
       </div>
       {/* //* Levin logo and title */}
       <div className="levinContainer">
@@ -298,6 +305,9 @@ function Sidebar(props) {
           {/* <button onClick={save}></button> */}
         </motion.div>
       </div>
+      </>)}
+
+      
     </div>
   );
 }

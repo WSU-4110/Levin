@@ -28,7 +28,7 @@
     "react-icons": "^4.4.0",
     "react-konva": "^18.2.3",
     "react-konva-utils": "^0.3.0",
-    "react-router-dom": "^6.4.3",
+    "react-router-dom": "^6.4.4",
     "react-scripts": "^5.0.1",
     "rsuite": "^5.19.0",
     "scrollbooster": "^3.0.2",

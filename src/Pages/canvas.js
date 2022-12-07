@@ -7,7 +7,7 @@ import "./Styling/canvas.css";
 import CanvasTest from "../Components/DEMO-TEST/canvasTEST";
 
 
-function Canvas() {
+function Canvas(props) {
   // const [containerList, setContainerList] = useState([<MUIcont key= "0" />]);
  
   // const addContainer = () => {
@@ -24,11 +24,16 @@ function Canvas() {
   //   JSON.parse(localStorage.getItem("containers"));
   // };
     
-
+  const [successState, setSuccessState] = useState("false");
   return (
-    <div className="canvasContainer">
+    <div className="canvasContainer"  onLoad={() => 
+      {
+      setSuccessState(props.sucessStateProp);
+      console.log(successState)
+      }}>
+
       {/* <MUIcont /> */}
-      <Sidebar />
+      <Sidebar successStateProp = {successState}/>
       {/* <CanvasStage /> */}
       <CanvasTest></CanvasTest>
     </div>
