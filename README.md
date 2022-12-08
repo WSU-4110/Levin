@@ -1,60 +1,34 @@
-<img src="https://github.com/WSU-4110/Levin/blob/6a30cf53cef6ce31c5f5b5ca3c626b1d586e42d8/public/Logo.png" width="200">
+<div align="center">
+
+<img src="https://github.com/WSU-4110/Levin/blob/6a30cf53cef6ce31c5f5b5ca3c626b1d586e42d8/public/Logo.png" width="60%">
 
 
-# Scripts
+**A simple user interface allowing users to create dynamic sitemaps.**
 
-    npm start
-    npm build
-    npm test
-    npm eject
+![GitHub repo size](https://img.shields.io/github/repo-size/WSU-4110/Levin?style=for-the-badge)
 
-# React
-
-    npm install react-scripts --save
-    npm install react-router-dom --save
+</div>
 
 # Libraries
 
-### [Framer Motion](https://www.framer.com/docs/)
+### [React](https://reactjs.org/)
 
-    npm install framer-motion --save
+    npm install --save react-scripts
+    npm install --save react-router-dom
+    
+### The rest can be found here: [Wiki Libraries](https://github.com/WSU-4110/Levin/wiki/Libraries)
 
-### [EmailJS](https://www.emailjs.com/docs/)
+# Example
 
-    npm install @emailjs/browser --save
+<div align="center">
 
-### [Konva](https://konvajs.org/docs/index.html)
+<img src="https://github.com/WSU-4110/Levin/blob/1e186a96f45af3d56d68160218836826c87bad6e/public/Levin%20Demo%20GIF.gif" width="80%">
 
-    npm install react-konva konva --save
+**Tutorials can be found on Levin.com**
+(click on the second icon to pull up the tutorial modal).
 
-### [Konva Utils](https://www.npmjs.com/package/react-konva-utils?activeTab=readme)
+</div>
 
-    npm install react-konva-utils --save
+# Additional Information
 
-### [Jest](https://jestjs.io/docs/getting-started)
-
-    npm install --save-dev jest
-
-# Icons
-
-### [React Icons](https://react-icons.github.io/react-icons/)
-
-    npm install react-icons --save
-
-### [Font Awesome](https://fontawesome.com/docs)
-
-    npm install @fortawesome/fontawesome-svg-core
-
-    npm install --save @fortawesome/free-brands-svg-icons
-
-    npm install --save @fortawesome/free-regular-svg-icons
-
-    npm install --save @fortawesome/free-solid-svg-icons
-
-### [Box Icons](https://boxicons.com/)
-
-    npm install boxicons --save
-
-### [Material UI](https://mui.com/material-ui/material-icons/)
-
-    npm install @mui/icons-material @mui/material @emotion/styled @emotion/react --save
+### [Levin Wiki](https://github.com/WSU-4110/Levin/wiki)
