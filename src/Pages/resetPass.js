@@ -42,7 +42,7 @@ const ResetPassword = (props) => {
         setErrorMsg("Passwords do not match!");
       } else {
         const response = await axios.post(
-          "ResetPassword",
+          "api/ResetPassword",
           JSON.stringify({ token: token, password: pass }),
           {
             headers: {
