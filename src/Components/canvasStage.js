@@ -88,11 +88,7 @@ export default class canvasStage extends Component {
 
   render = () => (
     <div>
-      <Stage
-        width={window.innerWidth * 1}
-        height={window.innerHeight * 1}
-        draggable
-      >
+      <Stage width={window.innerWidth} height={window.innerHeight} draggable>
         {/* //* add container button  */}
         <Layer>
           <Group
@@ -112,7 +108,7 @@ export default class canvasStage extends Component {
               container.style.cursor = "default";
             }}
           >
-            <Rect x={1000} y={150} width={35} height={35} />
+            <Rect x={1000} y={180} width={35} height={35} />
 
             {/* //* top left square */}
             <Rect
