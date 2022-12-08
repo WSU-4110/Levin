@@ -10,6 +10,7 @@ import ForgotModal from "./forgotModal.js";
 //* backend imports
 import AuthContext from "../Backend/AuthProvider";
 import axios from "../Backend/axios";
+import { AccessTime } from "@mui/icons-material";
 //* import { set } from "rsuite/esm/utils/dateUtils";
 
 //* modal visible/ exit animation
@@ -46,7 +47,7 @@ const LoginModal = ({ handleClose }) => {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-  const [successState, setSuccessState] = useState(false);
+  const [successState, setSuccessState] = useState("");
   const [signupModalOpen, setsignupModalOpen] = useState(false);
   const signupClose = () => setsignupModalOpen(false);
   const signupOpen = () => setsignupModalOpen(true);
@@ -73,7 +74,7 @@ const LoginModal = ({ handleClose }) => {
 
     try {
       const response = await axios.post(
-        "login",
+        "api/login",
         JSON.stringify({ email: user, password: pass }),
         {
           headers: {
@@ -84,12 +85,20 @@ const LoginModal = ({ handleClose }) => {
         }
       );
 
-      console.log(JSON.stringify(response?.data));
-      //*  console.log(JSON.stringify(response));
+      // console.log(response);
+      console.dir(response.data);
+      const loginResponse = response.data;
+      const accessToken = loginResponse.access_token;
+      // console.log(accessToken);
+      localStorage.setItem("access_token", accessToken);
+      // console.log(JSON.stringify(response));
+
       setAuth({ user, pass });
       setUser("");
       setPass("");
       setSuccessState(true);
+      
+
     } catch (err) {
       console.dir(err);
       if (!err.response) {

@@ -1,150 +1,41 @@
 import React, { Component, useState } from "react";
 import Konva from "konva";
-import { Stage, Layer, Rect, Group, Circle, Arrow } from "react-konva";
-import { Html } from "react-konva-utils";
+import { Stage, Layer, Rect, Group } from "react-konva";
+import { Container } from "./containerGroup";
 
-
-
-function useGenerateRandomColor() {
-  const [colorFill, pickerColor] = useState("");
-
-  const clickColor = (e) => {
-    if (e.evt.button === 0) {
-      pickerColor(Math.random().toString(16).substr(-6));
-    }
-  };
-
-  return { colorFill, clickColor };
+function deleteContainer(e) {
+  if (e.evt.button === 2) {
+    document.getElementById("title").style.opacity = 0;
+    document.getElementById("content").style.opacity = 0;
+  }
 }
 
-function ContainerBuild() {
-  const { colorFill, clickColor } = useGenerateRandomColor();
-
-  const TitleInput = {
-    width: 160,
-    height: 25,
-    margin: 10,
-    border: "none",
-    borderBottom: "2px solid white",
-    padding: "10px",
-    background: "none",
-    resize: "none",
-    color: "white",
-    fontSize: "20px",
-    fontFamily: "Helvetica",
-    fontWeight: "bold",
-    // outline: "1px solid red",
-  };
-
-  const ContentInput = {
-    width: 160,
-    height: 140,
-    position: "absolute",
-    top: 55,
-    margin: 10,
-    border: "none",
-    borderBottom: "2px solid white",
-    padding: "10px",
-    background: "none",
-    resize: "none",
-    color: "white",
-    fontSize: "16px",
-    fontFamily: "Helvetica",
-    // outline: "1px solid red",
-  };
+function ContainerRender() {
+  const [text, setText] = useState("Content");
+  const [selected, setSelected] = useState(false);
 
   return (
-    <Group>
-      {/* //* container style and build */}
-      <Rect
-        width={200}
-        height={260}
-        onClick={clickColor}
-        fill={"#" + colorFill}
-        shadowColor="black"
-        shadowBlur={25}
-        shadowOpacity={0.25}
-        cornerRadius={10}
-        globalCompositeOperation="xor"
+    <Group
+      onTap={deleteContainer}
+      onClick={(e) => {
+        if (e.currentTarget._id === e.target._id) {
+          setSelected(false);
+        }
+      }}
+    >
+      <Container
+        text={text}
+        onTextChange={(value) => setText(value)}
+        onClick={() => {
+          setSelected(!selected);
+        }}
+        onTextClick={(newSelected) => {
+          setSelected(newSelected);
+        }}
       />
-
-      {/* //* container title text area */}
-      <Html>
-        <textarea style={TitleInput} placeholder="Enter Title" />
-      </Html>
-
-      {/* //* container content text area */}
-      <Html>
-        <textarea style={ContentInput} placeholder="Enter content" />
-      </Html>
-
-      {/* //* container content text area */}
-      <Group
-        onMouseEnter={(e) => {
-          const container = e.target.getStage().container();
-          container.style.cursor = "pointer";
-        }}
-        onMouseLeave={(e) => {
-          const container = e.target.getStage().container();
-          container.style.cursor = "default";
-        }}
-      >
-        {/* //* drag */}
-        <Rect x={85} y={235} width={28} height={17} />
-        {/* //* top row */}
-        <Circle x={89} y={239} radius={2.5} fill="white" />
-        <Circle x={99} y={239} radius={2.5} fill="white" />
-        <Circle x={109} y={239} radius={2.5} fill="white" />
-
-        {/* //* bottom row */}
-        <Circle x={89} y={249} radius={2.5} fill="white" />
-        <Circle x={99} y={249} radius={2.5} fill="white" />
-        <Circle x={109} y={249} radius={2.5} fill="white" />
-      </Group>
-    <Arrow
-      x={200}
-      y={150}
-      pointerLength={20}
-      pointerWidth={20}
-      fill={'#'+colorFill}
-      points={[0,0,20,0]}
-      stroke={'#'+colorFill}
-      strokeWidth={4}
-    />
-    {/* <Arrow
-      x={100}
-      y={360}
-      pointerLength={20}
-      pointerWidth={100}
-      fill={'#'+colorFill}
-      points={[0,0,0,0]}
-      stroke={'#'+colorFill}
-      strokeWidth={4}
-    />
-    <Arrow
-      x={100}
-      y={360}
-      pointerLength={20}
-      pointerWidth={100}
-      fill={'#'+colorFill}
-      points={[0,-100,0,0]}
-      stroke={'#'+colorFill}
-      strokeWidth={4}
-    />
-    <Arrow
-      x={100}
-      y={260}
-      pointerLength={20}
-      pointerWidth={100}
-      fill={'#'+colorFill}
-      points={[0,-100,0,0]}
-      stroke={'#'+colorFill}
-      strokeWidth={4}
-    /> */}
     </Group>
   );
 }
-
 
 export default class canvasStage extends Component {
   // initializing state with a canvas JSON Array with a default rectangle
@@ -154,13 +45,14 @@ export default class canvasStage extends Component {
   };
 
   // when clicking on a rectangle, it creates a new rectangle by spreading out previous canvas values and adding a new set of values
-  handleClick = () => {
+  containerClick = () => {
     this.setState((prevState) => ({
-      stage: [...prevState.stage, <ContainerBuild />],
+      stage: [...prevState.stage, <ContainerRender />],
     }));
 
-    console.log(this.state.stage);
-    localStorage.setItem("canvasObject", JSON.stringify(this.state.stage));
+     console.log(this.state.stage);
+    //  console.log(this.state.stage.length);
+    // localStorage.setItem("canvasObject", JSON.stringify(this.state.stage));
   };
 
   // handles rectangle dragging
@@ -184,12 +76,18 @@ export default class canvasStage extends Component {
       zIndex: 20,
     });
   };
-  
+
+  handleRightClick = (e) => {
+    if (e.evt.button === 2) {
+      e.target.getParent().setAttrs({
+        visible: false,
+        opacity: 0,
+      });
+    }
+  };
 
   render = () => (
-    
     <div>
-      
       <Stage width={window.innerWidth} height={window.innerHeight} draggable>
         {/* //* add container button  */}
         <Layer>
@@ -198,7 +96,8 @@ export default class canvasStage extends Component {
             y={375}
             draggable
             //* calling handleClick to generate container
-            onClick={this.handleClick}
+            onClick={this.containerClick}
+            onTap={this.containerClick}
             //* cursor pointer on hover
             onMouseEnter={(e) => {
               const container = e.target.getStage().container();
@@ -209,13 +108,13 @@ export default class canvasStage extends Component {
               container.style.cursor = "default";
             }}
           >
-            <Rect x={1000} y={100} width={35} height={35} />
+            <Rect x={1000} y={180} width={35} height={35} />
 
             {/* //* top left square */}
             <Rect
               cornerRadius={3}
               x={1000}
-              y={100}
+              y={180}
               width={15}
               height={15}
               fill="rgb(0,174,112)"
@@ -225,7 +124,7 @@ export default class canvasStage extends Component {
             <Rect
               cornerRadius={3}
               x={1000}
-              y={120}
+              y={200}
               width={15}
               height={15}
               fill="rgb(0,151,158)"
@@ -235,7 +134,7 @@ export default class canvasStage extends Component {
             <Rect
               cornerRadius={3}
               x={1020}
-              y={100}
+              y={180}
               width={15}
               height={15}
               fill="rgb(0,160,140)"
@@ -245,7 +144,7 @@ export default class canvasStage extends Component {
             <Rect
               cornerRadius={3}
               x={1026.5}
-              y={120}
+              y={200}
               width={2.5}
               height={15}
               fill="rgb(0,141,179)"
@@ -254,7 +153,7 @@ export default class canvasStage extends Component {
             <Rect
               cornerRadius={3}
               x={1020}
-              y={126}
+              y={206}
               width={15}
               height={2.5}
               fill="rgb(0,141,179)"
@@ -265,22 +164,22 @@ export default class canvasStage extends Component {
         <Layer>
           {this.state.stage.map(
             (
-              key // like a "for loop", this maps over this.state.canvas objects and pulls out the height, width, x, y properties to be used below
+              assignkey = this.state.stage.length // like a "for loop", this maps over this.state.canvas objects and pulls out the height, width, x, y properties to be used below
             ) => (
               //* container
               <Group
                 draggable
-                key={key}
+                key={assignkey}
                 onDragStart={this.handleDragStart}
                 onDragEnd={this.handleDragEnd}
-                x={window.innerWidth / 2.25}
-                y={window.innerHeight / 2.8}
+                onClick={this.handleRightClick}
+                x={100}
+                y={150}
               >
-                <ContainerBuild />
+                <ContainerRender onClick={this.handleRightClick} />
               </Group>
             )
           )}
-          
         </Layer>
       </Stage>
     </div>

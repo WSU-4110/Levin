@@ -18,6 +18,7 @@ import TutorialModal from "./tutorialModal.js";
 import LoginModal from "./loginModal.js";
 import ContactModal from "./contactModal.js";
 import "./Styling/sidebar.css";
+import MUIcont from "../Pages/MUIcont";
 
 function Sidebar(props) {
   //* custom line for sidebar
@@ -44,13 +45,19 @@ function Sidebar(props) {
   const contactClose = () => setcontactModalOpen(false);
   const contactOpen = () => setcontactModalOpen(true);
 
+  const [successState, setSuccessState] = useState("false");
+  
+
+  
+ 
   return (
-    <div>
-      <div text="FOR SUCCESSSTATE LOGGED IN">
-        {/* //! successState logged in
+    <div onLoad={() => {
+      setSuccessState(props.sucessStateProp);
+      console.log(successState)}}>
+        
+      {successState ? (<>
       <div className="levinContainer">
         <img className="Logo" src={Logo} />
-        <div className="Levin">LΞVIИ</div>
       </div>
       <div className="sidebarContainer">
         <motion.div
@@ -153,12 +160,14 @@ function Sidebar(props) {
             </div>
           </div>
         </motion.div>
-      </div> */}
+      </div>
+      </>): (<>
+      <div text="FOR SUCCESSSTATE LOGGED IN">
+       
       </div>
       {/* //* Levin logo and title */}
       <div className="levinContainer">
         <img className="Logo" src={Logo} />
-        <div className="Levin">LΞVIИ</div>
       </div>
       <div data-testid="SB1" className="sidebarContainer">
         {/* //* framer motion element to add drag attributes to sidebar */}
@@ -291,8 +300,12 @@ function Sidebar(props) {
               </div>
             </div>
           </div>
+          {/* <button onClick={save}></button> */}
         </motion.div>
       </div>
+      </>)};
+
+      
     </div>
   );
 }

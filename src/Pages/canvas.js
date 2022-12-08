@@ -1,137 +1,33 @@
-import "./Styling/canvas.css";
+import {React, useState} from "react";
 import Sidebar from "../Components/sidebar.js";
-import React from "react";
-import CardContent from "@mui/material/CardContent";
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import TextareaAutosize from "@mui/material/TextareaAutosize";
-import Fab from "@mui/material/Fab";
-import AddIcon from "@mui/icons-material/Add";
+import CanvasStage from "../Components/canvasStage.js";
+import "./Styling/canvas.css";
+import CanvasTest from "../Components/DEMO-TEST/canvasTEST";
 
-const Line = ({ color }) => (
-  <hr
-    style={{
-      borderColor: color,
-      width: "85%",
-    }}
-  />
-);
 
-const card = (
-  <React.Fragment>
-    <CardContent
-      style={{
-        background: "rgb(128, 125, 219)",
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
-      <TextareaAutosize
-        aria-label="empty textarea"
-        placeholder="Title"
-        style={{
-          fontFamily: "Helvetica",
-          fontWeight: "bold",
-          fontSize: 20,
-          borderRadius: 5,
-          background: "none",
-          resize: "none",
-          border: "none",
-          padding: 5,
-        }}
-      />
-    </CardContent>
-    <CardContent
-      style={{
-        display: "grid",
-        justifyContent: "center",
-      }}
-    >
-      <TextareaAutosize
-        aria-label="empty textarea"
-        placeholder="Content"
-        maxRows={4}
-        style={{
-          fontFamily: "Helvetica",
-          fontSize: 16,
-          borderRadius: 5,
-          background: "rgb(128, 125, 219)",
-          resize: "none",
-          border: "none",
-          padding: 10,
-        }}
-      />
-    </CardContent>
-    <div>
-      <Line color="rgb(128, 125, 219)" />
-    </div>
-    <CardContent
-      style={{
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
-      <Fab
-        size="medium"
-        aria-label="add"
-        style={{
-          width: "100%",
-          height: 10,
-          borderRadius: 5,
-          background: "rgb(191, 191, 191)",
-          border: "none",
-        }}
-      >
-        <AddIcon />
-      </Fab>
-    </CardContent>
-  </React.Fragment>
-);
+function Canvas(props) {
+  // const [containerList, setContainerList] = useState([<MUIcont key= "0" />]);
+ 
+  // const addContainer = () => {
+  //   console.log("adding");
+  //   setContainerList(
+  //     containerList.concat(<MUIcont key={containerList.length}  />)
+  //   );
+  //   console.log(containerList);
+  //   console.log(containerList[0]);
+  // };
 
-const Add = (
-  <React.Fragment>
-    <Fab
-      size="medium"
-      aria-label="add"
-      style={{
-        borderRadius: 10,
-        background: "rgb(191, 191, 191)",
-        border: "none",
-        position: "absolute",
-        top: "70vh",
-      }}
-    >
-      <AddIcon />
-    </Fab>
-  </React.Fragment>
-);
-
-function Canvas() {
+  // const save = () => {
+  //   localStorage.setItem("containers", JSON.stringify(containerList))
+  //   JSON.parse(localStorage.getItem("containers"));
+  // };
+    
+  const [successState, setSuccessState] = useState("false");
   return (
     <div className="canvasContainer">
+      {/* <MUIcont /> */}
       <Sidebar />
-      <div className="titleContainer">
-        <p className="title">Canvas</p>
-        <Box
-          sx={{
-            border: 2,
-            color: "rgb(128, 125, 219)",
-            borderRadius: 4,
-          }}
-        >
-          <Card
-            sx={{
-              maxWidth: 200,
-              borderRadius: 3,
-              background: "none",
-              boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.25)",
-            }}
-          >
-            {card}
-          </Card>
-        </Box>
-        {Add}
-      </div>
+      <CanvasStage />
     </div>
   );
 }

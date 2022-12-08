@@ -1,15 +1,28 @@
 .canvasContainer {
-  width: 100%;
   height: 100vh;
+  overflow: hidden;
 }
 
-.canvasContainer .title {
-  color: Black;
-  font-size: 80px;
-  position: absolute;
-  margin: auto 0;
-  top: 0px;
-  font-weight: bold;
+.canvasContainer1 {
+  height: 100vh;
+  z-index: 10000;
+  overflow: hidden;
+}
+
+.canvastest {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: grabbing;
+  padding: 10px;
+  margin: 10px;
+  width: 2rem;
+  background: linear-gradient(135deg, rgb(0, 175, 110), rgb(0, 140, 180));
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 1);
+  /* outline: 1px solid red; */
 }
 
 ::-webkit-input-placeholder {
