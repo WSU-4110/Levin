@@ -1,6 +1,6 @@
 .sidebarContainer {
   position: fixed;
-  top: 70px;
+  top: 100px;
   z-index: 1000;
   /* outline: 1px solid red; */
 }
@@ -17,22 +17,8 @@
 }
 
 .Logo {
-  width: 3.5rem;
+  width: 8rem;
   margin-right: 10px;
-}
-
-.Levin {
-  color: Black;
-  font-size: 40px;
-  font-weight: bold;
-  opacity: 0;
-  transition: all 0.3s ease-in-out;
-  /* outline: 1px solid red; */
-}
-
-.Logo:hover ~ .Levin {
-  opacity: 1;
-  transition: all 0.3s ease-in-out;
 }
 
 .sidebar {

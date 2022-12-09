@@ -14,7 +14,7 @@ function useGenerateRandomColor() {
   return { colorFill, clickColor };
 }
 
-function TitleTextArea({ x, y, value, onChange, onKeyDown }) {
+function TextArea({ x, y, value, onChange, onKeyDown }) {
   return (
     <Html groupProps={{ x, y }}>
       <textarea
@@ -41,7 +41,7 @@ function TitleTextArea({ x, y, value, onChange, onKeyDown }) {
   );
 }
 
-function TitleKonvaText({ text, onClick }) {
+function KonvaText({ text, onClick }) {
   const textRef = useRef(null);
 
   return (
@@ -65,7 +65,7 @@ function TitleKonvaText({ text, onClick }) {
   );
 }
 
-export function TitleEditTextArea({
+export function EditTextArea({
   x,
   y,
   isEditing,
@@ -89,7 +89,7 @@ export function TitleEditTextArea({
 
   if (isEditing) {
     return (
-      <TitleTextArea
+      <TextArea
         width={width}
         height={height}
         value={text}
@@ -100,13 +100,7 @@ export function TitleEditTextArea({
   }
 
   return (
-    <TitleKonvaText
-      x={x}
-      y={y}
-      onClick={onToggleEdit}
-      text={text}
-      width={width}
-    />
+    <KonvaText x={x} y={y} onClick={onToggleEdit} text={text} width={width} />
   );
 }
 
@@ -172,6 +166,7 @@ export function Container({ text, x, y, onTextChange, onTextClick }) {
         rotation={90}
       />
 
+      {/* //* container shape */}
       <Rect
         width={200}
         height={260}
@@ -185,6 +180,7 @@ export function Container({ text, x, y, onTextChange, onTextClick }) {
         globalCompositeOperation="xor"
       />
 
+      {/* //* text area and shape to contain the text */}
       <Rect
         x={10}
         y={10}
@@ -195,14 +191,14 @@ export function Container({ text, x, y, onTextChange, onTextClick }) {
         cornerRadius={10}
       />
 
-      <TitleEditTextArea
+      <EditTextArea
         text={text}
         isEditing={isEditing}
         onToggleEdit={toggleEdit}
         onChange={onTextChange}
       />
 
-      {/* //* container content text area */}
+      {/* //* six dots on container footer */}
       <Group
         onMouseEnter={(e) => {
           const container = e.target.getStage().container();
