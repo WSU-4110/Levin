@@ -20,6 +20,8 @@ import ContactModal from "./contactModal.js";
 import "./Styling/sidebar.css";
 import MUIcont from "../Pages/MUIcont";
 
+import axios from "../Backend/axios";
+
 function Sidebar(props) {
   //* custom line for sidebar
   const Line = ({ color }) => (
@@ -45,16 +47,53 @@ function Sidebar(props) {
   const contactClose = () => setcontactModalOpen(false);
   const contactOpen = () => setcontactModalOpen(true);
 
-  const [successState, setSuccessState] = useState("false");
+  const [successState, setSuccessState] = useState(false);
   
+  const authorize = async (e) => {
+    try {
+      const access_token = localStorage.getItem("access_token");
+      console.log("token: " + access_token);
+
+      const response = await axios.get(
+        "authenticate/authenticateAccessToken",
+        {
+          params: { token: access_token },
+          headers: {
+            // "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": "true",
+            "Authorization": "Bearer " + access_token
+          }
+        }
+      );
+
+      console.log(JSON.stringify(response?.data));
+      // console.log(JSON.stringify(response));
+      setSuccessState(true);
+      // console.log(successState);
+    } catch (err) {
+      console.dir(err);
+      // if (!err.response) {
+      //   setErrorMsg("No Response from server");
+      // } else if (err.code == "ERR_NETWORK") {
+      //   setErrorMsg("Network Connection Refused");
+      // } else if (err.response?.status === 500) {
+      //   setErrorMsg("Invalid Token");
+      // } else if (err.response?.status === 401) {
+      //   setErrorMsg("Unauthorized Acccess Request");
+      // } else {
+      //   setErrorMsg("Failed to Authorize");
+      // }
+
+      // console.log(errorMessage);
+    }
+  };
 
   
  
   return (
-    <div onLoad={() => {
-      setSuccessState(props.sucessStateProp);
-      console.log(successState)}}>
-        
+    <div onLoad={authorize}>
+
       {successState ? (<>
       <div className="levinContainer">
         <img className="Logo" src={Logo} />
@@ -105,7 +144,9 @@ function Sidebar(props) {
                   <div>Settings</div>
                 </div>
               </Link>
-              <Link className="pages Logout">
+              <Link className="pages Logout" onClick = {() => {localStorage.removeItem("access_token");
+                console.log("LOGGED OUT!");
+                setSuccessState(false)}}>
                 <PageIcons icon={<LogoutIcon />} />
                 <div className="tab five">
                   <div>Log Out</div>
