@@ -2,50 +2,12 @@ import React, { Component, useState } from "react";
 import Konva from "konva";
 import { Stage, Layer, Rect, Group } from "react-konva";
 import { Container } from "./containerGroup";
-import { Html } from "react-konva-utils";
-
 
 function deleteContainer(e) {
-  // if (e.evt.button === 2) {
-  //   document.getElementById("title").style.opacity = 0;
-  //   document.getElementById("content").style.opacity = 0;
-  // }
-  let menuNode = document.getElementById('menu');
-  this.window.addEventListener('click', () => {
-    // hide menu
-    menuNode.style.display = 'none';
-  });
-
-  this.stage.on('contextmenu', (e) => {
-    // prevent default behavior
-    e.evt.preventDefault();
-    if (e.target === this.stage) {
-      // if we are on empty place of the stage we will do nothing
-      return;
-      }
-
-    });
-
   if (e.evt.button === 2) {
-
-  
+    document.getElementById("title").style.opacity = 0;
+    document.getElementById("content").style.opacity = 0;
   }
-
-  
-
-}
-
-function DeleteMenu() {
-  return (
-    <Html>
-      <body>
-        <div id ="menu">
-          <button id="delete-button">Delete</button>
-        </div>
-      </body>
-    </Html>
-  );
-
 }
 
 function ContainerRender() {
@@ -88,9 +50,9 @@ export default class canvasStage extends Component {
       stage: [...prevState.stage, <ContainerRender />],
     }));
 
-    console.log(this.state.stage);
-    console.log(this.state.stage.length);
-    localStorage.setItem("canvasObject", JSON.stringify(this.state.stage));
+     console.log(this.state.stage);
+    //  console.log(this.state.stage.length);
+    // localStorage.setItem("canvasObject", JSON.stringify(this.state.stage));
   };
 
   // handles rectangle dragging
@@ -127,13 +89,12 @@ export default class canvasStage extends Component {
   render = () => (
     <div>
       <Stage
-        width={window.innerWidth * 1}
-        height={window.innerHeight * 1}
+        width={window.innerWidth * 4}
+        height={window.innerHeight * 4}
         draggable
       >
         {/* //* add container button  */}
         <Layer>
-          <DeleteMenu/>
           <Group
             x={-979}
             y={375}
@@ -151,13 +112,13 @@ export default class canvasStage extends Component {
               container.style.cursor = "default";
             }}
           >
-            <Rect x={1000} y={100} width={35} height={35} />
+            <Rect x={1000} y={180} width={35} height={35} />
 
             {/* //* top left square */}
             <Rect
               cornerRadius={3}
               x={1000}
-              y={100}
+              y={180}
               width={15}
               height={15}
               fill="rgb(0,174,112)"
@@ -167,7 +128,7 @@ export default class canvasStage extends Component {
             <Rect
               cornerRadius={3}
               x={1000}
-              y={120}
+              y={200}
               width={15}
               height={15}
               fill="rgb(0,151,158)"
@@ -177,7 +138,7 @@ export default class canvasStage extends Component {
             <Rect
               cornerRadius={3}
               x={1020}
-              y={100}
+              y={180}
               width={15}
               height={15}
               fill="rgb(0,160,140)"
@@ -187,7 +148,7 @@ export default class canvasStage extends Component {
             <Rect
               cornerRadius={3}
               x={1026.5}
-              y={120}
+              y={200}
               width={2.5}
               height={15}
               fill="rgb(0,141,179)"
@@ -196,7 +157,7 @@ export default class canvasStage extends Component {
             <Rect
               cornerRadius={3}
               x={1020}
-              y={126}
+              y={206}
               width={15}
               height={2.5}
               fill="rgb(0,141,179)"
@@ -207,12 +168,12 @@ export default class canvasStage extends Component {
         <Layer>
           {this.state.stage.map(
             (
-              key = this.state.stage.length // like a "for loop", this maps over this.state.canvas objects and pulls out the height, width, x, y properties to be used below
+              assignkey = this.state.stage.length // like a "for loop", this maps over this.state.canvas objects and pulls out the height, width, x, y properties to be used below
             ) => (
               //* container
               <Group
                 draggable
-                key={key}
+                key={assignkey}
                 onDragStart={this.handleDragStart}
                 onDragEnd={this.handleDragEnd}
                 onClick={this.handleRightClick}

@@ -1,18 +1,19 @@
 import { React, useRef, useState, useEffect, useContext } from "react";
 
-
-//styling imports
+//* styling imports
 import "./Styling/loginModal.css";
 import { Alert } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import SignupModal from "./signupModal.js";
 import ForgotModal from "./forgotModal.js";
 
-//backend imports
+//* backend imports
 import AuthContext from "../Backend/AuthProvider";
 import axios from "../Backend/axios";
-// import { set } from "rsuite/esm/utils/dateUtils";
+import { AccessTime } from "@mui/icons-material";
+//* import { set } from "rsuite/esm/utils/dateUtils";
 
+//* modal visible/ exit animation
 const dropIn = {
   hidden: {
     y: "-100vh",
@@ -35,45 +36,45 @@ const dropIn = {
 };
 
 const LoginModal = ({ handleClose }) => {
-  //authentication context handler
+  //* authentication context handler
   const { setAuth } = useContext(AuthContext);
 
-  //to set focus
+  //* to set focus
   const userRef = useRef();
   const errorRef = useRef();
 
-  //manage input and response states
+  //* manage input and response states
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-  const [successState, setSuccessState] = useState(false);
-
+  const [successState, setSuccessState] = useState("");
   const [signupModalOpen, setsignupModalOpen] = useState(false);
   const signupClose = () => setsignupModalOpen(false);
   const signupOpen = () => setsignupModalOpen(true);
-
   const [forgotModalOpen, setforgotpModalOpen] = useState(false);
   const forgotClose = () => setforgotpModalOpen(false);
   const forgotOpen = () => setforgotpModalOpen(true);
 
-  //set focus on page load only(no dependencies)
+  //* set focus on page load only (no dependencies)
   useEffect(() => {
     userRef.current.focus();
   }, []);
 
-  //reset error message if username/pass is changed(signifying that they read the error message)
+  //* reset error message if username/ pass is changed
+  //* (signifying that they read the error message)
   useEffect(() => {
     setErrorMsg("Failed to Login");
   }, [user, pass]);
 
-  //form submission handler.
-  //event("e") is passed automotically upon submit, does not need to be specified in argument
+  //* form submission handler.
+  //* event("e") is passed automotically upon submit,
+  //* does not need to be specified in argument
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const response = await axios.post(
-        "login",
+        "api/login",
         JSON.stringify({ email: user, password: pass }),
         {
           headers: {
@@ -84,13 +85,20 @@ const LoginModal = ({ handleClose }) => {
         }
       );
 
-      console.log(JSON.stringify(response?.data));
+      // console.log(response);
+      console.dir(response.data);
+      const loginResponse = response.data;
+      const accessToken = loginResponse.access_token;
+      // console.log(accessToken);
+      localStorage.setItem("access_token", accessToken);
       // console.log(JSON.stringify(response));
 
       setAuth({ user, pass });
       setUser("");
       setPass("");
       setSuccessState(true);
+      
+
     } catch (err) {
       console.dir(err);
       if (!err.response) {
@@ -99,16 +107,19 @@ const LoginModal = ({ handleClose }) => {
       } else if (err.code == "ERR_NETWORK") {
         setErrorMsg("Network Connection Refused");
       } else if (err.response?.status === 500) {
-        setErrorMsg("Invalid Email/Password input");
+        setErrorMsg("Invalid Email/Password");
       } else if (err.response?.status === 401) {
         setErrorMsg("Unauthorized Acccess Request");
       } else {
         setErrorMsg("Failed to Login");
       }
+
+      handleClick();
       errorRef.current.focus();
     }
   };
 
+  //* err response visible/ hidden animation
   const [isShown, setIsShown] = useState(false);
   const handleClick = () => {
     setTimeout(() => {
@@ -116,13 +127,18 @@ const LoginModal = ({ handleClose }) => {
     }, 0);
     setTimeout(() => {
       setIsShown(false);
-    }, 5000);
+    }, 10000);
   };
 
   return (
-    //Fragment where view is based on successState of form(logged in/logged out)
+    //* fragment where view is based on successState of form
+    //* (logged in/ logged out)
     <>
-      {successState ? ( //logged in state
+      {/* //* logged in state
+      //* this state is not visible when logged in, this successState
+      //* is set up in case the sidebar successState is not working
+      //* element call const dropIn */}
+      {successState ? (
         <motion.div
           onClick={(e) => e.stopPropagation()}
           variants={dropIn}
@@ -130,18 +146,18 @@ const LoginModal = ({ handleClose }) => {
           animate="visible"
           exit="exit"
         >
-          <div className="loginBox1">
+          <div data-testid="LM1" className="loginBox1">
             <div className="loginBox2">
               <div className="close">
                 <button onClick={handleClose}>X</button>
               </div>
-              <h1>Log In Successful</h1>
-              <h5>Please return to home page.</h5>
+              <h1 data-testid="LM2">Log In Successful</h1>
             </div>
           </div>
         </motion.div>
       ) : (
-        //logged out state
+        //* logged out state
+        //* element call const dropIn
         <motion.div
           onClick={(e) => e.stopPropagation()}
           variants={dropIn}
@@ -149,17 +165,20 @@ const LoginModal = ({ handleClose }) => {
           animate="visible"
           exit="exit"
         >
-          <div className="loginBox1">
+          {/* //* box outlines can be enabled through the css  */}
+          <div data-testid="LM3" className="loginBox1">
             <div className="loginBox2">
               <div className="close">
                 <button onClick={handleClose}>X</button>
               </div>
-              <h1>Log In</h1>
+              <h1 data-testid="LM4">Log In</h1>
+
+              {/* //* form element calling handleSubmit */}
+              {/* //* alert element calling errorRef to prompt error */}
               <form onSubmit={handleSubmit}>
                 {isShown && (
                   <div className="errorSpaceContainer">
                     <div className="errorSpace">
-                      {/* //logged out state */}
                       <Alert
                         ref={errorRef}
                         className="errorMessage"
@@ -170,9 +189,13 @@ const LoginModal = ({ handleClose }) => {
                     </div>
                   </div>
                 )}
+
+                {/* //* input elements used to enter new email */}
                 <div className="inputContainer">
+                  {/* //* email */}
                   <div className="loginInput">
                     <input
+                      data-testid="LM5"
                       type="text"
                       id="username"
                       required
@@ -180,37 +203,49 @@ const LoginModal = ({ handleClose }) => {
                       onChange={(e) => setUser(e.target.value)}
                       value={user}
                     />
-                    <span>Email</span>
+                    <span data-testid="LM6">Email</span>
                     <i></i>
                   </div>
+
+                  {/* //* password */}
                   <div className="loginInput">
                     <input
+                      data-testid="LM7"
                       type="password"
                       id="password"
                       required
                       onChange={(e) => setPass(e.target.value)}
                       value={pass}
                     />
-                    <span>Password</span>
+                    <span data-testid="LM8">Password</span>
                     <i></i>
                   </div>
                 </div>
+
+                {/* //* login button */}
                 <div className="loginButtonContainer">
-                  <button type="submit" value="Log In">
-                    <div onClick={handleClick} className="loginButton">
+                  <button data-testid="LM9" type="submit" value="Log In">
+                    <div data-testid="LM10" className="loginButton">
                       Log In
                     </div>
                   </button>
                 </div>
               </form>
+
               <div className="otherModals">
+                {/* //* calling signupModal */}
                 <motion.button
+                  data-testid="LM11"
                   onClick={() =>
                     signupModalOpen ? signupClose() : signupOpen()
                   }
                 >
-                  <p className="signup">Sign up</p>
+                  <p data-testid="LM12" className="signup">
+                    Sign up
+                  </p>
                 </motion.button>
+
+                {/* //* animating signupModal */}
                 <AnimatePresence
                   initial={false}
                   exitBeforeEnter={true}
@@ -223,13 +258,20 @@ const LoginModal = ({ handleClose }) => {
                     />
                   )}
                 </AnimatePresence>
+
+                {/* //* calling forgotModal */}
                 <motion.button
+                  data-testid="LM13"
                   onClick={() =>
                     forgotModalOpen ? forgotClose() : forgotOpen()
                   }
                 >
-                  <p className="forgotPassword">Forgot Password</p>
+                  <p data-testid="LM14" className="forgotPassword">
+                    Forgot Password
+                  </p>
                 </motion.button>
+
+                {/* //* animating forgotModal */}
                 <AnimatePresence
                   initial={false}
                   exitBeforeEnter={true}

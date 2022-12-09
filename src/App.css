@@ -1,14 +1,14 @@
 body {
-  background: var(--anthracite);
+   background: var(--anthracite); 
   margin: 0;
   font-family: "Helvetica";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} 
 
 :root {
   /* Page Colors */
-  --anthracite: rgb(57, 61, 71);
+  --anthracite: rgb(41, 44, 51);
   --cetacean: rgb(0, 20, 64);
   --ultramarine: rgb(128, 125, 219);
 
@@ -31,7 +31,7 @@ body {
   --gray: rgb(127, 127, 127);
   --darkergray: rgb(63, 63, 63);
   --black: rgb(0, 0, 0);
-}
+} 
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -39,9 +39,10 @@ body {
 
 ::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--black);
   border-radius: 10px;
-}
+} 

@@ -1,10 +1,12 @@
+//* styling imports
 import React from "react";
 import "./Styling/termsAndCon.css";
 import Sidebar from "../Components/sidebar.js";
 
+//* content gathered from a terms and conditions generator
 function TermsAndConditions() {
   return (
-    <div className="termsAndConContainer">
+    <div data-testid="TC1" className="termsAndConContainer">
       <Sidebar />
       <div className="termsAndCon1">
         <div className="termsAndCon2">
