@@ -155,9 +155,7 @@ function Sidebar(props) {
       </div> */}
       </div>
       {/* //* Levin logo and title */}
-      <div className="levinContainer">
-        <img className="Logo" src={Logo} />
-      </div>
+      <img className="Logo" src={Logo} />
       <div data-testid="SB1" className="sidebarContainer">
         {/* //* framer motion element to add drag attributes to sidebar */}
         <motion.div

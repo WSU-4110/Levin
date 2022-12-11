@@ -5,20 +5,13 @@
   /* outline: 1px solid red; */
 }
 
-.levinContainer {
+.Logo {
   position: fixed;
-  display: flex;
-  align-items: center;
-  width: 300px;
   top: 10px;
   left: 10px;
-  z-index: 1000;
-  /* outline: 1px solid red; */
-}
-
-.Logo {
   width: 8rem;
   margin-right: 10px;
+  /* outline: 1px solid red; */
 }
 
 .sidebar {
