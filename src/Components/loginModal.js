@@ -10,7 +10,6 @@ import ForgotModal from "./forgotModal.js";
 //* backend imports
 import AuthContext from "../Backend/AuthProvider";
 import axios from "../Backend/axios";
-import { AccessTime } from "@mui/icons-material";
 //* import { set } from "rsuite/esm/utils/dateUtils";
 
 //* modal visible/ exit animation
@@ -47,7 +46,7 @@ const LoginModal = ({ handleClose }) => {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-  const [successState, setSuccessState] = useState("");
+  const [successState, setSuccessState] = useState(false);
   const [signupModalOpen, setsignupModalOpen] = useState(false);
   const signupClose = () => setsignupModalOpen(false);
   const signupOpen = () => setsignupModalOpen(true);
@@ -74,7 +73,7 @@ const LoginModal = ({ handleClose }) => {
 
     try {
       const response = await axios.post(
-        "api/login",
+        "login",
         JSON.stringify({ email: user, password: pass }),
         {
           headers: {
@@ -85,20 +84,12 @@ const LoginModal = ({ handleClose }) => {
         }
       );
 
-      // console.log(response);
-      console.dir(response.data);
-      const loginResponse = response.data;
-      const accessToken = loginResponse.access_token;
-      // console.log(accessToken);
-      localStorage.setItem("access_token", accessToken);
-      // console.log(JSON.stringify(response));
-
+      console.log(JSON.stringify(response?.data));
+      //*  console.log(JSON.stringify(response));
       setAuth({ user, pass });
       setUser("");
       setPass("");
       setSuccessState(true);
-      
-
     } catch (err) {
       console.dir(err);
       if (!err.response) {
@@ -146,12 +137,12 @@ const LoginModal = ({ handleClose }) => {
           animate="visible"
           exit="exit"
         >
-          <div data-testid="LM1" className="loginBox1">
+          <div data-testid="loginElement1" className="loginBox1">
             <div className="loginBox2">
               <div className="close">
                 <button onClick={handleClose}>X</button>
               </div>
-              <h1 data-testid="LM2">Log In Successful</h1>
+              <h1 data-testid="loginElement2">Log In Successful</h1>
             </div>
           </div>
         </motion.div>
@@ -166,12 +157,12 @@ const LoginModal = ({ handleClose }) => {
           exit="exit"
         >
           {/* //* box outlines can be enabled through the css  */}
-          <div data-testid="LM3" className="loginBox1">
+          <div data-testid="loginElement3" className="loginBox1">
             <div className="loginBox2">
               <div className="close">
                 <button onClick={handleClose}>X</button>
               </div>
-              <h1 data-testid="LM4">Log In</h1>
+              <h1 data-testid="loginElement4">Log In</h1>
 
               {/* //* form element calling handleSubmit */}
               {/* //* alert element calling errorRef to prompt error */}
@@ -195,7 +186,7 @@ const LoginModal = ({ handleClose }) => {
                   {/* //* email */}
                   <div className="loginInput">
                     <input
-                      data-testid="LM5"
+                      data-testid="loginElement5"
                       type="text"
                       id="username"
                       required
@@ -203,29 +194,29 @@ const LoginModal = ({ handleClose }) => {
                       onChange={(e) => setUser(e.target.value)}
                       value={user}
                     />
-                    <span data-testid="LM6">Email</span>
+                    <span data-testid="loginElement6">Email</span>
                     <i></i>
                   </div>
 
                   {/* //* password */}
                   <div className="loginInput">
                     <input
-                      data-testid="LM7"
+                      data-testid="loginElement7"
                       type="password"
                       id="password"
                       required
                       onChange={(e) => setPass(e.target.value)}
                       value={pass}
                     />
-                    <span data-testid="LM8">Password</span>
+                    <span data-testid="loginElement8">Password</span>
                     <i></i>
                   </div>
                 </div>
 
                 {/* //* login button */}
                 <div className="loginButtonContainer">
-                  <button data-testid="LM9" type="submit" value="Log In">
-                    <div data-testid="LM10" className="loginButton">
+                  <button data-testid="loginElement9" type="submit" value="Log In">
+                    <div data-testid="loginElement10" className="loginButton">
                       Log In
                     </div>
                   </button>
@@ -235,12 +226,12 @@ const LoginModal = ({ handleClose }) => {
               <div className="otherModals">
                 {/* //* calling signupModal */}
                 <motion.button
-                  data-testid="LM11"
+                  data-testid="loginElement11"
                   onClick={() =>
                     signupModalOpen ? signupClose() : signupOpen()
                   }
                 >
-                  <p data-testid="LM12" className="signup">
+                  <p data-testid="loginElement12" className="signup">
                     Sign up
                   </p>
                 </motion.button>
@@ -261,12 +252,12 @@ const LoginModal = ({ handleClose }) => {
 
                 {/* //* calling forgotModal */}
                 <motion.button
-                  data-testid="LM13"
+                  data-testid="loginElement13"
                   onClick={() =>
                     forgotModalOpen ? forgotClose() : forgotOpen()
                   }
                 >
-                  <p data-testid="LM14" className="forgotPassword">
+                  <p data-testid="loginElement14" className="forgotPassword">
                     Forgot Password
                   </p>
                 </motion.button>

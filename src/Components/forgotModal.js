@@ -47,7 +47,7 @@ const ForgotModal = ({ handleClose }) => {
 
     try {
       const response = await axios.post(
-        "api/RequestReset",
+        "RequestReset",
         JSON.stringify({ email: user }),
         {
           headers: {
@@ -111,12 +111,12 @@ const ForgotModal = ({ handleClose }) => {
       exit="exit"
     >
       {/* //* box outlines can be enabled through the css  */}
-      <div data-testid="FM1" className="forgotpassBox1">
+      <div data-testid="forgotElement1" className="forgotpassBox1">
         <div className="forgotpassBox2">
           <div className="close">
             <button onClick={handleClose}>➜</button>
           </div>
-          <h1 data-testid="FM2">Forgot Password</h1>
+          <h1 data-testid="forgotElement2">Forgot Password</h1>
 
           {/* //* form element calling handleSubmit */}
           {/* //* alert element calling errorRef to prompt error */}
@@ -139,7 +139,7 @@ const ForgotModal = ({ handleClose }) => {
             <div className="inputContainer">
               <div className="forgotpassInput">
                 <input
-                  data-testid="FM3"
+                  data-testid="forgotElement3"
                   type="email"
                   id="username"
                   required
@@ -147,15 +147,15 @@ const ForgotModal = ({ handleClose }) => {
                   onChange={(e) => setUser(e.target.value)}
                   value={user}
                 />
-                <span data-testid="FM4">Email</span>
+                <span data-testid="forgotElement4">Email</span>
                 <i></i>
               </div>
             </div>
 
             {/* //* send button */}
             <div className="forgotpassButtonContainer">
-              <button data-testid="FM5" type="submit" value="Log In">
-                <div className="forgotpassButton" data-testid="FM6">
+              <button data-testid="forgotElement5" type="submit" value="Log In">
+                <div className="forgotpassButton" data-testid="forgotElement6">
                   Send
                 </div>
               </button>
