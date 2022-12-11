@@ -88,7 +88,11 @@ export default class canvasStage extends Component {
 
   render = () => (
     <div>
-      <Stage width={window.innerWidth} height={window.innerHeight} draggable>
+      <Stage
+        width={window.innerWidth * 4}
+        height={window.innerHeight * 4}
+        draggable
+      >
         {/* //* add container button  */}
         <Layer>
           <Group
