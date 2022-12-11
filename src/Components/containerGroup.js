@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Text, Group, Rect, Arrow, Circle } from "react-konva";
+import { Text, Group, Rect, Arrow, Circle, Line } from "react-konva";
 import { Html } from "react-konva-utils";
 
 function useGenerateRandomColor() {
@@ -113,71 +113,233 @@ export function Container({ text, x, y, onTextChange, onTextClick }) {
     onTextClick(!isEditing);
   }
 
+  const container = {
+    x: 0,
+    y: 0,
+    width: 200,
+    height: 260,
+    shadowColor: "black",
+    shadowBlur: 25,
+    shadowOpacity: 0.25,
+    cornerRadius: 10,
+    stroke: "black",
+    strokeWidth: 1,
+    globalCompositeOperation: "xor",
+  };
+
+  const LineUp = ({ node1, node2 }) => {
+    const dx = node1.x - node2.x;
+    const dy = node1.y - node2.y;
+    let angle = Math.atan2(-dy, dx);
+
+    const radius = 0;
+
+    const arrowStart = {
+      x: node2.x + radius * Math.cos(angle + Math.PI),
+      y: node2.y + (radius + 10) * Math.sin(angle + Math.PI),
+    };
+
+    const arrowEnd = {
+      x: node1.x + radius * Math.cos(angle),
+      y: node1.y + radius * Math.sin(angle) - 10,
+    };
+
+    return (
+      <Line
+        points={[arrowStart.x, arrowStart.y, arrowEnd.x + 99, arrowEnd.y]}
+        stroke={"#" + colorFill}
+        strokeWidth={5}
+      />
+    );
+  };
+
+  const arrowUp = {
+    x: 99,
+    y: -15,
+    pointerLength: 10,
+    pointerWidth: 30,
+    points: [0, 0, 0, 0],
+    stroke: "black",
+    strokeWidth: 1,
+    draggable: true,
+    rotation: 270,
+  };
+
+  const LineDown = ({ node1, node2 }) => {
+    const dx = node1.x - node2.x;
+    const dy = node1.y - node2.y;
+    let angle = Math.atan2(-dy, dx);
+
+    const radius = 0;
+
+    const arrowStart = {
+      x: node2.x + radius * Math.cos(angle + Math.PI),
+      y: node2.y + (radius + 10) * Math.sin(angle + Math.PI),
+    };
+
+    const arrowEnd = {
+      x: node1.x + radius * Math.cos(angle),
+      y: node1.y + radius * Math.sin(angle) + 10,
+    };
+
+    return (
+      <Line
+        points={[arrowStart.x, arrowStart.y, arrowEnd.x + 99, arrowEnd.y + 260]}
+        stroke={"#" + colorFill}
+        strokeWidth={5}
+      />
+    );
+  };
+
+  const arrowDown = {
+    x: 99,
+    y: 275,
+    pointerLength: 10,
+    pointerWidth: 30,
+    points: [0, 0, 0, 0],
+    stroke: "black",
+    strokeWidth: 1,
+    draggable: true,
+    rotation: 90,
+  };
+
+  const LineLeft = ({ node1, node2 }) => {
+    const dx = node1.x - node2.x;
+    const dy = node1.y - node2.y;
+    let angle = Math.atan2(-dy, dx);
+
+    const radius = 0;
+
+    const arrowStart = {
+      x: node2.x + (radius - 10) * Math.cos(angle + Math.PI),
+      y: node2.y + radius * Math.sin(angle + Math.PI),
+    };
+
+    const arrowEnd = {
+      x: node1.x + radius * Math.cos(angle) - 10,
+      y: node1.y + radius * Math.sin(angle),
+    };
+
+    return (
+      <Line
+        points={[arrowStart.x, arrowStart.y, arrowEnd.x, arrowEnd.y + 132]}
+        stroke={"#" + colorFill}
+        strokeWidth={5}
+      />
+    );
+  };
+
+  const arrowLeft = {
+    x: -15,
+    y: 132,
+    pointerLength: 10,
+    pointerWidth: 30,
+    points: [0, 0, 0, 0],
+    stroke: "black",
+    strokeWidth: 1,
+    draggable: true,
+    rotation: 180,
+  };
+
+  const LineRight = ({ node1, node2 }) => {
+    const dx = node1.x - node2.x;
+    const dy = node1.y - node2.y;
+    let angle = Math.atan2(-dy, dx);
+
+    const radius = 0;
+
+    const arrowStart = {
+      x: node2.x + (radius - 10) * Math.cos(angle + Math.PI),
+      y: node2.y + radius * Math.sin(angle + Math.PI),
+    };
+
+    const arrowEnd = {
+      x: node1.x + radius * Math.cos(angle) + 10,
+      y: node1.y + radius * Math.sin(angle),
+    };
+
+    return (
+      <Line
+        points={[
+          arrowStart.x,
+          arrowStart.y,
+          arrowEnd.x + 200,
+          arrowEnd.y + 132,
+        ]}
+        stroke={"#" + colorFill}
+        strokeWidth={5}
+      />
+    );
+  };
+
+  const arrowRight = {
+    x: 215,
+    y: 132,
+    pointerLength: 10,
+    pointerWidth: 30,
+    points: [0, 0, 0, 0],
+    stroke: "black",
+    strokeWidth: 1,
+    draggable: true,
+  };
+
+  const [containerNode, updatecontainerNode] = React.useState(container);
+  const [upNode, updateUpNode] = React.useState(arrowUp);
+  const [downNode, updateDownNode] = React.useState(arrowDown);
+  const [leftNode, updateLeftNode] = React.useState(arrowLeft);
+  const [rightNode, updateRightNode] = React.useState(arrowRight);
+
   return (
     <Group x={x} y={y}>
-      {/* //* left */}
-      <Arrow
-        x={-15}
-        y={132}
-        pointerLength={10}
-        pointerWidth={30}
-        fill="black"
-        points={[0, 0, 0, 0]}
-        stroke={"#" + colorFill}
-        strokeWidth={1}
-        rotation={180}
-      />
-
-      {/* //* right */}
-      <Arrow
-        x={215}
-        y={132}
-        pointerLength={10}
-        pointerWidth={30}
-        fill="black"
-        points={[0, 0, 0, 0]}
-        stroke={"#" + colorFill}
-        strokeWidth={1}
-      />
-
-      {/* //* top */}
-      <Arrow
-        x={99}
-        y={-15}
-        pointerLength={10}
-        pointerWidth={30}
-        fill="black"
-        points={[0, 0, 0, 0]}
-        stroke={"#" + colorFill}
-        strokeWidth={1}
-        rotation={270}
-      />
-
-      {/* //* bottom */}
-      <Arrow
-        x={99}
-        y={275}
-        pointerLength={10}
-        pointerWidth={30}
-        fill="black"
-        points={[0, 0, 0, 0]}
-        stroke={"#" + colorFill}
-        strokeWidth={1}
-        rotation={90}
-      />
-
-      {/* //* container shape */}
+      {/* //* container */}
       <Rect
-        width={200}
-        height={260}
+        {...containerNode}
+        onDragMove={(e) => {
+          updatecontainerNode({ ...containerNode, ...e.target.position() });
+        }}
         onClick={clickColor}
         onTap={clickColor}
         fill={"#" + colorFill}
-        shadowColor="black"
-        shadowBlur={25}
-        shadowOpacity={0.25}
-        cornerRadius={10}
-        globalCompositeOperation="xor"
+      />
+
+      {/* //* up arrow */}
+      <LineUp node1={containerNode} node2={upNode} />
+      <Arrow
+        {...upNode}
+        onDragMove={(e) => {
+          updateUpNode({ ...upNode, ...e.target.position() });
+        }}
+        fill={"#" + colorFill}
+      />
+
+      {/* //* down arrow */}
+      <LineDown node1={containerNode} node2={downNode} />
+      <Arrow
+        {...downNode}
+        onDragMove={(e) => {
+          updateDownNode({ ...downNode, ...e.target.position() });
+        }}
+        fill={"#" + colorFill}
+      />
+
+      {/* //* left arrow */}
+      <LineLeft node1={containerNode} node2={leftNode} />
+      <Arrow
+        {...leftNode}
+        onDragMove={(e) => {
+          updateLeftNode({ ...leftNode, ...e.target.position() });
+        }}
+        fill={"#" + colorFill}
+      />
+
+      {/* //* right arrow */}
+      <LineRight node1={containerNode} node2={rightNode} />
+      <Arrow
+        {...rightNode}
+        onDragMove={(e) => {
+          updateRightNode({ ...rightNode, ...e.target.position() });
+        }}
+        fill={"#" + colorFill}
       />
 
       {/* //* text area and shape to contain the text */}
