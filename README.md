@@ -25,7 +25,7 @@
 
 <div align="center">
 
-<img src="https://github.com/WSU-4110/Levin/blob/1e186a96f45af3d56d68160218836826c87bad6e/public/Levin%20Demo%20GIF.gif" width="80%">
+<img src="https://github.com/WSU-4110/Levin/blob/728cd987094bfcf6979dfaead5d2cc40f4a58081/public/Levin%20Example%20Demo.gif" width="50%">
 
 **Tutorials can be found on Levin.com**
 
