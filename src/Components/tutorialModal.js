@@ -3,7 +3,10 @@ import { motion } from "framer-motion";
 import "./Styling/tutorialModal.css";
 import React from "react";
 
-import Video from "./Tutorial_Video/Temp_Video.mp4";
+import Video1 from "./Tutorial_Video/Tutorial_Show.mp4";
+import Video2 from "./Tutorial_Video/Drag_Back_&_Cont.mp4";
+import Video3 from "./Tutorial_Video/Manip_Cont.mp4";
+import Video4 from "./Tutorial_Video/Down_Site_Image.mp4";
 
 //* modal visible/ exit animation
 const dropIn = {
@@ -48,16 +51,51 @@ const TutorialModal = ({ handleClose }) => {
           <h1 data-testid="TM2">Tutorials</h1>
           <div className="tutorialBox3">
             <div className="tutorialBox4">
-              {/* //* Tutorial 1  */}
+              {/* //* Tutorial Modal Showcase  */}
               <div className="template">
                 <video
                   data-testid="TM3"
                   controls
-                  src={Video}
-                  title="test"
-                  type="Temp_Video/mp4"
+                  src={Video1}
+                  title="Tutorial Modal Showcase"
                 />
-                <span data-testid="TM4">video name</span>
+                <span data-testid="TM4">Tutorial Modal Showcase</span>
+              </div>
+              <br />
+
+              {/* //* Drag Background and Containers  */}
+              <div className="template">
+                <video
+                  data-testid="TM5"
+                  controls
+                  src={Video2}
+                  title="Drag Background and Containers"
+                />
+                <span data-testid="TM6">Drag Background and Containers</span>
+              </div>
+              <br />
+
+              {/* //* Manipulating Containers  */}
+              <div className="template">
+                <video
+                  data-testid="TM7"
+                  controls
+                  src={Video3}
+                  title="Manipulating Containers"
+                />
+                <span data-testid="TM8">Manipulating Containers</span>
+              </div>
+              <br />
+
+              {/* //* Download Sitemap as an Image  */}
+              <div className="template">
+                <video
+                  data-testid="TM9"
+                  controls
+                  src={Video4}
+                  title="Download Sitemap as an Image"
+                />
+                <span data-testid="TM10">Download Sitemap as an Image</span>
               </div>
             </div>
           </div>
@@ -66,4 +104,5 @@ const TutorialModal = ({ handleClose }) => {
     </motion.div>
   );
 };
+
 export default TutorialModal;
