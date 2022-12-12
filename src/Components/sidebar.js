@@ -87,7 +87,7 @@ function Sidebar(props) {
                   </motion.button>
                   <AnimatePresence
                     initial={false}
-                    exitBeforeEnter={true}
+                    mode="wait"
                     onExitComplete={() => null}
                   >
                     {tutorialModalOpen && (
@@ -125,7 +125,7 @@ function Sidebar(props) {
                   </motion.button>
                   <AnimatePresence
                     initial={false}
-                    exitBeforeEnter={true}
+                    mode="wait"
                     onExitComplete={() => null}
                   >
                     {contactModalOpen && (
@@ -203,7 +203,7 @@ function Sidebar(props) {
                   {/* //* animating tutorial */}
                   <AnimatePresence
                     initial={false}
-                    exitBeforeEnter={true}
+                    mode="wait"
                     onExitComplete={() => null}
                   >
                     {tutorialModalOpen && (
@@ -230,7 +230,7 @@ function Sidebar(props) {
                   {/* //* animating log in */}
                   <AnimatePresence
                     initial={false}
-                    exitBeforeEnter={true}
+                    mode="wait"
                     onExitComplete={() => null}
                   >
                     {loginModalOpen && (
@@ -262,7 +262,7 @@ function Sidebar(props) {
                   {/* //* animating contact */}
                   <AnimatePresence
                     initial={false}
-                    exitBeforeEnter={true}
+                    mode="wait"
                     onExitComplete={() => null}
                   >
                     {contactModalOpen && (
