@@ -95,7 +95,7 @@ const SignupModal = ({ handleClose }) => {
       }
     } catch (err) {
       console.dir(err);
-      
+
       const responseObj = JSON.parse(err.response.request?.response);
       if (!err.response) {
         setErrorMsg("No Response from server");
@@ -119,7 +119,6 @@ const SignupModal = ({ handleClose }) => {
         setErrorMsg("Failed to Register");
       }
 
-      
       handleClick();
       console.log("working");
       errorRef.current.focus();
@@ -170,6 +169,10 @@ const SignupModal = ({ handleClose }) => {
                 </div>
               </div>
             )}
+
+            {/* //* testing */}
+            <span data-testid="error">{errorMsg}</span>
+            <span data-testid="successState">{successState.toString()}</span>
 
             {/* //* input element used to enter email */}
             <div className="inputContainer">

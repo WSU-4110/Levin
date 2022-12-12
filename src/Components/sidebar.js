@@ -58,7 +58,7 @@ function Sidebar(props) {
           <div className="levinContainer">
             <img className="Logo" src={Logo} />
           </div>
-          <div className="sidebarContainer">
+          <div data-testid="SB1" className="sidebarContainer">
             <motion.div
               className="sidebar"
               drag

@@ -97,8 +97,6 @@ const LoginModal = ({ handleClose }) => {
       setUser("");
       setPass("");
       setSuccessState(true);
-      
-
     } catch (err) {
       console.dir(err);
       if (!err.response) {

@@ -20,18 +20,15 @@ function App() {
       const access_token = localStorage.getItem("access_token");
       console.log("token: " + access_token);
 
-      const response = await axios.get(
-        "authenticate/authenticateAccessToken",
-        {
-          params: { token: access_token },
-          headers: {
-            // "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Credentials": "true",
-            "Authorization": "Bearer " + access_token
-          }
-        }
-      );
+      const response = await axios.get("authenticate/authenticateAccessToken", {
+        params: { token: access_token },
+        headers: {
+          // "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": "true",
+          Authorization: "Bearer " + access_token,
+        },
+      });
 
       console.log(JSON.stringify(response?.data));
       // console.log(JSON.stringify(response));
