@@ -11,7 +11,7 @@ import AuthContext from "../Backend/AuthProvider";
 import axios from "../Backend/axios";
 //* import { set } from "rsuite/esm/utils/dateUtils";
 
-const ResetPassword = (props) => {
+const ResetPassword = (/*props*/) => {
   const { setAuth } = useContext(AuthContext);
   const errorRef = useRef();
   const passConfirmRef = useRef();
@@ -22,7 +22,7 @@ const ResetPassword = (props) => {
 
   //* manage url token
   const [searchParams] = useSearchParams();
-  const [token, setToken] = useState(searchParams.get("token"));
+  const [token /*setToken*/] = useState(searchParams.get("token"));
   //*  console.log(token);
 
   //* reset error message if username/pass is changed

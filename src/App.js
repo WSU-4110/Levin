@@ -15,7 +15,7 @@ function App() {
   const [successState, setSuccessState] = useState("false");
   const [errorMessage, setErrorMsg] = useState("");
 
-  const authorize = async (e) => {
+  const authorize = async (/*e*/) => {
     try {
       const access_token = localStorage.getItem("access_token");
       console.log("token: " + access_token);

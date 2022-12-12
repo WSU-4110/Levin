@@ -1,9 +1,9 @@
 import {
   fireEvent,
-  getByTestId,
   render,
   screen,
-  waitFor,
+  /*waitFor,
+  getByTestId,*/
 } from "@testing-library/react";
 import SignupModal from "../../Components/signupModal";
 
@@ -142,28 +142,28 @@ test("Should show an error message if pass and confirm pass are not equal", () =
   expect(error.textContent).toBe("Passwords do not match!");
 });
 
-// test("Should set successState to true upon successfull registration", async () => {
-//   render(<SignupModal />);
+//* test("Should set successState to true upon successfull registration", async () => {
+//*   render(<SignupModal />);
 
-//   //* email
-//   const SM3 = screen.getByTestId("SM3");
-//   const userInput = "username@gmail.com";
-//   fireEvent.change(SM3, { target: { value: userInput } });
+//*   //* email
+//*   const SM3 = screen.getByTestId("SM3");
+//*   const userInput = "username@gmail.com";
+//*   fireEvent.change(SM3, { target: { value: userInput } });
 
-//   //* password
-//   const SM5 = screen.getByTestId("SM5");
-//   const passInput = "pass";
-//   fireEvent.change(SM5, { target: { value: passInput } });
+//*   //* password
+//*   const SM5 = screen.getByTestId("SM5");
+//*   const passInput = "pass";
+//*   fireEvent.change(SM5, { target: { value: passInput } });
 
-//   //* confirm password
-//   const SM7 = screen.getByTestId("SM7");
-//   const confirmInput = "pass";
-//   fireEvent.change(SM7, { target: { value: confirmInput } });
+//*   //* confirm password
+//*   const SM7 = screen.getByTestId("SM7");
+//*   const confirmInput = "pass";
+//*   fireEvent.change(SM7, { target: { value: confirmInput } });
 
-//   //* sign up button
-//   const SM9 = screen.getByTestId("SM9");
-//   fireEvent.click(SM9);
+//*   //* sign up button
+//*   const SM9 = screen.getByTestId("SM9");
+//*   fireEvent.click(SM9);
 
-//   const successState = await screen.findByTestId("successState");
-//   await waitFor(() => expect(successState.textContent).toBe("true"));
-// });
+//*   const successState = await screen.findByTestId("successState");
+//*   await waitFor(() => expect(successState.textContent).toBe("true"));
+//* });

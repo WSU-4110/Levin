@@ -56,7 +56,7 @@ function Sidebar(props) {
       {successState ? (
         <>
           <div className="levinContainer">
-            <img className="Logo" src={Logo} />
+            <img className="Logo" src={Logo} alt="Levin logo" />
           </div>
           <div data-testid="SB1" className="sidebarContainer">
             <motion.div
@@ -166,7 +166,7 @@ function Sidebar(props) {
           <div text="FOR SUCCESSSTATE LOGGED IN"></div>
           {/* //* Levin logo and title */}
           <div className="levinContainer">
-            <img className="Logo" src={Logo} />
+            <img className="Logo" src={Logo} alt="Levin logo" />
           </div>
           <div data-testid="SB1" className="sidebarContainer">
             {/* //* framer motion element to add drag attributes to sidebar */}
