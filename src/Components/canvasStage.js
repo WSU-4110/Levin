@@ -2,6 +2,7 @@ import React, { Component, useState } from "react";
 import Konva from "konva";
 import { Stage, Layer, Rect, Group } from "react-konva";
 import { Container } from "./containerGroup";
+import { NoEncryption } from "@mui/icons-material";
 
 function deleteContainer(e) {
   if (e.evt.button === 2) {
@@ -41,6 +42,9 @@ export default class canvasStage extends Component {
   // initializing state with a canvas JSON Array with a default rectangle
   state = {
     stage: [{}],
+    stageScale: 1,
+    stageX: 0,
+    stageY: 0,
     // canvas: JSON.parse(localStorage.getItem("canvasObject"))
   };
 
@@ -81,17 +85,43 @@ export default class canvasStage extends Component {
     if (e.evt.button === 2) {
       e.target.getParent().setAttrs({
         visible: false,
-        opacity: 0,
       });
     }
+  };
+
+  handleWheel = (e) => {
+    e.evt.preventDefault();
+
+    const scaleBy = 1.1;
+    const stage = e.target.getStage();
+    const oldScale = stage.scaleX();
+    const mousePointTo = {
+      x: stage.getPointerPosition().x / oldScale - stage.x() / oldScale,
+      y: stage.getPointerPosition().y / oldScale - stage.y() / oldScale,
+    };
+
+    const newScale = e.evt.deltaY > 0 ? oldScale * scaleBy : oldScale / scaleBy;
+
+    this.setState({
+      stageScale: newScale,
+      stageX:
+        -(mousePointTo.x - stage.getPointerPosition().x / newScale) * newScale,
+      stageY:
+        -(mousePointTo.y - stage.getPointerPosition().y / newScale) * newScale,
+    });
   };
 
   render = () => (
     <div>
       <Stage
-        width={window.innerWidth * 4}
-        height={window.innerHeight * 4}
+        width={window.innerWidth}
+        height={window.innerHeight}
         draggable
+        onWheel={this.handleWheel}
+        scaleX={this.state.stageScale}
+        scaleY={this.state.stageScale}
+        x={this.state.stageX}
+        y={this.state.stageY}
       >
         {/* //* add container button  */}
         <Layer>
@@ -177,8 +207,8 @@ export default class canvasStage extends Component {
                 onDragStart={this.handleDragStart}
                 onDragEnd={this.handleDragEnd}
                 onClick={this.handleRightClick}
-                x={100}
-                y={150}
+                x={window.innerWidth / 2.23}
+                y={window.innerHeight / 3.3}
               >
                 <ContainerRender onClick={this.handleRightClick} />
               </Group>

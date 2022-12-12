@@ -1,4 +1,4 @@
-import { React, useRef, useState, useEffect, useContext } from "react";
+import { React, useRef, useState /*useEffect, useContext*/ } from "react";
 
 //* styling imports
 import { motion } from "framer-motion";
@@ -6,7 +6,7 @@ import "./Styling/forgotModal.css";
 import { Alert } from "@mui/material";
 
 //* backend imports
-import AuthContext from "../Backend/AuthProvider";
+//* import AuthContext from "../Backend/AuthProvider";
 import axios from "../Backend/axios";
 
 //* modal visible/ hidden animation
@@ -33,14 +33,14 @@ const fadeIn = {
 
 const ForgotModal = ({ handleClose }) => {
   //* authentication context handler
-  const { setAuth } = useContext(AuthContext);
+  //* const { setAuth } = useContext(AuthContext);
 
   //* to set focus
   const userRef = useRef();
   const errorRef = useRef();
   const [user, setUser] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-  const [successState, setSuccessState] = useState(false);
+  const [, /*successState*/ setSuccessState] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
