@@ -246,7 +246,7 @@ const LoginModal = ({ handleClose }) => {
                 {/* //* animating signupModal */}
                 <AnimatePresence
                   initial={false}
-                  exitBeforeEnter={true}
+                  mode="wait"
                   onExitComplete={() => null}
                 >
                   {signupModalOpen && (
@@ -272,7 +272,7 @@ const LoginModal = ({ handleClose }) => {
                 {/* //* animating forgotModal */}
                 <AnimatePresence
                   initial={false}
-                  exitBeforeEnter={true}
+                  mode="wait"
                   onExitComplete={() => null}
                 >
                   {forgotModalOpen && (
