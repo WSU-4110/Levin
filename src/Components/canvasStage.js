@@ -219,3 +219,59 @@ export default class canvasStage extends Component {
     </div>
   );
 }
+  // function ArrowBuild(){
+  //   return(
+  //     <Group>
+  //       <Arrow width={300} height={300} point={[0,0,0,10]} fill="black"></Arrow>
+  
+  //       * right arrow*/
+  //       <Arrow>
+  //         x={60}
+  //         y={260}
+  //         pointerLength={10}
+  //         pointerWidth={40}
+  //         fill={'#'+colorfill}
+  //         points={[0,0,100,10]}
+  //         stroke={'#'+colorfill}
+  //         strokewidth={4}
+  //       </Arrow>
+  
+  //       *left arrow*/
+  //       <Arrow>
+  //         x={-60}
+  //         y={260}
+  //         pointerLength={10}
+  //         pointerWidth={40}
+  //         fill={'#'+colorfill}
+  //         points={[0,0,100,10]}
+  //         stroke={'#'+colorfill}
+  //         strokewidth={4}
+  //       </Arrow>
+  
+  //     **top arrow */
+  //       <Arrow>
+  //         x={-60}
+  //         y={260}
+  //         pointerLength={10}
+  //         pointerWidth={40}
+  //         fill={'#'+colorfill}
+  //         points={[0,0,100,10]}
+  //         stroke={'#'+colorfill}
+  //         strokewidth={4}
+  //       </Arrow>
+        
+  //     * bottom arrow*/
+  //       <Arrow>
+  //         x={-60}
+  //         y={-260}
+  //         pointerLength={10}
+  //         pointerWidth={40}
+  //         fill={'#'+colorfill}
+  //         points={[0,0,100,10]}
+  //         stroke={'#'+colorfill}
+  //         strokewidth={4}
+  //       </Arrow>
+        
+  //     </Group>
+  //   );
+  // }
