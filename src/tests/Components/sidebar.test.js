@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter as Router } from "react-router-dom";
-import Sidebar from "../../Components/sidebar";
+import Sidebar from "../../Components/sidebar.js";
 
 //! add backend test
 

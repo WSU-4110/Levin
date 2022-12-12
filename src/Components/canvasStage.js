@@ -50,7 +50,7 @@ export default class canvasStage extends Component {
       stage: [...prevState.stage, <ContainerRender />],
     }));
 
-     console.log(this.state.stage);
+    console.log(this.state.stage);
     //  console.log(this.state.stage.length);
     // localStorage.setItem("canvasObject", JSON.stringify(this.state.stage));
   };

@@ -41,19 +41,19 @@ We use Konva, an HTML5 2D canvas js library. The images below explain how we pro
 
 **containerGroup.js references all shapes within a group** (all styling was removed to shrink the image size)
 
-** **
+---
 
 <img src="https://github.com/WSU-4110/Levin/blob/ff49b88b9f8f69d3a155c74414e318ecd792b584/public/Container%20Render.png" width="50%">
 
 **canvasStage.js references all groups within a layer**
 
-** **
+---
 
 <img src="https://github.com/WSU-4110/Levin/blob/13cb99a03be2998138751349f873193822121e23/public/Stage%20Render.png" width="50%">
 
 **canvasStage.js also references all layers within stage** (all styling was removed to shrink the image size)
 
-** **
+---
 
 <img src="https://github.com/WSU-4110/Levin/blob/52dfbff064b2c0ad9cacb5b9feb723055853b035/public/Konva%20Visual%20Demo.png" width="50%">
 

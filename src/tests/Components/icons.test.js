@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Icons from "../../Components/icons";
+import Icons from "../../Components/pageIcons";
 
 test("Should render animation", () => {
   render(<Icons />);
