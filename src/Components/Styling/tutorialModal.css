@@ -87,7 +87,7 @@
   margin-top: 6rem;
   position: absolute;
   overflow-y: scroll;
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
 }
 
 .tutorialBox4 {
