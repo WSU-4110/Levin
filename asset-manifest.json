@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.43f38193.css",
-    "main.js": "/static/js/main.ec3208ef.js",
-    "static/media/Manip_Cont.mp4": "/static/media/Manip_Cont.4c73071d3eeb638af10b.mp4",
-    "static/media/Tutorial_Show.mp4": "/static/media/Tutorial_Show.6d6880acea4cd69939c1.mp4",
-    "static/media/Drag_Back_&_Cont.mp4": "/static/media/Drag_Back_&_Cont.5cd7ffea28f287810888.mp4",
-    "static/media/Logo.png": "/static/media/Logo.43fb0aa56dd4ec05365d.png",
-    "static/media/Down_Site_Image.mp4": "/static/media/Down_Site_Image.dce5a035fa1a381e71fe.mp4",
-    "index.html": "/index.html",
-    "main.43f38193.css.map": "/static/css/main.43f38193.css.map",
-    "main.ec3208ef.js.map": "/static/js/main.ec3208ef.js.map"
+    "main.css": "/Levin/static/css/main.43f38193.css",
+    "main.js": "/Levin/static/js/main.020db6f1.js",
+    "static/media/Manip_Cont.mp4": "/Levin/static/media/Manip_Cont.4c73071d3eeb638af10b.mp4",
+    "static/media/Tutorial_Show.mp4": "/Levin/static/media/Tutorial_Show.6d6880acea4cd69939c1.mp4",
+    "static/media/Drag_Back_&_Cont.mp4": "/Levin/static/media/Drag_Back_&_Cont.5cd7ffea28f287810888.mp4",
+    "static/media/Logo.png": "/Levin/static/media/Logo.43fb0aa56dd4ec05365d.png",
+    "static/media/Down_Site_Image.mp4": "/Levin/static/media/Down_Site_Image.dce5a035fa1a381e71fe.mp4",
+    "index.html": "/Levin/index.html",
+    "main.43f38193.css.map": "/Levin/static/css/main.43f38193.css.map",
+    "main.020db6f1.js.map": "/Levin/static/js/main.020db6f1.js.map"
   },
   "entrypoints": [
     "static/css/main.43f38193.css",
-    "static/js/main.ec3208ef.js"
+    "static/js/main.020db6f1.js"
   ]
 }
