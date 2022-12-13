@@ -57,7 +57,10 @@ function App() {
     <div onLoad={authorize}>
       <Router>
         <Routes>
-          <Route path="/" element={<Canvas sucessStateProp={successState} />} />
+          <Route
+            path="/Levin"
+            element={<Canvas sucessStateProp={successState} />}
+          />
           <Route path="Settings" element={<Settings />}></Route>
           <Route path="PrivacyPolicy" element={<PrivacyPolicy />}></Route>
           <Route
