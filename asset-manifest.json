@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Levin/static/css/main.d20a2a5e.css",
+    "main.css": "/Levin/static/css/main.c881d83c.css",
     "main.js": "/Levin/static/js/main.c5b62cf2.js",
     "static/media/Manip_Cont.mp4": "/Levin/static/media/Manip_Cont.4c73071d3eeb638af10b.mp4",
     "static/media/Tutorial_Show.mp4": "/Levin/static/media/Tutorial_Show.6d6880acea4cd69939c1.mp4",
@@ -8,11 +8,11 @@
     "static/media/Logo.png": "/Levin/static/media/Logo.43fb0aa56dd4ec05365d.png",
     "static/media/Down_Site_Image.mp4": "/Levin/static/media/Down_Site_Image.dce5a035fa1a381e71fe.mp4",
     "index.html": "/Levin/index.html",
-    "main.d20a2a5e.css.map": "/Levin/static/css/main.d20a2a5e.css.map",
+    "main.c881d83c.css.map": "/Levin/static/css/main.c881d83c.css.map",
     "main.c5b62cf2.js.map": "/Levin/static/js/main.c5b62cf2.js.map"
   },
   "entrypoints": [
-    "static/css/main.d20a2a5e.css",
+    "static/css/main.c881d83c.css",
     "static/js/main.c5b62cf2.js"
   ]
 }
