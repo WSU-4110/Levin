@@ -68,7 +68,7 @@ function Sidebar(props) {
             >
               <div className="content">
                 <div>
-                  <Link className="pages Canvas" to="/">
+                  <Link className="pages Canvas" to="/Levin">
                     <PageIcons icon={<TableChartIcon />} />
                     <div className="tab one">
                       <div>Canvas</div>
