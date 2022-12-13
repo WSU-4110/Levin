@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/Levin/static/css/main.43f38193.css",
-    "main.js": "/Levin/static/js/main.04e75198.js",
+    "main.css": "/Levin/static/css/main.da174af7.css",
+    "main.js": "/Levin/static/js/main.c5b62cf2.js",
     "static/media/Manip_Cont.mp4": "/Levin/static/media/Manip_Cont.4c73071d3eeb638af10b.mp4",
     "static/media/Tutorial_Show.mp4": "/Levin/static/media/Tutorial_Show.6d6880acea4cd69939c1.mp4",
     "static/media/Drag_Back_&_Cont.mp4": "/Levin/static/media/Drag_Back_&_Cont.5cd7ffea28f287810888.mp4",
     "static/media/Logo.png": "/Levin/static/media/Logo.43fb0aa56dd4ec05365d.png",
     "static/media/Down_Site_Image.mp4": "/Levin/static/media/Down_Site_Image.dce5a035fa1a381e71fe.mp4",
     "index.html": "/Levin/index.html",
-    "main.43f38193.css.map": "/Levin/static/css/main.43f38193.css.map",
-    "main.04e75198.js.map": "/Levin/static/js/main.04e75198.js.map"
+    "main.da174af7.css.map": "/Levin/static/css/main.da174af7.css.map",
+    "main.c5b62cf2.js.map": "/Levin/static/js/main.c5b62cf2.js.map"
   },
   "entrypoints": [
-    "static/css/main.43f38193.css",
-    "static/js/main.04e75198.js"
+    "static/css/main.da174af7.css",
+    "static/js/main.c5b62cf2.js"
   ]
 }
