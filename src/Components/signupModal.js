@@ -172,7 +172,9 @@ const SignupModal = ({ handleClose }) => {
 
             {/* //* testing */}
             <span data-testid="error">{errorMsg}</span>
-            <span data-testid="successState">{successState.toString()}</span>
+            <span style={{ opacity: 0 }} data-testid="successState">
+              {successState.toString()}
+            </span>
 
             {/* //* input element used to enter email */}
             <div className="inputContainer">
