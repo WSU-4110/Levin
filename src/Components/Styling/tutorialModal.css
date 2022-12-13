@@ -1,6 +1,6 @@
 .tutorialBox1 {
   width: 400px;
-  height: 85vh;
+  height: 500px;
   left: 3.5rem;
   display: flex;
   position: absolute;
@@ -16,8 +16,8 @@
   content: "";
   position: absolute;
   top: -50%;
-  left: -150%;
-  width: 200%;
+  left: -50%;
+  width: 100%;
   height: 100%;
   background: linear-gradient(0deg, transparent, rgb(0, 0, 0), rgb(0, 0, 0));
   transform-origin: bottom right;
@@ -36,6 +36,7 @@
 }
 
 .tutorialBox2 {
+  border-radius: 8px;
   background: linear-gradient(135deg, rgb(0, 175, 110), rgb(0, 140, 180));
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
   border-radius: 10px;
@@ -84,10 +85,8 @@
   border-radius: 10px;
   z-index: 10;
   inset: 5px;
-  top: 13%;
+  margin-top: 6rem;
   position: absolute;
-  display: flex;
-  flex-direction: column;
   overflow-y: scroll;
   /* outline: 1px solid red; */
 }

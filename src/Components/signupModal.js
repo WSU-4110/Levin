@@ -171,7 +171,9 @@ const SignupModal = ({ handleClose }) => {
             )}
 
             {/* //* testing */}
-            <span data-testid="error">{errorMsg}</span>
+            <span style={{ opacity: 0 }} data-testid="error">
+              {errorMsg}
+            </span>
             <span style={{ opacity: 0 }} data-testid="successState">
               {successState.toString()}
             </span>
