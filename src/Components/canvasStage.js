@@ -2,7 +2,6 @@ import React, { Component, useState } from "react";
 import Konva from "konva";
 import { Stage, Layer, Rect, Group } from "react-konva";
 import { Container } from "./containerGroup";
-import { NoEncryption } from "@mui/icons-material";
 
 function deleteContainer(e) {
   if (e.evt.button === 2) {
