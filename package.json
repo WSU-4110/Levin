@@ -2,7 +2,7 @@
   "name": "levin",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://wsu-4110.github.io/Levin/",
+  "homepage": "https://wsu-4110.github.io",
   "dependencies": {
     "@emailjs/browser": "^3.7.0",
     "@emotion/react": "^11.10.4",
