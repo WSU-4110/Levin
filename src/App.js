@@ -1,5 +1,10 @@
 import { React, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import "./App.css";
 
 // Pages
@@ -61,6 +66,8 @@ function App() {
             path="/Levin"
             element={<Canvas sucessStateProp={successState} />}
           />
+          <Route path="/" element={<Navigate replace to="/Levin" />} />
+
           <Route path="Settings" element={<Settings />}></Route>
           <Route path="PrivacyPolicy" element={<PrivacyPolicy />}></Route>
           <Route
