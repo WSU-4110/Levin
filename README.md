@@ -5,7 +5,7 @@
 **A simple user interface allowing users to create dynamic sitemaps.**
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/WSU-4110/Levin?style=for-the-badge)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/WSU-4110/Levin/Unit%20Tests%20CI?style=for-the-badge)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/WSU-4110/Levin/unitTests.yml?style=for-the-badge)
 
 </div>
 
